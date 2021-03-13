@@ -1,0 +1,195 @@
+@import "fonts";
+@import "variables";
+
+@mixin flex($align: "center", $justify: "flex-start") {
+  display: flex;
+  align-items: #{$align};
+  justify-content: #{$justify};
+  @content;
+}
+
+@mixin grid($left: 1fr, $right: 1fr, $gap: 0) {
+  display: grid;
+  grid-template: auto / #{$left} #{$right};
+  grid-column-gap: #{$gap};
+  @content;
+}
+
+@mixin bgimg($size: "cover", $x: "center", $y: "center") {
+  background-position: #{$x} #{$y};
+  background-size: #{$size};
+  background-repeat: no-repeat;
+  @content;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body,
+html {
+  color: color(black);
+  font-size: 20px;
+  font-family: "Sofia Pro", "sans-serif";
+  overflow-x: hidden;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: get-me($breakpoints, xl);
+}
+
+nav {
+  ul {
+    @include flex;
+    margin: 1.5rem 0;
+  }
+  li {
+    font-size: 0.9em;
+    @include flex;
+  }
+  li:first-child {
+    font-size: 1em !important;
+    display: flex;
+    flex: 1;
+    img {
+      height: 52px;
+    }
+    h4 {
+      margin: 0 0.5rem;
+    }
+    span {
+      display: inline-block;
+      width: 1.5px;
+      height: 2rem;
+      margin-right: 0.5rem;
+      background-color: color(grey);
+    }
+  }
+  li.active {
+    position: relative;
+    font-weight: get-me($fontweights, semibold) !important;
+    color: color(black) !important;
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background-color: color(primary);
+    }
+  }
+  li:nth-child(n + 2) {
+    color: color(grey);
+    padding: 1rem 0;
+  }
+  li:nth-child(n + 3) {
+    margin-left: 1.5rem;
+  }
+}
+
+header {
+  margin: 2rem 0;
+  ul {
+    @include grid;
+  }
+  li:first-child {
+    h3 {
+      font-size: 1rem;
+      font-weight: get-me($fontweights, medium);
+      color: color(grey);
+    }
+    h1 {
+      margin: 1.75rem 0;
+      font-weight: get-me($fontweights, black);
+    }
+    p {
+      color: color(black, light);
+    }
+  }
+  //Chat Interface
+  li:last-child {
+    .chatroom {
+      border-radius: $radius;
+      background-color: color(seatalk);
+      ul.title,
+      ul.chat {
+        padding: 1rem;
+      }
+      ul.title {
+        @include flex;
+        background-color: color(seatalk, light);
+        li {
+          font-weight: get-me($fontweights, semibold);
+          @include flex;
+        }
+        li:first-child {
+          @include bgimg {
+            background-image: url("../images/gp01.jpg");
+          }
+          border-radius: calc(#{$radius} / 2);
+          height: 48px;
+          width: 48px;
+          margin-right: 1rem;
+        }
+        li:last-child {
+          flex: 1;
+          justify-content: flex-end !important;
+        }
+      }
+      ul.chat {
+        @include flex {
+          flex-direction: column;
+          align-items: flex-start !important;
+        }
+        li:first-child {
+          color: color(light);
+          font-size: 0.6rem;
+          background-color: color(grey, light);
+          padding: 0.3rem 0.4rem;
+          border-radius: calc(#{$radius} / 2);
+        }
+        li.dialogue {
+          @include flex;
+          .avatar {
+            min-height: 96px;
+            min-width: 96px;
+            border-radius: calc(#{$radius} / 2);
+            @include bgimg {
+              background-image: url("../images/id01.jpg");
+            }
+          }
+          .message {
+              position: relative;
+              margin-left: 2rem;
+              max-width: 15rem;
+              border-radius: $radius;
+              padding: .75rem;
+              background-color: color(light);
+              span {
+                  color: color(primary)
+              }
+              &:before {
+                  content: '';
+                  position: absolute;
+                  top: 1rem;
+                  left: -1rem;
+                  width: 2rem;
+                  height: 1rem;
+                  background-image: url('../images/bubble-tail.png');
+                  background-size: contain;
+                  background-position: left center;
+                  background-repeat: no-repeat;
+              }
+          }
+        }
+      }
+    }
+  }
+}
