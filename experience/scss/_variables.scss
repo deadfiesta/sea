@@ -6,16 +6,16 @@ $colors: (
   ),
   grey: (
     base: #adbfc9,
-    light: #C0CBDA,
-    lighter: #F3F3F7,
+    light: #c0cbda,
+    lighter: #f3f3f7,
     dark: #636364,
   ),
   light: (
     base: #fff,
   ),
-  primary:
-  (
+  primary: (
     base: #1b92f5,
+    light: #f3f9fe,
   ),
   seatalk: (
     base: #f2f2f6,
@@ -24,6 +24,7 @@ $colors: (
 );
 
 $fontweights: (
+  light: 300,
   regular: 400,
   medium: 500,
   semibold: 600,
