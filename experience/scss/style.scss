@@ -21,6 +21,28 @@
   @content;
 }
 
+@mixin message($bgcolor: "light", $position: "left", $offset: -.75rem) {
+  position: relative;
+  font-size: .9rem;
+  max-width: 15rem;
+  border-radius: $radius;
+  padding: .75rem;
+  background-color: color(#{$bgcolor});
+  filter: drop-shadow(0 0 .03rem color(grey, light));
+  &:before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    #{$position}: $offset;
+    width: 1rem;
+    height: 1rem;
+    @include bgimg(cover, #{$position}, center) {
+      background-image: url('../images/bubble-tail-#{$position}.png');
+    }
+  }
+  @content;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -95,7 +117,7 @@ nav {
 }
 
 header {
-  margin: 5rem 0;
+  margin: 3rem 0;
   ul {
     @include grid {
       grid-column-gap: 2.5rem;
@@ -168,6 +190,7 @@ header {
         }
         li.dialogue {
           @include flex(flex-start);
+          grid-column-gap: 1.5rem;
           .avatar {
             @include bgimg;
             min-height: 96px;
@@ -180,31 +203,15 @@ header {
           #id02 {
             background-image: url("../images/id02.jpg");
           }
-          .bubble {
-            margin-left: 1.5rem;
+          #id03 {
+            background-image: url("../images/id03.jpg");
           }
-          .message {
-            font-size: 0.9rem;
-            position: relative;
-            max-width: 15rem;
-            border-radius: $radius;
-            padding: 0.75rem;
-            background-color: color(light);
-            span {
-              color: color(primary);
-            }
-            filter: drop-shadow(0 0 0.03rem color(grey, light));
-            &:before {
-              content: "";
-              position: absolute;
-              top: 1rem;
-              left: -0.75rem;
-              width: 1rem;
-              height: 1rem;
-              @include bgimg(cover, left, center) {
-                background-image: url("../images/bubble-tail.png");
+          .message-left {
+            @include message {
+              .mention {
+                color: color(primary)
               }
-            }
+            };
           }
           .attachment {
             position: relative;
@@ -249,6 +256,7 @@ header {
             }
           }
           .status {
+            display: block;
             margin-top: 0.5rem;
             font-size: 0.7rem;
           }
@@ -260,6 +268,19 @@ header {
             font-size: 0.8em;
             color: color(grey, light);
           }
+        }
+      }
+      .message-right {
+        @include message(primary, right, -.5rem) {
+          color: color(light);
+        }
+      }
+      li.dialogue:last-child {
+        align-self: flex-end;
+        .bubble {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
         }
       }
     }
