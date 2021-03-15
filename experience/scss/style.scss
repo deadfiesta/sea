@@ -223,10 +223,11 @@ nav {
     .bgblur {
       position: relative;
       width: 85%;
+      max-width: 1200px;
       height: 100%;
       margin: 0 auto;
       backdrop-filter: blur(20px);
-      background-color: rgba(color(grey, light), .2);
+      background-color: rgba(color(grey, lighter), .5);
       border-radius: calc(#{$radius} * 5);
     }
   }
