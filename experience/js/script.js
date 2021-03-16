@@ -3,7 +3,7 @@ $(function () {
   $nav = $("nav");
   $replace = $(".replace");
   $height = $nav.height();
-  $sticky = $nav.offset().top + $height/1.3;
+  $sticky = $nav.offset().top + $height / 1.3;
 
   /**Sticky nav scrolling */
   $(window).on("scroll load", function () {
@@ -34,6 +34,38 @@ $(function () {
   });
 });
 
+/**Open Links Litty */
+function openme(data) {
+  $this = data;
+  $url = '';
+  $file = '';
+  $type = '';
+  $obj = $(data).attr('data-link');
+  switch ($obj) {
+    case "rework":
+      $url = "https://www.figma.com/file/jv3r2zX2Mk4JsHOz34mdYU/SeaTalk-Experience?node-id=0%3A1"
+      window.open($url);
+      return;
+      break;
+    default:
+      $type = $($this).attr('data-type');
+      $file = $($this).attr('id');
+      switch ($type) {
+        case "image/jpg":
+          $url = `../images/${$file}.jpg`;
+          break;
+        case "image/png":
+          $url = `../images/${$file}.png`;
+          break;
+        case "video/mp4":
+          $url = `../videos/${$file}.mp4`;
+          break;
+      }
+      break;
+  }
+  var lightbox = lity($url);
+}
+
 /**Mouseover events */
 $(".examples").mouseover(function (e) {
   $button = $(this);
@@ -48,23 +80,23 @@ $(".examples").mouseover(function (e) {
 
   switch ($new) {
     case "keyvue":
-      $html = `<video src="./videos/key_chat.mp4" playsinline muted autoplay loop></video>\
+      $html = `<video onclick="openme(this)" data-type="video/mp4" id="${$new}" src="./videos/keychat.mp4" playsinline muted autoplay loop></video>\
       <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>KeyVue Chat</h6></span></a>`;
       append();
       return;
-    case "corporate-messenger":
+    case "eg-corporate-messenger":
       $app = "Corporate Messenger";
       $url += "10724462-Corporate-messenger";
       break;
-    case "startmatcher":
+    case "eg-startmatcher":
       $app = "Startmatcher Communication App";
       $url += "7086922-Startmatcher-Communication-App";
       break;
-    case "stocklabs":
+    case "eg-stocklabs":
       $app = "Stocklabs Collaboration";
       $url += "12575677-Introducing-Stocklabs-Collaboration";
   }
-  $html = `<img src="./images/eg-${$new}.png" alt="">\
+  $html = `<img id="${$new}" onclick="openme(this)" data-type="image/png" src="./images/${$new}.png" alt="">\
   <a href="${$url}" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>${$app}</h6></span></a>`;
 
   append();
@@ -81,3 +113,12 @@ $(".examples").mouseover(function (e) {
     }
   }
 });
+
+/**Examples change */
+function swap(what) {
+  $('.improve button').removeClass('decorated')
+  $(what).addClass('decorated')
+  $what = $(what).attr('data-example');
+  $('.contain-media .preview').css("opacity", 0).css('pointer-events', 'none');
+  $('#' + $what).css("opacity", 1).css('pointer-events', 'all');
+}

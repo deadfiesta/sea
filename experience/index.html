@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Experience Report</title>
     <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="stylesheet" href="./css/lity.min.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -16,7 +17,8 @@
         <div class="container">
             <ul class="menu">
                 <li><img src="./images/seatalk-ios.png" alt="">
-                    <h4>SeaTalk</h4><span></span>Experience
+                    <h4>SeaTalk</h4><span></span>
+                    <h4>Experience</h4>
                 </li>
                 <li class="active">Introduction</li>
                 <li>What's Good</li>
@@ -36,7 +38,8 @@
                 <li>
                     <h3>UI/UX Case Study</h3>
                     <h1>Product analysis and re-imagining the future for SeaTalk</h1>
-                    <p>Analysing the user experience of SeaTalk (desktop) to weigh them against its business goals to improve
+                    <p>Analysing the user experience of SeaTalk (desktop) to weigh them against its business goals to
+                        improve
                         overall business operations and reducing traditionally hand-handled administrative processes.
                     </p>
                     <hr>
@@ -228,7 +231,7 @@
             </ul>
         </div>
     </section>
-    <section class="overview regular">
+    <section class="regular overview ">
         <div class="container">
             <ul class="top">
                 <li>
@@ -257,7 +260,7 @@
                 <li>
                     <div class="media">
                         <div class="example-toggle">
-                            <video src="./videos/key_chat.mp4" playsinline muted autoplay loop></video>
+                            <video onclick="openme(this)" id="keychat" data-type="video/mp4" src="./videos/keychat.mp4" playsinline muted autoplay loop></video>
                             <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank"
                                 class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i
                                     class="fas fa-basketball-ball brand dribbble"></i>
@@ -274,16 +277,16 @@
                         <p>Some examples of indifferent UI concepts &nbsp;<i class="fas fa-chevron-down"></i></p>
                         <div class="button-toggle">
                             <button class="examples selected decorated" data-example="keyvue">EX 1</button>
-                            <button class="examples" data-example="corporate-messenger">EX 2</button>
-                            <button class="examples" data-example="startmatcher">EX 3</button>
-                            <button class="examples" data-example="stocklabs">EX 4</button>
+                            <button class="examples" data-example="eg-corporate-messenger">EX 2</button>
+                            <button class="examples" data-example="eg-startmatcher">EX 3</button>
+                            <button class="examples" data-example="eg-stocklabs">EX 4</button>
                         </div>
                     </div>
                 </li>
             </ul>
         </div>
     </section>
-    <section class="good regular">
+    <section class="regular good">
         <div class="container">
             <ul class="top">
                 <li>
@@ -317,7 +320,8 @@
                             <h5>02</h5>
                             <h2>The flow from searching messages to the chat</h2>
                         </div>
-                        <p>The auto focus and the little wiggle at the end is subtle but very helpful to bring attention to the specific chat bubble where the result was found.</p>
+                        <p>The auto focus and the little wiggle at the end is subtle but very helpful to bring attention
+                            to the specific chat bubble where the result was found.</p>
                     </div>
                 </li>
                 <li>
@@ -341,7 +345,9 @@
                             <h5>04</h5>
                             <h2>Modal windows for search result and adding new contacts/chat</h2>
                         </div>
-                        <p>Modals are a great way to avoid interrupting the user's workflow from the main window while drawing attention to the new information on screen. Users can multitask and easily return to their original task at hand.</p>
+                        <p>Modals are a great way to avoid interrupting the user's workflow from the main window while
+                            drawing attention to the new information on screen. Users can multitask and easily return to
+                            their original task at hand.</p>
                     </div>
                 </li>
                 <li>
@@ -353,7 +359,9 @@
                             <h5>05</h5>
                             <h2>Screenshot region auto snapping</h2>
                         </div>
-                        <p>Modals are a great way to avoid interrupting the user's workflow from the main window while drawing attention to the new information on screen. Users can multitask and easily return to their original task at hand.</p>
+                        <p>Modals are a great way to avoid interrupting the user's workflow from the main window while
+                            drawing attention to the new information on screen. Users can multitask and easily return to
+                            their original task at hand.</p>
                     </div>
                 </li>
                 <li>
@@ -365,7 +373,9 @@
                             <h5>06</h5>
                             <h2>Line break tip</h2>
                         </div>
-                        <p>Informing users that they can draft and format their messages instead of sending multiple messages to start on a new line. While this may sound trivial but this tip gives the user the assurance that line breaking is possible in the text field. </p>
+                        <p>Informing users that they can draft and format their messages instead of sending multiple
+                            messages to start on a new line. While this may sound trivial but this tip gives the user
+                            the assurance that line breaking is possible in the text field. </p>
                     </div>
                 </li>
                 <li>
@@ -377,22 +387,79 @@
                             <h5>07</h5>
                             <h2>Combined forward text sent as chat history object</h2>
                         </div>
-                        <p>Full details are embedded along with the messages. They’re easy to refer to and they don’t flood the chat room unnecessarily.</p>
+                        <p>Full details are embedded along with the messages. They’re easy to refer to and they don’t
+                            flood the chat room unnecessarily.</p>
                     </div>
                 </li>
             </ul>
         </div>
     </section>
-    <section class="improve">
+    <section class="regular improve">
         <div class="container">
             <ul class="top">
-                <li><h2>What can be improved</h2></li>
-                <li><h3>Let's make it better</h3></li>
+                <li>
+                    <h2>What can be improved</h2>
+                </li>
+                <li>
+                    <h3>Let's make it better</h3>
+                </li>
+            </ul>
+            <hr>
+            <ul class="bottom">
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-new"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-diff" style="opacity: 0; pointer-events: none"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-diff-labels" style="opacity: 0; pointer-events: none"></div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>01</h5>
+                            <h2>Slight color palette and style rework</h2>
+                        </div>
+                        <p>Observing the design trends, modern designs are adopting saturated colors and simpler flat
+                            geometric shapes for a modern, clean and colorful aesthetic.</p>
+                        <div data-link="rework" onclick="openme(this)" class="figma">
+                            <div class="figma-icon"></div>
+                            <p>View on Figma</p><i class="fas fa-angle-right"></i>
+                        </div>
+                        <div class="button-toggle">
+                            <button class="decorated" data-example="st-window-new"
+                                onmouseover="swap(this)">After</button>
+                            <button data-example="st-window-old" onmouseover="swap(this)">Before</button>
+                            <button data-example="st-window-diff" onmouseover="swap(this)">Difference</button>
+                            <button data-example="st-window-diff-labels" onmouseover="swap(this)">Labels</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" class="preview" id="st-window-new"></div>
+                            <div onclick="openme(this)" class="preview" id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
+                            <div onclick="openme(this)" class="preview" id="st-window-diff" style="opacity: 0; pointer-events: none"></div>
+                            <div onclick="openme(this)" class="preview" id="st-window-diff-labels" style="opacity: 0; pointer-events: none"></div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>02</h5>
+                            <h2>A brief guided tour for onboarding</h2>
+                        </div>
+                        <p>Observing the design trends, modern designs are adopting saturated colors and simpler flat
+                            geometric shapes for a modern, clean and colorful aesthetic.</p>
+                    </div>
+                </li>
             </ul>
         </div>
     </section>
     <div class="js" style="display: none;">
         <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/jquery.js"></script>
+        <script src="./js/lity.min.js"></script>
         <script src="https://kit.fontawesome.com/b6a315a43e.js" crossorigin="anonymous"></script>
         <script src="./js/script.js"></script>
     </div>

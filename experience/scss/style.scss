@@ -37,6 +37,26 @@
   @content;
 }
 
+@mixin odd($odd: "true") {
+  @if $odd {
+    li:nth-child(even) {
+      .media {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+      }
+      @content;
+    }
+  } @else {
+    li:nth-child(odd) {
+      .media {
+        grid-row: 1 / 2;
+        grid-column: 2 / 3;
+      }
+      @content;
+    }
+  }
+}
+
 @mixin transition($duration: 0.3, $ease: "ease") {
   transition: all #{$duration}s #{$ease};
 }
@@ -85,7 +105,7 @@ html {
 
 body {
   @include col {
-    grid-row-gap: 3rem;
+    grid-row-gap: 2rem;
   }
 }
 
@@ -158,7 +178,7 @@ video {
   border-radius: $radius;
 }
 nav.pinned {
-  top: .5rem;
+  top: 0.5rem;
   z-index: 20;
   width: 100%;
   position: fixed;
@@ -223,11 +243,11 @@ nav {
     .bgblur {
       position: relative;
       width: 85%;
-      max-width: 1200px;
+      max-width: 1300px;
       height: 100%;
       margin: 0 auto;
       backdrop-filter: blur(20px);
-      background-color: rgba(color(grey, lighter), .5);
+      background-color: rgba(color(grey, lighter), 0.5);
       border-radius: calc(#{$radius} * 5);
     }
   }
@@ -248,15 +268,15 @@ header {
       grid-column-gap: 1.25rem;
     }
     .title {
-      @include col{
-        grid-row-gap: .2rem;
+      @include col {
+        grid-row-gap: 0.2rem;
       }
       span:first-child {
         font-weight: get-me($fontweights, regular);
       }
       span:nth-child(2) {
-        font-size: .8rem;
-        color: color(grey)
+        font-size: 0.8rem;
+        color: color(grey);
       }
     }
     .profile {
@@ -269,8 +289,8 @@ header {
         height: 2.25rem;
         width: 2.25rem;
         border-radius: calc(#{$radius} * 2.25);
-        @include bgimg{
-          background-image: url('../images/neo-wen-kiong-clear.png');
+        @include bgimg {
+          background-image: url("../images/neo-wen-kiong-clear.png");
         }
       }
     }
@@ -529,7 +549,7 @@ section.review {
   }
 }
 
-/*---OVERVIEW---*/
+/*---Regular Section---*/
 section.regular {
   ul.top {
     @include col {
@@ -542,16 +562,12 @@ section.regular {
   }
   ul.bottom {
     @include col {
-      grid-row-gap: 5rem;
+      grid-row-gap: 7.5rem;
     }
     li.min {
       min-height: 30rem;
     }
     li {
-      @include grid {
-        grid-column-gap: 4rem;
-        align-items: center;
-      }
       .media {
         position: relative;
         overflow: hidden !important;
@@ -560,10 +576,11 @@ section.regular {
           object-fit: cover;
         }
         .example-toggle {
+          cursor: pointer;
           min-height: 25rem;
           @include flex {
-            flex-wrap: wrap
-          };
+            flex-wrap: wrap;
+          }
         }
         img {
           border-radius: $radius;
@@ -586,26 +603,61 @@ section.regular {
           @include flex {
             grid-column-gap: 1rem;
           }
-          .examples {
-            font-size: .8rem;
+          button {
+            font-size: 0.8rem;
+            font-weight: get-me($fontweights, semibold);
             color: color(grey, light);
             border-radius: $radius;
-            padding: .9rem;
+            padding: .6rem 0.9rem;
             background-color: color(grey, lighter);
           }
-          .examples.decorated {
+          button.decorated {
             font-weight: get-me($fontweights, semibold);
+            transform: scale(1.05);
             color: color(light);
             background-color: color(primary) !important;
+            box-shadow: 0 .75rem 1.5rem rgba(color(primary), $alpha: .25);
             @include transition;
           }
         }
       }
-    }
-    li:nth-child(even) {
-      .media {
-        grid-row: 1 / 2;
-        grid-column: 2 / 3;
+      .figma {
+        display: inline-block;
+        width: fit-content;
+        cursor: pointer;
+        @include flex;
+        grid-column-gap: .75rem;
+        &:hover p, &:hover i {
+          color: color(primary);
+          @include transition;
+        }
+        &:hover .figma-icon {
+          background-color: color(primary, light);
+          @include transition;
+        }
+        &:hover i {
+          padding-left: .5rem;
+          @include transition;
+        }
+        p {
+          font-weight: get-me($fontweights, regular);
+          font-size: .8rem;
+          padding: .45rem 0;
+        }
+        p, i {
+          @include transition;
+        }
+        .figma-icon {
+          border-radius: 1rem;
+          display: block;
+          height: 2rem;
+          width: 2rem;
+          @include transition;
+          @include bgimg(contain) {
+            background-image: url('../images/figma-icon-01.svg');
+            background-color: color(light, dark);
+          }
+        }
       }
     }
   }
@@ -649,5 +701,91 @@ section.regular {
   &:hover {
     color: color(brands, dribbble);
     background-color: rgba(color(brands, dribbble), 0.15);
+  }
+}
+
+/*---Overview---*/
+section.overview {
+  ul.bottom {
+    @include odd(false);
+    li {
+      @include grid {
+        grid-column-gap: 4rem;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/*---Good---*/
+section.good {
+  ul.bottom {
+    @include odd(true);
+    li {
+      @include grid {
+        grid-column-gap: 4rem;
+        align-items: center;
+      }
+    }
+  }
+}
+
+/*---Improve---*/
+section.improve {
+  ul.bottom {
+    @include odd(false){
+      @include grid(1fr, 1.5fr) {
+        grid-column-gap: 3rem;
+        align-items: center;
+      }
+    };
+    li {
+      min-height: 500px;
+    }
+    li:nth-child(even) {
+      @include grid(1.5fr, 1fr) {
+        grid-column-gap: 2.5rem;
+        align-items: center;
+      }
+    }
+    .media {
+      border-radius: calc(#{$radius} * 2);
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+    .contain-media {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background-color: color(light, dark);
+      .preview {
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include bgimg;
+        @include transition;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+      }
+      #st-window-old {
+        background-image: url("../images/st-window-old.jpg");
+      }
+      #st-window-new {
+        background-image: url("../images/st-window-new.jpg");
+      }
+      #st-window-diff {
+        background-image: url("../images/st-window-diff.jpg");
+      }
+      #st-window-diff-labels {
+        background-image: url("../images/st-window-diff-labels.jpg");
+      }
+    }
   }
 }
