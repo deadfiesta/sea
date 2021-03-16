@@ -35,6 +35,14 @@ $(function () {
 });
 
 /**Open Links Litty */
+
+//Note to self
+
+/**Create unique case for external link
+ * For images and videos id = filename
+ * Differentiate between formats i.e. jpg and png
+ */
+
 function openme(data) {
   $this = data;
   $url = '';
@@ -80,7 +88,7 @@ $(".examples").mouseover(function (e) {
 
   switch ($new) {
     case "keyvue":
-      $html = `<video onclick="openme(this)" data-type="video/mp4" id="${$new}" src="./videos/keychat.mp4" playsinline muted autoplay loop></video>\
+      $html = `<video class="clickable" onclick="openme(this)" id="keychat" data-type="video/mp4" id="${$new}" src="./videos/keychat.mp4" playsinline muted autoplay loop></video>\
       <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>KeyVue Chat</h6></span></a>`;
       append();
       return;
@@ -96,7 +104,7 @@ $(".examples").mouseover(function (e) {
       $app = "Stocklabs Collaboration";
       $url += "12575677-Introducing-Stocklabs-Collaboration";
   }
-  $html = `<img id="${$new}" onclick="openme(this)" data-type="image/png" src="./images/${$new}.png" alt="">\
+  $html = `<img class="clickable" id="${$new}" onclick="openme(this)" data-type="image/png" src="./images/${$new}.png" alt="">\
   <a href="${$url}" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>${$app}</h6></span></a>`;
 
   append();
@@ -116,9 +124,24 @@ $(".examples").mouseover(function (e) {
 
 /**Examples change */
 function swap(what) {
-  $('.improve button').removeClass('decorated')
-  $(what).addClass('decorated')
+
+  //Note to self
+
+  /** id of media = data-example of hovering element
+   *  .button-toggle container data-section="<groupname>"
+   *  .contain-media container id = "<groupname>"
+   */
+
+  //Get parent
+  $papa = $(what).parent().attr('data-section');
+
+  //Only remove deorated class within parent and add to hovered item
+  $('[data-section='+$papa+']'+' button').removeClass('decorated');
+  $(what).addClass('decorated');
   $what = $(what).attr('data-example');
-  $('.contain-media .preview').css("opacity", 0).css('pointer-events', 'none');
-  $('#' + $what).css("opacity", 1).css('pointer-events', 'all');
+  console.log('.' + $papa + ' .contain-media .preview')
+
+  //Show and hide media
+  $('#' + $papa + '.contain-media .preview').css('opacity', 0).css('pointer-events', 'none')
+  $('#' + $what).css('opacity', 1).css('pointer-events', 'all')
 }

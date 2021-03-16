@@ -260,7 +260,8 @@
                 <li>
                     <div class="media">
                         <div class="example-toggle">
-                            <video onclick="openme(this)" id="keychat" data-type="video/mp4" src="./videos/keychat.mp4" playsinline muted autoplay loop></video>
+                            <video class="clickable" onclick="openme(this)" id="keychat" data-type="video/mp4"
+                                src="./videos/keychat.mp4" playsinline muted autoplay loop></video>
                             <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank"
                                 class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i
                                     class="fas fa-basketball-ball brand dribbble"></i>
@@ -408,11 +409,15 @@
             <ul class="bottom">
                 <li>
                     <div class="media">
-                        <div class="contain-media">
-                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-new"></div>
-                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
-                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-diff" style="opacity: 0; pointer-events: none"></div>
-                            <div onclick="openme(this)" data-type="image/jpg" class="preview" id="st-window-diff-labels" style="opacity: 0; pointer-events: none"></div>
+                        <div id="rework" class="contain-media">
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-new"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-diff" style="opacity: 0; pointer-events: none"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-diff-labels" style="opacity: 0; pointer-events: none"></div>
                         </div>
                     </div>
                     <div class="text">
@@ -426,7 +431,7 @@
                             <div class="figma-icon"></div>
                             <p>View on Figma</p><i class="fas fa-angle-right"></i>
                         </div>
-                        <div class="button-toggle">
+                        <div data-section="rework" class="button-toggle">
                             <button class="decorated" data-example="st-window-new"
                                 onmouseover="swap(this)">After</button>
                             <button data-example="st-window-old" onmouseover="swap(this)">Before</button>
@@ -437,11 +442,14 @@
                 </li>
                 <li>
                     <div class="media">
-                        <div class="contain-media">
+                        <div id="" class="contain-media">
                             <div onclick="openme(this)" class="preview" id="st-window-new"></div>
-                            <div onclick="openme(this)" class="preview" id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
-                            <div onclick="openme(this)" class="preview" id="st-window-diff" style="opacity: 0; pointer-events: none"></div>
-                            <div onclick="openme(this)" class="preview" id="st-window-diff-labels" style="opacity: 0; pointer-events: none"></div>
+                            <div onclick="openme(this)" class="preview" id="st-window-old"
+                                style="opacity: 0; pointer-events: none;"></div>
+                            <div onclick="openme(this)" class="preview" id="st-window-diff"
+                                style="opacity: 0; pointer-events: none"></div>
+                            <div onclick="openme(this)" class="preview" id="st-window-diff-labels"
+                                style="opacity: 0; pointer-events: none"></div>
                         </div>
                     </div>
                     <div class="text">
