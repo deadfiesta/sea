@@ -62,13 +62,13 @@ function openme(data) {
       $file = $($this).attr("id");
       switch ($type) {
         case "image/jpg":
-          $url = `../images/${$file}.jpg`;
+          $url = `images/${$file}.jpg`;
           break;
         case "image/png":
-          $url = `../images/${$file}.png`;
+          $url = `images/${$file}.png`;
           break;
         case "video/mp4":
-          $url = `../videos/${$file}.mp4`;
+          $url = `videos/${$file}.mp4`;
           break;
       }
       break;
