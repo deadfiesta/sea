@@ -1,26 +1,27 @@
 $(function () {
+  
   /**Define nav variables */
   $nav = $("nav");
   $replace = $(".replace");
   $height = $nav.height();
-  $sticky = $nav.offset().top + $height / 1.3;
+  $sticky = $nav.offset().top + $height/1.5;
 
   /**Sticky nav scrolling */
   $(window).on("scroll load", function () {
     $window = $(window).scrollTop();
-    $menu = $('.menu').height();
-    $bg = $('.nav-bg');
-    $blur = $('.bgblur');
+    $menu = $(".menu").height();
+    $bg = $(".nav-bg");
+    $blur = $(".bgblur");
     if ($window >= $sticky) {
       $nav.addClass("pinned");
       $bg.addClass("pinned");
-      $blur.css('height', $menu)
+      $blur.css("height", $menu);
       $replace.css("height", $height + 60);
     } else {
       $nav.removeClass();
       $bg.removeClass("pinned");
       $replace.css("height", 0);
-      $blur.css('height', 0)
+      $blur.css("height", 0);
     }
   });
 
@@ -45,19 +46,20 @@ $(function () {
 
 function openme(data) {
   $this = data;
-  $url = '';
-  $file = '';
-  $type = '';
-  $obj = $(data).attr('data-link');
+  $url = "";
+  $file = "";
+  $type = "";
+  $obj = $(data).attr("data-link");
   switch ($obj) {
     case "rework":
-      $url = "https://www.figma.com/file/jv3r2zX2Mk4JsHOz34mdYU/SeaTalk-Experience?node-id=0%3A1"
+      $url =
+        "https://www.figma.com/file/jv3r2zX2Mk4JsHOz34mdYU/SeaTalk-Experience?node-id=0%3A1";
       window.open($url);
       return;
       break;
     default:
-      $type = $($this).attr('data-type');
-      $file = $($this).attr('id');
+      $type = $($this).attr("data-type");
+      $file = $($this).attr("id");
       switch ($type) {
         case "image/jpg":
           $url = `../images/${$file}.jpg`;
@@ -124,7 +126,6 @@ $(".examples").mouseover(function (e) {
 
 /**Examples change */
 function swap(what) {
-
   //Note to self
 
   /** id of media = data-example of hovering element
@@ -133,15 +134,19 @@ function swap(what) {
    */
 
   //Get parent
-  $papa = $(what).parent().attr('data-section');
+  $papa = $(what).parent().attr("data-section");
 
   //Only remove deorated class within parent and add to hovered item
-  $('[data-section='+$papa+']'+' button').removeClass('decorated');
-  $(what).addClass('decorated');
-  $what = $(what).attr('data-example');
-  console.log('.' + $papa + ' .contain-media .preview')
+  $("[data-section=" + $papa + "]" + " button").removeClass("decorated");
+  $(what).addClass("decorated");
+  $what = $(what).attr("data-example");
+  console.log("." + $papa + " .contain-media .preview");
 
   //Show and hide media
-  $('#' + $papa + '.contain-media .preview').css('opacity', 0).css('pointer-events', 'none')
-  $('#' + $what).css('opacity', 1).css('pointer-events', 'all')
+  $("#" + $papa + ".contain-media .preview")
+    .css("opacity", 0)
+    .css("pointer-events", "none");
+  $("#" + $what)
+    .css("opacity", 1)
+    .css("pointer-events", "all");
 }

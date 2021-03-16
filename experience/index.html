@@ -35,7 +35,7 @@
     <header>
         <div class="container">
             <ul>
-                <li>
+                <li id="header-left">
                     <h3>UI/UX Case Study</h3>
                     <h1>Product analysis and re-imagining the future for SeaTalk</h1>
                     <p>Analysing the user experience of SeaTalk (desktop) to weigh them against its business goals to
@@ -168,7 +168,7 @@
     <section class="review">
         <div class="container">
             <ul>
-                <li class="left">
+                <li id="reviewing-list" class="left">
                     <ul>
                         <li>
                             <div class="icon-container">
@@ -206,7 +206,7 @@
                                 result better than their desired expectation of the action performed.
                             </p>
                         </li>
-                        <li>
+                        <li id="effiency">
                             <div class="icon-container">
                                 <object data="./images/ico-effiency.svg" type="image/svg+xml">
                                     <img src="./images/ico-effiency.png" alt="">
@@ -225,8 +225,10 @@
                     </ul>
                 </li>
                 <li class="right">
-                    <h3>Understanding the 3 'E's</h3>
-                    <h2>Reviewing the experience as a productivity and collaborative platform</h2>
+                    <div id="reviewing-header">
+                        <h3>Understanding the 3 'E's</h3>
+                        <h2>Reviewing the experience as a productivity and collaborative platform</h2>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -466,10 +468,12 @@
     </section>
     <div class="js" style="display: none;">
         <script src="./js/jquery-3.6.0.min.js"></script>
-        <script src="./js/jquery.js"></script>
         <script src="./js/lity.min.js"></script>
+        <script src="./js/gsap.min.js"></script>
+        <script src="./js/ScrollTrigger.min.js"></script>
         <script src="https://kit.fontawesome.com/b6a315a43e.js" crossorigin="anonymous"></script>
         <script src="./js/script.js"></script>
+        <script src="./js/anim.js"></script>
     </div>
 </body>
 
