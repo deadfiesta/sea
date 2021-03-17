@@ -74,8 +74,14 @@ function openme(data) {
         case "image/png":
           $url = `images/${$file}.png`;
           break;
+        case "image/gif":
+          $url = `images/${$file}.gif`;
+          break;
         case "video/mp4":
           $url = `videos/${$file}.mp4`;
+          break;
+        case "video/webm":
+          $url = `videos/${$file}.webm`;
           break;
       }
       break;
@@ -147,7 +153,6 @@ function swap(what) {
   $("[data-section=" + $papa + "]" + " button").removeClass("decorated");
   $(what).addClass("decorated");
   $what = $(what).attr("data-example");
-  console.log("." + $papa + " .contain-media .preview");
 
   //Show and hide media
   $("#" + $papa + ".contain-media .preview")
