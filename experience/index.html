@@ -20,9 +20,9 @@
                     <h4>SeaTalk</h4><span></span>
                     <h4>Experience</h4>
                 </li>
-                <li class="active">Introduction</li>
-                <li>What's Good</li>
-                <li>Improvements</li>
+                <li onclick="navclick(this)" data-link="header" class="active">Introduction</li>
+                <li onclick="navclick(this)" data-link=".good">What's Good</li>
+                <li onclick="navclick(this)" data-link=".improve">Improvements</li>
                 <li>Afterthoughts</li>
                 <li>Takeaways</li>
             </ul>
@@ -57,26 +57,26 @@
                     <div class="chatroom">
                         <ul class="title">
                             <li></li>
-                            <li>The High Council <span>Dept.</span></li>
+                            <li class="titlebar">The High Council <span>Dept.</span></li>
                             <li><img src="./images/ic-more.png" alt=""></li>
                         </ul>
                         <ul class="chat">
-                            <li>Today: 9:41 AM</li>
-                            <li class="dialogue">
+                            <li id="time">Today: 9:41 AM</li>
+                            <li class="dialogue" id="dia01">
                                 <div class="avatar" id="id01"></div>
-                                <div class="bubble">
-                                    <div class="message-left">
+                                <div class="bubble" id="bubble01">
+                                    <div class="message-left" id="msg01">
                                         Hey guys, how's the concept art coming along? <span class="mention">@here</span>
                                     </div>
-                                    <div class="status">
+                                    <div class="status" id="stat01">
                                         <span class="name">Elaine Lawrence</span>
                                         <span class="time">9:41 AM</span>
                                     </div>
                                 </div>
                             </li>
-                            <li class="dialogue">
+                            <li class="dialogue" id="dia02">
                                 <div class="avatar" id="id02"></div>
-                                <div class="bubble">
+                                <div class="bubble" id="bubble02">
                                     <div class="message-left">
                                         <div class="attachment">
                                             <div class="file-container">
@@ -92,14 +92,14 @@
                                         </div>
                                         The draft is still in development.
                                     </div>
-                                    <div class="status">
+                                    <div class="status" id="stat02">
                                         <span class="name">Joel Park Jin-Sang</span>
                                         <span class="time">9:42 AM</span>
                                     </div>
                                 </div>
                             </li>
-                            <li class="dialogue">
-                                <div class="bubble">
+                            <li class="dialogue" id="dia03">
+                                <div class="bubble" id="bubble03">
                                     <div class="message-right">
                                         Looking good! Looking forward to the end product. &#9996;
                                     </div>
@@ -120,7 +120,7 @@
         <div class="container">
             <ul class="top">
                 <li>
-                    <h3>Introducing the 3 'S'es</h3>
+                    <h3 id="h301">Introducing the 3 'S'es</h3>
                 </li>
                 <li>
                     <h2>Understanding SeaTalk business goals for their consumers</h2>
@@ -168,9 +168,9 @@
     <section class="review">
         <div class="container">
             <ul>
-                <li id="reviewing-list" class="left">
+                <li class="left">
                     <ul>
-                        <li>
+                        <li class="lefty-in" id="effortlessness">
                             <div class="icon-container">
                                 <object data="./images/ico-effortlessness.svg" type="image/svg+xml">
                                     <img src="./images/ico-effortlessness.png" alt="">
@@ -192,7 +192,7 @@
                                 little guidance or learning curve.
                             </p>
                         </li>
-                        <li>
+                        <li class="lefty-in" id="effectiveness">
                             <div class="icon-container">
                                 <object data="./images/ico-effectiveness.svg" type="image/svg+xml">
                                     <img src="./images/ico-effectiveness.png" alt="">
@@ -206,7 +206,7 @@
                                 result better than their desired expectation of the action performed.
                             </p>
                         </li>
-                        <li id="effiency">
+                        <li class="lefty-in" id="effiency">
                             <div class="icon-container">
                                 <object data="./images/ico-effiency.svg" type="image/svg+xml">
                                     <img src="./images/ico-effiency.png" alt="">
@@ -233,6 +233,7 @@
             </ul>
         </div>
     </section>
+    <hr style="height: 50px;">
     <section class="regular overview ">
         <div class="container">
             <ul class="top">
@@ -244,7 +245,7 @@
                 </li>
             </ul>
             <hr>
-            <ul class="bottom">
+            <ul id="overview-list" class="bottom">
                 <li>
                     <div class="media">
                         <object data="./images/simple-st.svg" type="image/svg+xml">
@@ -273,6 +274,7 @@
                     </div>
                     <div class="text">
                         <h2>Standing out from the crowd and creating an impression</h2>
+                        <p>Are we similar? &#129300;</p>
                         <p>Some features may be too similar of a resemblance with competitors. We all know the saying
                             "Don't fix what's not broken" and trying something new carries risk.</p>
                         <p>I believe we can innovate the current working formula to distinguish ourselves among the
@@ -300,7 +302,7 @@
                 </li>
             </ul>
             <hr>
-            <ul class="bottom">
+            <ul id="good-list" class="bottom">
                 <li>
                     <div class="media">
                         <img src="./images/loading-sea.gif" alt="">
@@ -408,7 +410,7 @@
                 </li>
             </ul>
             <hr>
-            <ul class="bottom">
+            <ul id="improve-list" class="bottom">
                 <li>
                     <div class="media">
                         <div id="rework" class="contain-media">
@@ -471,6 +473,7 @@
         <script src="./js/lity.min.js"></script>
         <script src="./js/gsap.min.js"></script>
         <script src="./js/ScrollTrigger.min.js"></script>
+        <script src="./js/TextPlugin.min.js"></script>
         <script src="https://kit.fontawesome.com/b6a315a43e.js" crossorigin="anonymous"></script>
         <script src="./js/script.js"></script>
         <script src="./js/anim.js"></script>

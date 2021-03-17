@@ -35,6 +35,13 @@ $(function () {
   });
 });
 
+/**Nav clicks */
+function navclick(what) {
+  $what = $(what).attr('data-link');
+  let view = document.querySelector($what);
+  view.scrollIntoView(true);
+}
+
 /**Open Links Litty */
 
 //Note to self
