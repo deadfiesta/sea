@@ -373,7 +373,7 @@ $(ftext).each(function () {
 gsap.from('.quote li', {
     scrollTrigger: {
         trigger: ".quote",
-        start: "top bottom",
+        start: "40% bottom",
         end: "center center",
         scrub: 1,
         markers: true,
@@ -381,16 +381,16 @@ gsap.from('.quote li', {
     opacity: 0,
     color: "#000",
 })
-// gsap.to('body', {
-//     scrollTrigger: {
-//         trigger: ".quote",
-//         start: "top bottom",
-//         end: "center center",
-//         scrub: 1,
-//         markers: true,
-//     },
-//     backgroundColor: "#000",
-// })
+gsap.to('body', {
+    scrollTrigger: {
+        trigger: ".quote",
+        start: "30% center",
+        end: "center center",
+        scrub: 1,
+        markers: true,
+    },
+    backgroundColor: "#000",
+})
 
 // let q1 = gsap.timeline({
 //     scrollTrigger: {
