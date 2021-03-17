@@ -850,3 +850,45 @@ section.improve {
     }
   }
 }
+
+section.quote {
+  height: 100vh;
+  @include flex;
+  ul {
+    @include col{
+      grid-row-gap: 2rem;
+    };
+    li:first-child {
+      color: color(light);
+      position: relative;
+      font-weight: get-me($fontweights, semibold);
+      font-size: 5rem;
+      padding: 1.5rem;
+      &:after {
+        opacity: .25;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        color: color(primary);
+        content: "\f10d";
+        font-family: "Font Awesome 5 Free";
+      }
+      &:before {
+        opacity: .25;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        color: color(primary);
+        content: "\f10e";
+        font-family: "Font Awesome 5 Free";
+      }
+    }
+    li:nth-child(2) {
+      font-size: 2rem;
+      align-self: flex-end;
+      font-weight: get-me($fontweights, light);
+    }
+  }
+}

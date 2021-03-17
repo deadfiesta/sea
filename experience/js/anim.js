@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  * Toggle Nav
  */
- ScrollTrigger.create({
+ScrollTrigger.create({
     trigger: "header",
     start: "top center",
     endTrigger: ".overview",
@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
         $('.menu li:nth-child(2)').addClass('active');
     }
 })
- ScrollTrigger.create({
+ScrollTrigger.create({
     trigger: ".good",
     start: "top center",
     endTrigger: ".good",
@@ -30,7 +30,7 @@ gsap.registerPlugin(ScrollTrigger);
         $('.menu li:nth-child(3)').addClass('active');
     }
 })
- ScrollTrigger.create({
+ScrollTrigger.create({
     trigger: ".improve",
     start: "top center",
     endTrigger: ".improve",
@@ -143,7 +143,7 @@ ScrollTrigger.create({
  */
 
 //Header leaving each
-$('header').each(function() {
+$('header').each(function () {
     gsap.to(this, {
         scrollTrigger: {
             trigger: this,
@@ -157,7 +157,7 @@ $('header').each(function() {
 
 //Sections each
 //Entering
-$('section').each(function() {
+$('section').each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -171,7 +171,7 @@ $('section').each(function() {
 })
 
 //3E's
-$('.lefty-in').each(function() {
+$('.lefty-in').each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -179,7 +179,7 @@ $('.lefty-in').each(function() {
             end: "top 75%",
             scrub: .5,
         },
-        xPercent:-10,
+        xPercent: -10,
         opacity: 0,
     })
 });
@@ -204,7 +204,7 @@ let bmedia = document.querySelectorAll('#overview-list li:nth-child(even) .media
 let atext = document.querySelectorAll('#overview-list li:nth-child(odd) .text');
 let btext = document.querySelectorAll('#overview-list li:nth-child(even) .text');
 
-$(atext).each(function() {
+$(atext).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -212,11 +212,11 @@ $(atext).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: -50,
-       opacity: 0, 
+        xPercent: -50,
+        opacity: 0,
     })
 })
-$(bmedia).each(function() {
+$(bmedia).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -224,11 +224,11 @@ $(bmedia).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: -50,
-       opacity: 0, 
+        xPercent: -50,
+        opacity: 0,
     })
 })
-$(amedia).each(function() {
+$(amedia).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -236,11 +236,11 @@ $(amedia).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: 50,
-       opacity: 0, 
+        xPercent: 50,
+        opacity: 0,
     })
 })
-$(btext).each(function() {
+$(btext).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -248,8 +248,8 @@ $(btext).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: 50,
-       opacity: 0, 
+        xPercent: 50,
+        opacity: 0,
     })
 })
 
@@ -261,7 +261,7 @@ let ctext = document.querySelectorAll('#good-list li:nth-child(odd) .text');
 let dtext = document.querySelectorAll('#good-list li:nth-child(even) .text');
 
 
-$(cmedia).each(function() {
+$(cmedia).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -269,11 +269,11 @@ $(cmedia).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: -50,
-       opacity: 0, 
+        xPercent: -50,
+        opacity: 0,
     })
 })
-$(dtext).each(function() {
+$(dtext).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -281,11 +281,11 @@ $(dtext).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: -50,
-       opacity: 0, 
+        xPercent: -50,
+        opacity: 0,
     })
 })
-$(ctext).each(function() {
+$(ctext).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -293,11 +293,11 @@ $(ctext).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: 50,
-       opacity: 0, 
+        xPercent: 50,
+        opacity: 0,
     })
 })
-$(dmedia).each(function() {
+$(dmedia).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -305,8 +305,8 @@ $(dmedia).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: 50,
-       opacity: 0, 
+        xPercent: 50,
+        opacity: 0,
     })
 })
 
@@ -317,7 +317,7 @@ let fmedia = document.querySelectorAll('#improve-list li:nth-child(even) .media'
 let etext = document.querySelectorAll('#improve-list li:nth-child(odd) .text');
 let ftext = document.querySelectorAll('#improve-list li:nth-child(even) .text');
 
-$(etext).each(function() {
+$(etext).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -325,11 +325,11 @@ $(etext).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: -50,
-       opacity: 0, 
+        xPercent: -50,
+        opacity: 0,
     })
 })
-$(fmedia).each(function() {
+$(fmedia).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -337,11 +337,11 @@ $(fmedia).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: -50,
-       opacity: 0, 
+        xPercent: -50,
+        opacity: 0,
     })
 })
-$(emedia).each(function() {
+$(emedia).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -349,11 +349,11 @@ $(emedia).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: 50,
-       opacity: 0, 
+        xPercent: 50,
+        opacity: 0,
     })
 })
-$(ftext).each(function() {
+$(ftext).each(function () {
     gsap.from(this, {
         scrollTrigger: {
             trigger: this,
@@ -361,7 +361,56 @@ $(ftext).each(function() {
             end: "+=250",
             scrub: .5,
         },
-       xPercent: 50,
-       opacity: 0, 
+        xPercent: 50,
+        opacity: 0,
     })
 })
+
+/**
+ * Quotes trigger
+ */
+
+gsap.from('.quote li', {
+    scrollTrigger: {
+        trigger: ".quote",
+        start: "top bottom",
+        end: "center center",
+        scrub: 1,
+        markers: true,
+    },
+    opacity: 0,
+    color: "#000",
+})
+// gsap.to('body', {
+//     scrollTrigger: {
+//         trigger: ".quote",
+//         start: "top bottom",
+//         end: "center center",
+//         scrub: 1,
+//         markers: true,
+//     },
+//     backgroundColor: "#000",
+// })
+
+// let q1 = gsap.timeline({
+//     scrollTrigger: {
+//         trigger: ".quote",
+//         start: "top center",
+//         end: "bottom top",
+//         scrub: 1,
+//         markers: true,
+//         // toggleActions: "play reverse none restart"
+//     },
+// })
+//     .to('body', {
+//         backgroundColor: "#000",
+//     })
+//     .from('.quote01 li', {
+//         opacity: 0,
+//     },)
+//     .to('.quote01 li', {
+//         color: "#ffffff",
+//     })
+//     .to('body', {
+//         backgroundColor: "#fff"
+//     })
