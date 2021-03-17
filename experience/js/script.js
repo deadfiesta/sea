@@ -103,7 +103,7 @@ $(".examples").mouseover(function (e) {
 
   switch ($new) {
     case "keyvue":
-      $html = `<video class="clickable" onclick="openme(this)" id="keychat" data-type="video/mp4" id="${$new}" src="videos/keychat.mp4" playsinline muted autoplay loop></video>\
+      $html = `<video class="clickable" onclick="openme(this)" id="keychat" data-type="video/webm" id="${$new}" src="videos/keychat.webm" playsinline muted autoplay loop></video>\
       <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>KeyVue Chat</h6></span></a>`;
       append();
       return;
