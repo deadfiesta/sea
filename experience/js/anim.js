@@ -470,7 +470,7 @@ q2.to("body", {
 .from('.quote02', {
     opacity: 0,
     duration: .5,
-}, "-=1")
+}, "-=1.65")
 .to("body", {
   color: colorOriginal,
   backgroundColor: bgOriginal,
