@@ -483,7 +483,7 @@ q2.to("body", {
 ScrollTrigger.create({
   animation: q2,
   trigger: "#leblanc",
-  start: "top 40%",
+  start: "top center",
   end: "bottom center",
   scrub: true,
 //   markers: true,

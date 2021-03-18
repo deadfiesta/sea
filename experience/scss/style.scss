@@ -711,6 +711,7 @@ section.regular {
           }
           &:hover {
             color: color(primary);
+            background-color: rgba(color(primary), .05);
             padding-left: 1.15rem;
             @include transition;
           }
