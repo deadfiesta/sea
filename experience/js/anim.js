@@ -217,7 +217,7 @@ gsap.utils.toArray(".lefty-in").forEach((lefty) => {
   gsap.from(lefty, {
     scrollTrigger: {
       trigger: lefty,
-      start: "top center",
+      start: "top 70%",
       end: "top bottom",
       scrub: 0.5,
     },

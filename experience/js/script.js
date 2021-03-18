@@ -1,10 +1,10 @@
 $(function () {
-  
+
   /**Define nav variables */
   $nav = $("nav");
   $replace = $(".replace");
   $height = $nav.height();
-  $sticky = $nav.offset().top + $height/1.5;
+  $sticky = $nav.offset().top + $height / 1.5;
 
   /**Sticky nav scrolling */
   $(window).on("scroll load", function () {
@@ -58,12 +58,35 @@ function openme(data) {
   $type = "";
   $obj = $(data).attr("data-link");
   switch ($obj) {
+    case "loading-animation":
+      $url = "https://medium.com/flawless-app-stories/everything-you-need-to-know-about-loading-animations-10db7f9b61e";
+      window.open($url)
+      return;
+    case "ui-design-trend":
+      $url = "https://uxdesign.cc/10-newest-and-promising-ui-design-trends-929562b25ad6";
+      window.open($url)
+      return;
+    case "dashboard-ui-designs":
+      $url = "https://bashooka.com/inspiration/40-great-chat-dashboard-ui-designs/";
+      window.open($url)
+      return;
+    case "guide-ui-design-trend":
+      $url = "https://uxdesign.cc/a-guide-of-ui-design-trends-for-2021-637ac038cb99";
+      window.open($url)
+      return;
+    case "search-interface":
+      $url = "https://uxplanet.org/search-interface-20-things-to-consider-4b1466e98881";
+      window.open($url)
+      return;
+    case "product-tour":
+      $url = "https://www.appcues.com/blog/product-tours-ui-patterns";
+      window.open($url)
+      return;
     case "rework":
       $url =
         "https://www.figma.com/file/jv3r2zX2Mk4JsHOz34mdYU/SeaTalk-Experience?node-id=0%3A1";
-      window.open($url);
+      window.open($url)
       return;
-      break;
     default:
       $type = $($this).attr("data-type");
       $file = $($this).attr("id");
@@ -86,6 +109,7 @@ function openme(data) {
       }
       break;
   }
+
   var lightbox = lity($url);
 }
 
