@@ -202,13 +202,13 @@ gsap.to("#reviewing-header", {
   scrollTrigger: {
     trigger: ".review",
     start: "top 40%",
-    end: "bottom 70%",
+    end: "bottom center",
     endTrigger: ".review",
     end: "bottom top",
     // markers: true,
     scrub: true,
   },
-  y: $(".review").height(),
+  y: $(".review").height()-$('#reviewing-header').height(),
 });
 
 
