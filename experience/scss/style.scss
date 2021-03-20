@@ -91,6 +91,11 @@
   list-style-type: none;
 }
 
+canvas {
+  padding: 3rem;
+  filter: drop-shadow(0 1rem 3rem rgba(color(black), .25));
+}
+
 button {
   border: none;
 }
@@ -153,6 +158,10 @@ i.launch {
   }
 }
 
+.lity-iframe .lity-container {
+  min-width: 1600px;
+}
+
 h2 {
   font-size: 1.8rem;
   font-weight: get-me($fontweights, semibold);
@@ -197,9 +206,16 @@ p {
 }
 
 video {
-  width: 100%;
-  object-fit: contain;
+  min-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
   border-radius: $radius;
+}
+
+video.solo {
+  border-radius: calc(#{$radius}*2);
+  height: 100vh;
+  width: 100%;
 }
 nav.pinned {
   z-index: 20;
@@ -903,6 +919,7 @@ section.improve {
       height: 100%;
       position: relative;
       .preview {
+        @include flex;
         cursor: pointer;
         border-radius: calc(#{$radius} * 1.5);
         width: 100%;
@@ -977,9 +994,4 @@ section.quote {
       font-weight: get-me($fontweights, light);
     }
   }
-}
-
-canvas {
-  max-width: 100vw;
-  max-height: 100vh;
 }

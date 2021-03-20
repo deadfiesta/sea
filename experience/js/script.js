@@ -104,7 +104,7 @@ function openme(data) {
           $url = `videos/${$file}.mp4`;
           break;
         case "video/webm":
-          $url = `videos/${$file}.webm`;
+          $url = `html/${$file}.html`;
           break;
       }
       break;

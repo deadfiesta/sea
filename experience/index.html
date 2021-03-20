@@ -338,8 +338,11 @@
                 </li>
                 <li>
                     <div class="media">
-                        <video class="clickable" onclick="openme(this)" id="searchflow" data-type="video/webm"
-                            src="./videos/searchflow.webm" playsinline muted autoplay loop></video>
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="searchflow" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/searchflow.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
                     </div>
                     <div class="text">
                         <div class="header">
@@ -436,7 +439,7 @@
     </section>
     <section class="regular improve">
         <div class="container">
-            <ul class="top">
+            <ul id="improving" class="top">
                 <li>
                     <h2>What can be improved</h2>
                 </li>
@@ -445,8 +448,8 @@
                 </li>
             </ul>
             <ul id="morph-intro" class="top">
-                <li>
-                    <canvas id="morph"></canvas>
+                <li id="morph-li">
+                    <canvas id="hero-lightpass"></canvas>
                 </li>
             </ul>
             <hr>
@@ -454,8 +457,9 @@
                 <li>
                     <div class="media">
                         <div id="rework" class="contain-media">
-                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
-                                id="st-window-new"></div>
+                            <div onclick="openme(this)" id="morph" data-type="video/webm" class="preview clickable">
+                                <video id="morph" src="./videos/morph.webm" playsinline muted autoplay loop></video>
+                            </div>
                             <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
                                 id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
                             <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
@@ -478,8 +482,7 @@
                             </span>
                         </div>
                         <div data-section="rework" class="button-toggle">
-                            <button class="decorated" data-example="st-window-new"
-                                onmouseover="swap(this)">After</button>
+                            <button class="decorated" data-example="morph" onmouseover="swap(this)">After</button>
                             <button data-example="st-window-old" onmouseover="swap(this)">Before</button>
                             <button data-example="st-window-diff" onmouseover="swap(this)">Difference</button>
                             <button data-example="st-window-diff-labels" onmouseover="swap(this)">Labels</button>
@@ -514,8 +517,9 @@
                 <li>
                     <div class="media">
                         <div class="contain-media">
-                            <div onclick="openme(this)" id="placeholder" data-type="image/png"
-                                class="preview clickable"></div>
+                            <div onclick="openme(this)" id="collapse" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/collapse.webm" playsinline muted autoplay loop></video>
+                            </div>
                         </div>
                     </div>
                     <div class="text">
@@ -530,8 +534,9 @@
                 <li>
                     <div class="media">
                         <div class="contain-media">
-                            <div onclick="openme(this)" id="placeholder" data-type="image/png"
-                                class="preview clickable"></div>
+                            <div onclick="openme(this)" id="availability" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/availability.webm" playsinline muted autoplay loop></video>
+                            </div>
                         </div>
                     </div>
                     <div class="text">
