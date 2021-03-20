@@ -500,3 +500,69 @@ ScrollTrigger.create({
     $("nav").css("transform", 'translateY(0)');
   },
 });
+
+//Morph
+
+// ScrollTrigger.create({
+//   trigger: "#morph-intro",
+//   start: "top 20%",
+//   end: "bottom center",
+//   scrub: 1,
+//   pin: morph,
+//   onUpdate: ({progress, direction, isActive}) => {
+//     morph.currentTime = progress * 60;
+//     console.log(progress, direction, isActive)
+//   }
+// })
+
+// gsap.to(morph, {
+//   scrollTrigger: {
+//     trigger: "#morph-intro",
+//     start: "top center",
+//     scrub: 1,
+//     pin: true,
+//     end: "bottom center",
+//     onUpdate: ({progress}) => {
+//       currentplay = progress * 60;
+//     },
+//   }
+// })
+var canvas = document.createElement('canvas');
+
+const morph = document.getElementById('#morph');
+const context = canvas.getContext("2d");
+
+canvas.width = 1000;
+canvas.height = 682;
+
+const frameCount = 30;
+const currentFrame = index => (
+  `images/morph/${(index).toString().padStart(4, '0')}.png`
+);
+
+const images = [];
+const airpods = {
+  frame: 0
+};
+
+for (let i = 0; i < frameCount; i++) {
+  const img = new Image();
+  img.src = currentFrame(i);
+  images.push(img);
+}
+
+gsap.to(airpods, {
+  frame: frameCount - 1,
+  snap: "frame",
+  scrollTrigger: {
+    scrub: 0.5
+  },
+  onUpdate: render // use animation onUpdate instead of scrollTrigger's onUpdate
+});
+
+images[0].onload = render;
+
+function render() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.drawImage(images[airpods.frame], 0, 0); 
+}
