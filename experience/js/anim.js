@@ -149,7 +149,7 @@ chatroom
     opacity: 0,
     scale: 0.5,
     ease: "back.out(1.7)",
-  })
+  }, "-=.5")
   .from("#bubble03", {
     xPercent: 10,
     opacity: 0,
