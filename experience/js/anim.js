@@ -530,7 +530,7 @@ $(function() {
     snap: "frame",
     scrollTrigger: {
       trigger: "#morph-intro",
-      start: "top center",
+      start: "top 45%",
       end: "bottom 75%",
       scrub: 1,
       // markers: true,

@@ -66,8 +66,8 @@ function openme(data) {
       $url = "https://uxdesign.cc/10-newest-and-promising-ui-design-trends-929562b25ad6";
       window.open($url)
       return;
-    case "dashboard-ui-designs":
-      $url = "https://bashooka.com/inspiration/40-great-chat-dashboard-ui-designs/";
+    case "discord-growth-story":
+      $url = "https://clickup.com/blog/discord-growth-story/";
       window.open($url)
       return;
     case "guide-ui-design-trend":
