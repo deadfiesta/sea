@@ -1076,3 +1076,29 @@ section.quote {
     }
   }
 }
+
+section.afterthoughts {
+  ul.bottom {
+    li {
+      @include grid {
+        grid-column-gap: 3rem;
+        align-items: center;
+      }
+    }
+  }
+}
+
+section#end {
+  li {
+    &:before, &:after {
+      display:none;
+    }
+  }
+  position: relative;
+  height: 100vh;
+  #svg {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}

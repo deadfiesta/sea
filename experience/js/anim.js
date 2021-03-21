@@ -44,6 +44,20 @@ ScrollTrigger.create({
     $(".menu li:nth-child(4)").addClass("active");
   },
 });
+ScrollTrigger.create({
+  trigger: ".afterthoughts",
+  start: "top center",
+  endTrigger: ".afterthoughts",
+  end: "bottom 70%",
+  onEnter: () => {
+    $(".menu li").removeClass("active");
+    $(".menu li:nth-child(5)").addClass("active");
+  },
+  onEnterBack: () => {
+    $(".menu li").removeClass("active");
+    $(".menu li:nth-child(5)").addClass("active");
+  },
+});
 
 /**
  * Intro ===
@@ -405,6 +419,36 @@ $(ftext).each(function () {
   });
 });
 
+//Afterthoughts list 
+
+let am = document.querySelectorAll(" #afterthoughts-list li .media");
+let at = document.querySelectorAll(" #afterthoughts-list li .text");
+
+$(am).each(function () {
+  gsap.from(this, {
+    scrollTrigger: {
+      trigger: this,
+      start: "top 85%",
+      end: "+=200",
+      scrub: 0.5,
+    },
+    xPercent: -50,
+    opacity: 0,
+  });
+});
+$(at).each(function () {
+  gsap.from(this, {
+    scrollTrigger: {
+      trigger: this,
+      start: "top 85%",
+      end: "+=200",
+      scrub: 0.5,
+    },
+    xPercent: 50,
+    opacity: 0,
+  });
+});
+
 /**
  * Quotes Anim
  */
@@ -500,6 +544,68 @@ ScrollTrigger.create({
     $("nav").css("transform", 'translateY(0)');
   },
 });
+
+//end
+const q3 = gsap.timeline();
+q3.to("body", {
+  color: "#fff",
+  backgroundColor: "#000",
+  duration: 1,
+})
+.to('#afterthoughts-list', {
+    opacity: 0,
+    duration: 1,
+}, "-=.5")
+.from('.quote03', {
+    opacity: 0,
+    duration: .5,
+}, "-=1.65")
+.to("body", {
+  color: colorOriginal,
+  backgroundColor: bgOriginal,
+  duration: 2,
+}, 2.5)
+.to('.quote03', {
+    opacity: 0
+}, "-=.5");
+
+ScrollTrigger.create({
+  animation: q3,
+  trigger: "#end",
+  start: "top center",
+  end: "bottom center",
+  scrub: true,
+  // markers: true,
+  onEnter: () => {
+    animItem.goToAndPlay(0,true);
+    $("nav").css('transform', 'translateY(-100%)');
+  },
+  onLeave: () => {
+    $("nav").css("transform", 'translateY(0)');
+  },
+  onEnterBack: () => {
+    $("nav").css('transform', 'translateY(-100%)');;
+  },
+  onLeaveBack: () => {
+    $("nav").css("transform", 'translateY(0)');
+  },
+});
+
+//bodymovin
+
+const svgContainer = document.getElementById('svg');
+const animItem = bodymovin.loadAnimation({
+  wrapper: svgContainer,
+  animType: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'https://assets9.lottiefiles.com/packages/lf20_REOnx3.json'
+})
+
+animItem.addEventListener('complete', () => {
+  animItem.goToAndStop(0);
+  
+})
 
 
 $(function() {

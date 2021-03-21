@@ -24,8 +24,8 @@
                 <li onclick="navclick(this)" data-link="header" class="active">Introduction</li>
                 <li onclick="navclick(this)" data-link=".good">What's Good</li>
                 <li onclick="navclick(this)" data-link=".improve">Improvements</li>
-                <li>Afterthoughts</li>
-                <li>Takeaways</li>
+                <li onclick="navclick(this)" data-link=".afterthoughts">Afterthoughts</li>
+                <!-- <li>Takeaways</li> -->
             </ul>
         </div>
         <div class="nav-bg">
@@ -660,6 +660,115 @@
             </ul>
         </div>
     </section>
+    <section class="afterthoughts regular">
+        <div class="container">
+            <ul class="top">
+                <li>
+                    <h2>Afterthoughts</h2>
+                </li>
+                <li>
+                    <h3>Small things that go a long way</h3>
+                </li>
+            </ul>
+            <hr>
+            <ul id="afterthoughts-list" class="bottom">
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="tour" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/tour.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>01</h5>
+                            <h2>Notification Inbox</h2>
+                        </div>
+                        <p>Consolidated notifications regarding any attention required for the user specifically whenever the user was mentioned. This allows user to have an overview at a glance quickly.</p>
+                        <!-- <div onclick="openme(this)" data-link="product-tour" class="article-links">
+                            <span class="links">What is the best UX/UI pattern for your product tour?</span>
+                            <sub>appecues.com</sub>
+                        </div> -->
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="collapse" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/collapse.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>02</h5>
+                            <h2>Send images as original file</h2>
+                        </div>
+                        <p>Giving the user the option to send an image file in original file to retain quality as lossy compression can result in color degradation. This potentially can cause an issue for sharing color sensitive work.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="collapse" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/collapse.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>03</h5>
+                            <h2>An @here mention for group chat</h2>
+                        </div>
+                        <p>A type of mention that only notifies everyone except those who are offline and do not suppress an @here mention from a group chat.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="collapse" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/collapse.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>04</h5>
+                            <h2>Edit chat and showing revision</h2>
+                        </div>
+                        <p>Correct typos and revise text to look better especially when that message is pinned.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="collapse" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/collapse.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>05</h5>
+                            <h2>Edit chat and showing revision</h2>
+                        </div>
+                        <p>Correct typos and revise text to look better especially when that message is pinned.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="end" class="quote">
+        <div class="svg hide" id="svg"></div>
+        <div class="container">
+            
+            <ul class="quote03">
+                <li style="align-self: center;">Thank you for your attention.</li>
+                <li style="align-self: center;">The End</li>
+            </ul>
+        </div>
+    </section>
     <div class="js" style="display: none;">
         <script src="./js/jquery-3.6.0.min.js"></script>
         <script src="./js/lity.min.js"></script>
@@ -667,6 +776,7 @@
         <script src="./js/ScrollTrigger.min.js"></script>
         <script src="./js/TextPlugin.min.js"></script>
         <script src="https://kit.fontawesome.com/b6a315a43e.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
         <script src="./js/script.js"></script>
         <script src="./js/anim.js"></script>
     </div>
