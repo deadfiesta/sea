@@ -83,6 +83,12 @@
   @content;
 }
 
+@mixin mobile {
+  @media (max-width: get-me($breakpoints, l)) {
+    @content;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -92,8 +98,11 @@
 }
 
 canvas {
+  @include mobile {
+    display: none;
+  }
   padding: 3rem;
-  filter: drop-shadow(0 1rem 3rem rgba(color(black), .25));
+  filter: drop-shadow(0 1rem 3rem rgba(color(black), 0.25));
 }
 
 button {
@@ -106,9 +115,11 @@ html {
   font-size: 20px;
   font-family: "Sofia Pro", "Helvetica", "sans-serif";
   overflow-x: hidden;
+  @include mobile {
+    font-size: 16px;
+  }
 }
 html {
-
   scroll-behavior: smooth;
 }
 
@@ -124,6 +135,9 @@ section {
 }
 
 .container {
+  @include mobile {
+    width: 90%;
+  }
   position: relative;
   width: 80%;
   margin: 0 auto;
@@ -151,8 +165,8 @@ i.launch {
   font-size: 1rem;
   position: relative;
   &:after {
-    content: '\e895';
-    font-family: 'Material Icons';
+    content: "\e895";
+    font-family: "Material Icons";
     font-style: normal;
     font-weight: 400;
   }
@@ -163,6 +177,9 @@ i.launch {
 }
 
 h2 {
+  @include mobile {
+    font-size: 1.2rem;
+  }
   font-size: 1.8rem;
   font-weight: get-me($fontweights, semibold);
 }
@@ -183,7 +200,7 @@ h5 {
   color: color(grey, lighter);
   font-weight: get-me($fontweights, bold);
   font-size: 3rem;
-  margin-top: -.75rem;
+  margin-top: -0.75rem;
 }
 
 h6 {
@@ -191,6 +208,9 @@ h6 {
 }
 
 hr {
+  @include mobile {
+    display: none;
+  }
   visibility: hidden;
 }
 
@@ -213,7 +233,7 @@ video {
 }
 
 video.solo {
-  border-radius: calc(#{$radius}*2);
+  border-radius: calc(#{$radius}* 2);
   height: 100vh;
   width: 100%;
 }
@@ -221,19 +241,19 @@ nav.pinned {
   z-index: 20;
   width: 100%;
   position: fixed;
-  animation: pinning .4s ease forwards;
+  animation: pinning 0.4s ease forwards;
   @keyframes pinning {
     0% {
       top: -10%;
     }
     20% {
-      top: .5%;
+      top: 0.5%;
     }
     40% {
-      top: -.25%;
+      top: -0.25%;
     }
     80% {
-      top: .05%;
+      top: 0.05%;
     }
     100% {
       top: 0;
@@ -243,7 +263,15 @@ nav.pinned {
     margin: 0 !important;
   }
 }
+.replace {
+  @include mobile {
+    display: none;
+  }
+}
 nav {
+  @include mobile {
+    display: none;
+  }
   @include transition;
   ul {
     @include flex;
@@ -263,25 +291,25 @@ nav {
       width: 100%;
       transform: scaleX(0);
       transform-origin: left;
-      transition: transform .3s ease;
+      transition: transform 0.3s ease;
       background-color: color(primary);
     }
     &:hover {
       opacity: 1;
       color: color(primary) !important;
-      animation: navhovering .3s ease;
+      animation: navhovering 0.3s ease;
       @keyframes navhovering {
         0% {
           transform: translateY(0);
         }
         20% {
-          transform: translateY(.2rem);
+          transform: translateY(0.2rem);
         }
         45% {
-          transform: translateY(-.05rem);
+          transform: translateY(-0.05rem);
         }
         80% {
-          transform: translateY(.025rem);
+          transform: translateY(0.025rem);
         }
         100% {
           transform: translateY(0);
@@ -301,7 +329,7 @@ nav {
       margin: 0 0.5rem;
     }
     h6 {
-      font-size: .9rem;
+      font-size: 0.9rem;
       font-weight: get-me($fontweights, light);
     }
     span {
@@ -318,7 +346,7 @@ nav {
     font-weight: get-me($fontweights, semibold) !important;
     color: color(black) !important;
     &:before {
-      transition: transform .3s ease;
+      transition: transform 0.3s ease;
       transform: scaleX(1);
     }
     &:hover {
@@ -342,7 +370,7 @@ nav {
     ul {
       margin: 0 !important;
       li:nth-child(n + 2) {
-        padding: .25rem 0 !important;
+        padding: 0.25rem 0 !important;
       }
     }
     .bgblur {
@@ -360,6 +388,11 @@ header {
   @include flex;
   min-height: 65vh;
   ul {
+    @include mobile {
+      display: flex;
+      flex-wrap: wrap;
+      grid-row-gap: 3rem;
+    }
     @include grid {
       grid-column-gap: 2.5rem;
       align-items: center;
@@ -417,6 +450,9 @@ header {
   }
   /*---Chat Interface---*/
   li:last-child {
+    @include mobile {
+      display: none;
+    }
     .chatroom {
       // overflow: hidden;
       border-radius: $radius;
@@ -457,6 +493,9 @@ header {
         li:last-child {
           flex: 1;
           justify-content: flex-end !important;
+          @include mobile {
+            display: none;
+          }
         }
       }
       ul.chat {
@@ -478,6 +517,10 @@ header {
           @include flex(flex-start);
           grid-column-gap: 1.5rem;
           .avatar {
+            @include mobile {
+              min-height: 56px;
+              min-width: 56px;
+            }
             @include bgimg;
             min-height: 96px;
             min-width: 96px;
@@ -595,6 +638,9 @@ section.keywords {
     height: 2rem;
   }
   ul.bottom {
+    @include mobile {
+      margin: 1rem 0
+    }
     display: grid;
     margin: 4rem 0;
     @include device-size(m) {
@@ -614,10 +660,18 @@ section.keywords {
 /*---Reviewing---*/
 section.review {
   ul {
+    @include mobile {
+      @include flex {
+        flex-wrap: wrap;
+      }
+    }
     @include grid {
       grid-column-gap: 5rem;
     }
     li.right {
+      @include mobile {
+        visibility: hidden;
+      }
       @include col {
         grid-row-gap: 1rem;
       }
@@ -670,6 +724,9 @@ section.regular {
   ul.bottom {
     @include col {
       grid-row-gap: 7.5rem;
+      @include mobile {
+        grid-row-gap: 5rem;
+      }
     }
     li.min {
       min-height: 30rem;
@@ -706,7 +763,7 @@ section.regular {
           height: 1.25rem !important;
         }
         .button-toggle {
-          @include flex{
+          @include flex {
             grid-column-gap: 1rem;
           }
           button {
@@ -730,15 +787,15 @@ section.regular {
           width: fit-content;
           position: relative;
           cursor: pointer;
-          padding: .15rem 1rem;
+          padding: 0.15rem 1rem;
           @include col;
           @include transition;
-          &:before{
-            content: '';
+          &:before {
+            content: "";
             position: absolute;
             top: 0;
             left: 0;
-            width: calc(#{$radius} /2);
+            width: calc(#{$radius} / 2);
             height: 100%;
             background-color: color(grey, lighter);
             @include transition;
@@ -749,7 +806,7 @@ section.regular {
           }
           &:hover:before {
             background-color: color(primary);
-            @include transition(.15);
+            @include transition(0.15);
           }
           &:hover span.links {
             color: color(primary);
@@ -758,27 +815,27 @@ section.regular {
             color: color(primary);
           }
           &:hover span.links:after {
-            padding-left: .75rem;
-            @include transition(.2);
+            padding-left: 0.75rem;
+            @include transition(0.2);
           }
         }
         sub {
           color: color(grey, light);
-          font-size: .7rem;
+          font-size: 0.7rem;
         }
         span.links {
           position: relative;
           color: color(grey, dark);
           font-weight: get-me($fontweights, regular);
-          font-size: .75rem;
+          font-size: 0.75rem;
           &:after {
             position: absolute;
-            top: .25rem;
-            content: '\e5e1';
+            top: 0.25rem;
+            content: "\e5e1";
             font-weight: 400;
-            font-size: .75em;
+            font-size: 0.75em;
             font-family: "Material Icons";
-            padding-left: .5rem;
+            padding-left: 0.5rem;
             @include transition;
           }
           span {
@@ -810,7 +867,7 @@ section.regular {
           display: block;
           height: 2rem;
           width: 2rem;
-          margin-right: .75rem;
+          margin-right: 0.75rem;
           @include transition;
           @include bgimg(contain) {
             background-image: url("../images/figma-icon-01.svg");
@@ -868,6 +925,12 @@ section.overview {
   ul.bottom {
     @include odd(false);
     li {
+      @include mobile {
+        @include flex {
+          flex-wrap: wrap;
+          grid-row-gap: 2rem;
+        }
+      }
       @include grid {
         grid-column-gap: 4rem;
         align-items: center;
@@ -881,6 +944,11 @@ section.good {
   ul.bottom {
     @include odd(true);
     li {
+      @include mobile {
+        @include flex {
+          flex-wrap: wrap;
+        }
+      }
       @include grid {
         grid-column-gap: 4rem;
         align-items: center;
@@ -896,6 +964,11 @@ section.good {
 section.improve {
   ul.bottom {
     @include odd(false) {
+      @include mobile {
+        @include flex {
+          flex-wrap: wrap;
+        }
+      }
       @include grid(1fr, 1.5fr) {
         grid-column-gap: 3rem;
         align-items: center;
@@ -905,6 +978,11 @@ section.improve {
       min-height: 500px;
     }
     li:nth-child(even) {
+      @include mobile {
+        @include flex {
+          flex-wrap: wrap;
+        }
+      }
       @include grid(1.5fr, 1fr) {
         grid-column-gap: 2.5rem;
         align-items: center;
@@ -949,7 +1027,7 @@ section.improve {
         background-image: url("../images/st-window-diff-labels.jpg");
       }
       #placeholder {
-        background-image: url('../images/placeholder.png');
+        background-image: url("../images/placeholder.png");
       }
     }
   }
@@ -959,16 +1037,19 @@ section.quote {
   height: 90vh;
   @include flex;
   ul {
-    @include col{
+    @include col {
       grid-row-gap: 2rem;
-    };
+    }
     li:first-child {
       position: relative;
       font-weight: get-me($fontweights, semibold);
+      @include mobile {
+        font-size: 2rem;
+      }
       font-size: 4rem;
       padding: 6rem 1.5rem;
       &:after {
-        opacity: .15;
+        opacity: 0.15;
         position: absolute;
         top: 0;
         left: 0;
@@ -978,7 +1059,7 @@ section.quote {
         font-family: "Font Awesome 5 Free";
       }
       &:before {
-        opacity: .15;
+        opacity: 0.15;
         position: absolute;
         bottom: 0;
         right: 0;
