@@ -82,6 +82,10 @@ function openme(data) {
       $url = "https://www.appcues.com/blog/product-tours-ui-patterns";
       window.open($url)
       return;
+    case "typing-awareness":
+      $url = "https://www.bustle.com/articles/39042-8-times-the-typing-awareness-indicator-is-the-worst";
+      window.open($url)
+      return;
     case "rework":
       $url =
         "https://www.figma.com/file/jv3r2zX2Mk4JsHOz34mdYU/SeaTalk-Experience?node-id=0%3A1";
