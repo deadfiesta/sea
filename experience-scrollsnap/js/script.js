@@ -1,5 +1,24 @@
 $(function () {
 
+  /**
+   * FullpageJs
+   */
+   $('#fullpage').fullpage({
+		//options here
+		autoScrolling:true,
+		scrollHorizontally: true,
+    // navigation: true,
+    onLeave: (index, item) => {
+      $total = $('.section').length;
+      $index = item.index;
+      $scrollPercent = $index/ ($total - 1);
+      $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
+    }
+	});
+
+	//methods
+	$.fn.fullpage.setAllowScrolling(true);
+
   /**Define nav variables */
   $nav = $("nav");
   $replace = $(".replace");
@@ -36,6 +55,14 @@ $(function () {
 });
 
 /**Nav clicks */
+
+function togglenav(condition) {
+  $icon = $('.menu-icon');
+  $menu = $('.menu');
+  $icon.toggleClass('open');
+  $menu.toggleClass('open')
+}
+
 function navclick(what) {
   $what = $(what).attr('data-link');
   let view = document.querySelector($what);
