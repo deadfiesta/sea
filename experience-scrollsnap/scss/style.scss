@@ -159,9 +159,12 @@ button {
 body,
 html {
   color: color(black);
-  font-size: 20px;
+  font-size: 16px;
   font-family: "Sofia Pro", "Helvetica", "sans-serif";
   overflow-x: hidden;
+  @include desktop {
+    font-size: 22px;
+  }
 }
 html {
   scroll-behavior: smooth;
@@ -174,9 +177,12 @@ section {
 
 .container {
   position: relative;
-  width: 90%;
   margin: 0 auto;
-  max-width: 1400px;
+  width: 80%;
+  @include desktop {
+    width: 90%;
+    max-width: 1400px;
+  }
 }
 
 .scroll {
@@ -212,10 +218,16 @@ i.launch {
   min-width: 1400px;
 }
 #fp-nav ul li a span {
-  background: color(black)
+  background: color(grey, light);
 }
 #fp-nav ul li a.active span {
-  background: color(grey);
+  background: color(primary);
+}
+
+#fp-nav ul {
+  @include mobile {
+    display: none;
+  }
 }
 
 h2 {
@@ -250,9 +262,6 @@ h6 {
 }
 
 hr {
-  @include mobile {
-    display: none;
-  }
   visibility: hidden;
 }
 
@@ -325,7 +334,7 @@ nav.pinned {
     opacity: 0;
     right: 0;
     position: absolute;
-    transform: rotate(180deg)
+    transform: rotate(180deg);
   }
   i.fa-bars {
     @include transition;
@@ -373,7 +382,7 @@ nav {
       }
     }
     @include desktop {
-      li:nth-child(n+2) {
+      li:nth-child(n + 2) {
         margin-left: 1.5rem;
       }
     }
@@ -385,7 +394,7 @@ nav {
     }
     li.active {
       color: color(black);
-      @include desktop
+      @include desktop;
     }
   }
 
@@ -412,10 +421,230 @@ nav {
     }
   }
 }
-header {
+header, section {
   height: 100vh;
   width: 100%;
   @include center;
+}
+
+header {
+  ul.cover > * {
+    margin: 1rem 0;
+    flex-basis: 50%;
+  }
+  ul.cover {
+    @include desktop {
+      @include flex {
+        gap: 3rem;
+        align-items: center;
+      }
+    }
+  }
+  li.titles {
+    flex-shrink: 1;
+    @include col {
+      gap: 2.5rem;
+    }
+    .by {
+      @include flex {
+        gap: 1rem;
+      }
+      .avatar {
+        border-radius: 1.5rem;
+        height: 3rem;
+        width: 3rem;
+        background-color: color(grey, lighter);
+        @include center;
+        .me {
+          height: 2.5rem;
+          width: 2.5rem;
+          border-radius: 1.25rem;
+          @include bgimg {
+            background-image: url('../images/neo-wen-kiong-clear.png')
+          }
+        }
+      }
+      .name {
+        @include col;
+        span:first-child {
+          font-weight: get-me($fontweights, semibold);
+        }
+        span:nth-child(2) {
+          font-size: 0.9rem;
+          color: color(grey);
+        }
+      }
+    }
+  }
+  li.seatalk {
+    min-width: 500px;
+  }
+}
+
+.chatroom {
+  @include mobile {
+    display: none;
+  }
+  // overflow: hidden;
+  // box-shadow: 0 .5rem .5rem rgba(color(grey, light), .5);
+  border-radius: $radius;
+  background-color: color(seatalk);
+  ul.title,
+  ul.chat {
+    padding: 1rem;
+  }
+  ul.title {
+    border-radius: $radius $radius 0 0;
+    @include flex {
+      grid-column-gap: 1rem !important;
+    }
+    background-color: color(seatalk, light);
+    li {
+      font-weight: get-me($fontweights, semibold);
+      @include flex;
+      span {
+        @include flex;
+        font-size: 0.8rem;
+        font-weight: get-me($fontweights, medium);
+        color: color(primary);
+        background-color: rgba(color(primary), $alpha: 0.1);
+        height: 1.5rem;
+        padding: 0 0.5rem;
+        border-radius: calc(#{$radius} * 2);
+        margin: 0.25rem 0.5rem;
+      }
+    }
+    li:first-child {
+      @include bgimg {
+        background-image: url("../images/gp02.jpg");
+      }
+      border-radius: calc(#{$radius} / 2);
+      height: 48px;
+      width: 48px;
+    }
+    li:last-child {
+      flex: 1;
+      justify-content: flex-end !important;
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+  ul.chat {
+    margin: 0.75rem 0;
+    @include flex {
+      flex-direction: column;
+      grid-row-gap: 1.75rem;
+      align-items: flex-start !important;
+    }
+    li:first-child {
+      align-self: center;
+      color: color(light);
+      font-size: 0.6rem;
+      background-color: color(grey, light);
+      padding: 0.3rem 0.4rem;
+      border-radius: calc(#{$radius} / 2);
+    }
+    li.dialogue {
+      @include flex(flex-start);
+      grid-column-gap: 1.5rem;
+      .avatar {
+        @include mobile {
+          min-height: 56px;
+          min-width: 56px;
+        }
+        @include bgimg;
+        min-height: 96px;
+        min-width: 96px;
+        border-radius: calc(#{$radius} / 2);
+      }
+      #id01 {
+        background-image: url("../images/id01.jpg");
+      }
+      #id02 {
+        background-image: url("../images/id02.jpg");
+      }
+      #id03 {
+        background-image: url("../images/id03.jpg");
+      }
+      .message-left {
+        min-height: 2.5rem;
+        @include message {
+          .mention {
+            color: color(primary);
+          }
+        }
+      }
+      .attachment {
+        position: relative;
+        padding-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
+        &:before {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background-color: color(grey, light);
+          opacity: 0.25;
+        }
+        .file-container {
+          @include flex;
+          border-radius: calc(#{$radius}/ 2);
+          padding: 0.5rem;
+          background-color: color(grey, lighter);
+        }
+        .file {
+          border-radius: calc(#{$radius}/ 2);
+          background-color: color(light);
+          @include flex;
+          justify-content: center !important;
+          height: 40px;
+          width: 40px;
+        }
+        .filename {
+          font-size: 0.8rem;
+          margin: 0 0.75rem;
+          color: color(grey, dark);
+        }
+      }
+      .fileinfo {
+        opacity: 0.5;
+        margin: 0.5rem 0;
+        span {
+          font-size: 0.8rem;
+          color: color(grey, light) !important;
+        }
+      }
+      .status {
+        display: block;
+        margin-top: 0.5rem;
+        font-size: 0.7rem;
+      }
+      span.name {
+        color: color(grey, dark);
+      }
+      span.time {
+        margin: 0 0.25rem;
+        font-size: 0.8em;
+        color: color(grey, light);
+      }
+    }
+  }
+  .message-right {
+    @include message(primary, right, -0.5rem) {
+      color: color(light);
+    }
+  }
+  li.dialogue:last-child {
+    align-self: flex-end;
+    .bubble {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  }
 }
 
 /*---Keywords---*/
@@ -799,7 +1028,8 @@ section.improve {
         top: 0;
         left: 0;
         @include bgimg;
-        transition: opacity 0.6s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: opacity 0.6s ease,
+          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         a {
           display: block;
           width: 100%;
