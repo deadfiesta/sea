@@ -17,15 +17,12 @@
     <div class="scroll"></div>
     <!-- <div class="mobile-nav">
         <div class="container">
-            <div onclick="togglenav()" data-state=false class="menu-icon">
-                <div class="icon-container">
-                    <i class="fas fa-times"></i>
-                    <i class="fas fa-bars"></i>
-                </div>
-
+            <div class="menu">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-    </div>
+    </div> -->
+    <!-- 
     <header>
         <div class="nav">
             <nav>
@@ -46,110 +43,202 @@
     </header> -->
     <div id="fullpage">
         <div class="section">
-            <header>
-                <div class="container">
-                    <ul class="cover">
-                        <li class="titles">
-                            <h3>UI/UX Case Study</h3>
-                            <h1>Product analysis and re-imagining the future for SeaTalk</h1>
-                            <p>
-                                Analysing the user experience of SeaTalk (desktop) to weigh them against its business
-                                goals to improve overall business operations and reducing traditionally hand-handled
-                                administrative processes.
-                            </p>
-                            <div class="by">
-                                <div class="avatar">
-                                    <div class="me"></div>
-                                </div>
-                                <div class="name">
-                                    <span>Neo Wen Kiong</span>
-                                    <span>31 March, 2021</span>
-                                </div>
+            <header class="container">
+                <ul class="cover">
+                    <li class="titles">
+                        <h3>UI/UX Case Study</h3>
+                        <h1>Product analysis and re-imagining the future for SeaTalk</h1>
+                        <p>
+                            Analysing the user experience of SeaTalk (desktop) to weigh them against its business
+                            goals to improve overall business operations and reducing traditionally hand-handled
+                            administrative processes.
+                        </p>
+                        <div class="by">
+                            <div class="avatar">
+                                <div class="me"></div>
+                            </div>
+                            <div class="name">
+                                <span>Neo Wen Kiong</span>
+                                <span>31 March, 2021</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="seatalk">
+                        <div class="chatroom">
+                            <ul class="title">
+                                <li></li>
+                                <li class="titlebar">The High Council <span>Dept.</span></li>
+                                <li><img src="./images/ic-more.png" alt=""></li>
+                            </ul>
+                            <ul class="chat">
+                                <li id="time">Today: 9:41 AM</li>
+                                <li class="dialogue" id="dia01">
+                                    <div class="avatar" id="id01"></div>
+                                    <div class="bubble" id="bubble01">
+                                        <div class="message-left" id="msg01">
+                                            Hey guys, how's the concept art coming along? <span
+                                                class="mention">@here</span>
+                                        </div>
+                                        <div class="status" id="stat01">
+                                            <span class="name">Elaine Lawrence</span>
+                                            <span class="time">9:41 AM</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dialogue" id="dia02">
+                                    <div class="avatar" id="id02"></div>
+                                    <div class="bubble" id="bubble02">
+                                        <div class="message-left">
+                                            <div class="attachment">
+                                                <div class="file-container">
+                                                    <div class="file">
+                                                        <img src="./images/file-type-ai.png" alt="">
+                                                    </div>
+                                                    <span class="filename">JLR-logo-v2.ai</span>
+                                                </div>
+                                                <div class="fileinfo">
+                                                    <span class="filesize">250KB</span>
+                                                    <span class="filetype">AI</span>
+                                                </div>
+                                            </div>
+                                            The draft is still in development.
+                                        </div>
+                                        <div class="status" id="stat02">
+                                            <span class="name">Joel Park Jin-Sang</span>
+                                            <span class="time">9:42 AM</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="dialogue" id="dia03">
+                                    <div class="bubble" id="bubble03">
+                                        <div class="message-right">
+                                            Looking good! Looking forward to the end product. &#9996;
+                                        </div>
+                                        <div class="status">
+                                            <img src="./images/ic-checkmark.png" alt="">
+                                            <span class="time">9:54 AM</span>
+                                        </div>
+                                    </div>
+                                    <div class="avatar" id="id03"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div class="section">
+            <section class="business-goals container">
+                <div class="split">
+                    <ul class="content">
+                        <li>
+                            <div class="icon-container">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Simplicity</h4>
+                                <p>Approachable user design with easy-to-use functionalities.</p>
                             </div>
                         </li>
-                        <li class="seatalk">
-                            <div class="chatroom">
-                                <ul class="title">
-                                    <li></li>
-                                    <li class="titlebar">The High Council <span>Dept.</span></li>
-                                    <li><img src="./images/ic-more.png" alt=""></li>
-                                </ul>
-                                <ul class="chat">
-                                    <li id="time">Today: 9:41 AM</li>
-                                    <li class="dialogue" id="dia01">
-                                        <div class="avatar" id="id01"></div>
-                                        <div class="bubble" id="bubble01">
-                                            <div class="message-left" id="msg01">
-                                                Hey guys, how's the concept art coming along? <span
-                                                    class="mention">@here</span>
-                                            </div>
-                                            <div class="status" id="stat01">
-                                                <span class="name">Elaine Lawrence</span>
-                                                <span class="time">9:41 AM</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="dialogue" id="dia02">
-                                        <div class="avatar" id="id02"></div>
-                                        <div class="bubble" id="bubble02">
-                                            <div class="message-left">
-                                                <div class="attachment">
-                                                    <div class="file-container">
-                                                        <div class="file">
-                                                            <img src="./images/file-type-ai.png" alt="">
-                                                        </div>
-                                                        <span class="filename">JLR-logo-v2.ai</span>
-                                                    </div>
-                                                    <div class="fileinfo">
-                                                        <span class="filesize">250KB</span>
-                                                        <span class="filetype">AI</span>
-                                                    </div>
-                                                </div>
-                                                The draft is still in development.
-                                            </div>
-                                            <div class="status" id="stat02">
-                                                <span class="name">Joel Park Jin-Sang</span>
-                                                <span class="time">9:42 AM</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="dialogue" id="dia03">
-                                        <div class="bubble" id="bubble03">
-                                            <div class="message-right">
-                                                Looking good! Looking forward to the end product. &#9996;
-                                            </div>
-                                            <div class="status">
-                                                <img src="./images/ic-checkmark.png" alt="">
-                                                <span class="time">9:54 AM</span>
-                                            </div>
-                                        </div>
-                                        <div class="avatar" id="id03"></div>
-                                    </li>
-                                </ul>
+                        <li>
+                            <div class="icon-container">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Seamless</h4>
+                                <p>Internal integrations within the app and some degree of external integration with
+                                    third-party platforms.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-container">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Sustainable</h4>
+                                <p>Save time and money so businesses can focus theirs resources to iron out business
+                                    operations for stability and permanence.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="titles">
+                        <li>
+                            <h3>Introducing the 3 'S'</h3>
+                            <h2>Business Goals</h2>
+                            <hr>
+                            <p>
+                                Understanding SeaTalk business goals for their consumers. Simplifying into 3 keywords by
+                                deconstructing SeaTalk’s slogan
+                            </p>
+                            <span>"One-stop for work"</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <div class="section">
+            <section class="user-goals container">
+                <div class="split">
+                    <ul class="titles">
+                        <li>
+                            <h3>Understanding the 3 'E'</h3>
+                            <h2>User Goals</h2>
+                            <hr>
+                            <p>
+                                Reviewing the experience as a productivity and collaborative platform
+                            </p>
+                        </li>
+                    </ul>
+                    <ul class="content">
+                        <li>
+                            <div class="icon-container">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Effortlessness</h4>
+                                <h3>How easy was it to use?</h3>
+                                <p>The need for SeaTalk to be as intuitive as possible is essential as our target audience are average tech consumers who may not be “app-savvy”. The last thing we want is to intimidate our users and drop our app at first sight.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-container">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Effectiveness</h4>
+                                <h3>How well of a job did it do?</h3>
+                                <p>Features in SeaTalk should add value whenever possible. This means giving the users an end result better than their desired expectation of the action performed.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-container">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="text">
+                                <h4>Efficiency</h4>
+                                <h3>How fast to get the job done?</h3>
+                                <p>The nature of any productivity app like SeaTalk should assist users to accomplish more but with less work in less time. Every action should be seamless; simplified and autonomous, cutting down as many steps as possible.</p>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </header>
-        </div>
-        <div class="section">
-            <section class="business-goals">
-                <div class="container">
-                    <div class="goals">
-                        <ul>
-                            <li>
-                                <div class="icon-container">
-                                    <i class="fab fa-medapps"></i>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
             </section>
         </div>
-        <div class="section">Some section</div>
-        <div class="section">Some section</div>
-        <div class="section">Some section</div>
+        <div class="section">
+            <section class="quotes container">
+                <ul>
+                    <li>
+                        A user interface is a like a joke. If you have to explain it, it's not that good.
+                    </li>
+                    <li>
+                        Martin Leblanc
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <div class="section">
+            
+        </div>
         <div class="section">Some section</div>
         <div class="section">Some section</div>
         <div class="section">Some section</div>
@@ -157,7 +246,8 @@
         <div class="section">Some section</div>
         <div class="section">Some section</div>
     </div>
-
+    <!-- <div class="noise"></div>
+    <div class="ball"></div> -->
     <div class="js" style="display: none;">
         <script src="./js/jquery-3.6.0.min.js"></script>
         <script src="./js/fullpage.min.js"></script>

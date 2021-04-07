@@ -196,6 +196,30 @@ section {
   background-color: color(primary);
 }
 
+.noise {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  filter: brightness(400%);
+  @include bgimg {
+    background-image: url("../images/tex.png");
+  }
+}
+.ball {
+  z-index: -2;
+  position: absolute;
+  background-color: color(primary);
+  height: 50vh;
+  width: 50vh;
+  border-radius: 25vh;
+  top: 50%;
+  left: 50%;
+  filter: blur(50px);
+}
+
 .clickable {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   &:hover {
@@ -234,7 +258,7 @@ h2 {
   @include mobile {
     font-size: 1.2rem;
   }
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: get-me($fontweights, semibold);
 }
 
@@ -271,7 +295,10 @@ i {
 }
 
 p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  @media (min-width: get-me($breakpoints, m)) {
+    font-size: 0.9rem;
+  }
   font-weight: get-me($fontweights, light);
   color: color(black, light);
 }
@@ -297,6 +324,7 @@ nav.pinned {
     margin: 0 !important;
   }
 }
+
 .replace {
   @include mobile {
     display: none;
@@ -304,54 +332,17 @@ nav.pinned {
 }
 
 .mobile-nav {
-  z-index: 10;
-  position: fixed;
-  width: 100%;
-  height: 10vh;
-  @include desktop {
-    display: none;
-  }
   .container {
-    height: 100%;
-    @include flex(center, flex-end);
+    display: flex;
+    justify-content: flex-end;
   }
-  .menu-icon {
+  .menu {
+    top: 1rem;
+    position: fixed;
     @include center;
     width: 2rem;
     height: 2rem;
-    border-radius: 1rem;
-    position: relative;
     background-color: color(primary);
-  }
-  .icon-container {
-    position: relative;
-  }
-  i {
-    font-size: 1rem;
-  }
-  i.fa-times {
-    @include transition;
-    opacity: 0;
-    right: 0;
-    position: absolute;
-    transform: rotate(180deg);
-  }
-  i.fa-bars {
-    @include transition;
-    opacity: 1;
-  }
-}
-
-.menu-icon.open {
-  i.fa-times {
-    @include transition;
-    opacity: 1 !important;
-    transform: rotate(0) !important;
-  }
-  i.fa-bars {
-    @include transition;
-    opacity: 0 !important;
-    transform: scaleY(0) rotate(-180deg);
   }
 }
 
@@ -421,16 +412,25 @@ nav {
     }
   }
 }
-header, section {
+header,
+section {
   height: 100vh;
   width: 100%;
   @include center;
 }
 
+.rule {
+  height: 0.1rem;
+  width: 100%;
+  background-color: color(grey, lighter);
+}
+
 header {
   ul.cover > * {
     margin: 1rem 0;
-    flex-basis: 50%;
+    @include desktop {
+      flex-basis: 50%;
+    }
   }
   ul.cover {
     @include desktop {
@@ -460,7 +460,7 @@ header {
           width: 2.5rem;
           border-radius: 1.25rem;
           @include bgimg {
-            background-image: url('../images/neo-wen-kiong-clear.png')
+            background-image: url("../images/neo-wen-kiong-clear.png");
           }
         }
       }
@@ -476,8 +476,10 @@ header {
       }
     }
   }
-  li.seatalk {
-    min-width: 500px;
+  @include desktop {
+    li.seatalk {
+      min-width: 500px;
+    }
   }
 }
 
@@ -647,6 +649,157 @@ header {
   }
 }
 
+/* Business Goals */
+.split {
+  @include flex {
+    @media (min-width: get-me($breakpoints, m)) {
+      gap: 2rem;
+    }
+    @include desktop {
+      gap: 4rem;
+    }
+    @media (max-width: get-me($breakpoints, m)) {
+      flex-wrap: wrap;
+      row-gap: 2rem;
+    }
+  }
+  ul {
+    width: 100%;
+    @include desktop {
+      flex-basis: 50%;
+    }
+  }
+  ul.content {
+    @include transition;
+    &:hover > li {
+      @include transition;
+      opacity: 0.35;
+      &:hover {
+        @include transition;
+        opacity: 1;
+        transform: translateX(5%);
+      }
+    }
+    li {
+      cursor: pointer;
+      @include transition;
+    }
+    @include col {
+      gap: 1rem;
+      @include desktop {
+        gap: 3rem;
+      }
+    }
+    li {
+      @include flex {
+        align-items: flex-start;
+        gap: 1.2rem;
+        @include desktop {
+          gap: 3rem;
+        }
+      }
+    }
+    li > * {
+      @include col {
+        gap: 0.5rem;
+      }
+    }
+  }
+  ul.titles > li {
+    @include mobile {
+      text-align: center;
+    }
+    @include col {
+      gap: 0.5rem;
+      @include desktop {
+        gap: 1rem;
+      }
+    }
+  }
+  .icon-container {
+    border-radius: $radius;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+
+    @include flex(center, center);
+    i {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.quotes {
+  @include flex;
+  ul {
+    @include col {
+      grid-row-gap: 2rem;
+    }
+    li:first-child {
+      position: relative;
+      font-weight: get-me($fontweights, semibold);
+      @include mobile {
+        font-size: 2rem;
+      }
+      font-size: 4rem;
+      padding: 6rem 1.5rem;
+      &:after {
+        opacity: 0.15;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        color: color(light);
+        content: "\f10d";
+        font-family: "Font Awesome 5 Free";
+      }
+      &:before {
+        opacity: 0.15;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+        color: color(light);
+        content: "\f10e";
+        font-family: "Font Awesome 5 Free";
+      }
+    }
+    li:nth-child(2) {
+      font-size: 1.5rem;
+      align-self: flex-end;
+      font-weight: get-me($fontweights, light);
+    }
+  }
+}
+
+.business-goals {
+  .split {
+    @media (max-width: get-me($breakpoints, m)) {
+      flex-direction: column-reverse;
+    }
+  }
+  .icon-container {
+    background-color: color(primary);
+    i {
+      color: color(light);
+    }
+  }
+}
+
+.user-goals {
+  .content {
+    @include desktop {
+      flex-basis: 70%;
+    }
+  }
+  .icon-container {
+    background-color: color(grey, lighter);
+    i {
+      color: color(primary);
+    }
+  }
+}
+
+/*--------------------------------*/
 /*---Keywords---*/
 section.keywords {
   .icon-container {
@@ -1028,8 +1181,7 @@ section.improve {
         top: 0;
         left: 0;
         @include bgimg;
-        transition: opacity 0.6s ease,
-          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: opacity 0.6s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         a {
           display: block;
           width: 100%;
@@ -1051,50 +1203,6 @@ section.improve {
       #placeholder {
         background-image: url("../images/placeholder.png");
       }
-    }
-  }
-}
-
-section.quote {
-  height: 90vh;
-  @include flex;
-  ul {
-    @include col {
-      grid-row-gap: 2rem;
-    }
-    li:first-child {
-      position: relative;
-      font-weight: get-me($fontweights, semibold);
-      @include mobile {
-        font-size: 2rem;
-      }
-      font-size: 4rem;
-      padding: 6rem 1.5rem;
-      &:after {
-        opacity: 0.15;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        color: color(light);
-        content: "\f10d";
-        font-family: "Font Awesome 5 Free";
-      }
-      &:before {
-        opacity: 0.15;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        z-index: -1;
-        color: color(light);
-        content: "\f10e";
-        font-family: "Font Awesome 5 Free";
-      }
-    }
-    li:nth-child(2) {
-      font-size: 1.5rem;
-      align-self: flex-end;
-      font-weight: get-me($fontweights, light);
     }
   }
 }
