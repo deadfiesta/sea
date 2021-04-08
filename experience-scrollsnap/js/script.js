@@ -10,15 +10,22 @@ $(function () {
 		scrollHorizontally: true,
     // scrollBar: true,
     // navigation: true,
-    onLeave: (index, item) => {
+    onLeave: (origin, destination, direction) => {
+      $current = origin.item;
+      $next = destination.item;
+      $($current).css('opacity', '0');
+      $($next).css('opacity', '1');
+      /**
+       * Scroller Anim
+       */
       $total = $('.section').length;
-      $index = item.index;
+      $index = destination.index;
       $scrollPercent = $index/ ($total - 1);
       // $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
       if ($index == 0) {
         gsap.to(".scroll", {
           scaleX: 1,
-          ease: "expo.out",
+          ease: "expo.inOut",
           duration: 1,
         })
       } else {
@@ -38,7 +45,6 @@ $(function () {
 
 	//methods
 	$.fn.fullpage.setAllowScrolling(true);
-
 
   // /**
   //  * OLD
@@ -78,6 +84,18 @@ $(function () {
   //   $scroll.css("transform", "scaleX(" + $scrollPercent + ")");
   // });
 });
+
+/**
+ * Split li hovers
+ */
+$('ul.content li').hover(function() {
+  $('ul.content li').toggleClass('unhover');
+  $(this).removeClass('unhover').toggleClass('hover');
+})
+
+
+
+
 
 /**Nav clicks */
 function togglenav(condition) {

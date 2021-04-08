@@ -241,17 +241,20 @@ i.launch {
 .lity-iframe .lity-container {
   min-width: 1400px;
 }
+
 #fp-nav ul li a span {
   background: color(grey, light);
 }
 #fp-nav ul li a.active span {
   background: color(primary);
 }
-
 #fp-nav ul {
   @include mobile {
     display: none;
   }
+}
+.section {
+  @include transition;
 }
 
 h2 {
@@ -296,11 +299,11 @@ i {
 
 p {
   font-size: 0.8rem;
+  font-weight: get-me($fontweights, light);
+  color: color(grey, dark);
   @media (min-width: get-me($breakpoints, m)) {
     font-size: 0.9rem;
   }
-  font-weight: get-me($fontweights, light);
-  color: color(black, light);
 }
 
 video {
@@ -684,7 +687,7 @@ header {
   }
 }
 
-/* Business Goals */
+/* SPLIT */
 .split {
   @include flex {
     @media (min-width: get-me($breakpoints, m)) {
@@ -705,22 +708,6 @@ header {
     }
   }
   ul.content {
-    @include transition;
-    &:hover > li {
-      &:hover ~ li {
-        @include transition;
-        opacity: 0.35;
-      }
-      &:hover {
-        @include transition;
-        opacity: 1;
-        transform: translateX(5%);
-      }
-    }
-    li {
-      cursor: pointer;
-      @include transition;
-    }
     @include col {
       gap: 1rem;
       @include desktop {
@@ -728,11 +715,34 @@ header {
       }
     }
     li {
+      cursor: pointer;
+      @include transition;
       @include flex {
         align-items: flex-start;
         gap: 1.2rem;
         @include desktop {
           gap: 3rem;
+        }
+      }
+    }
+    li.unhover {
+      opacity: .25;
+    }
+    li.hover {
+      transform: translateX(5%);
+      @include transition(.3, cubic-bezier(0.34, 1.56, 0.64, 1));
+      .icon-container {
+        i {
+          color: color(light);
+          @include transition;
+        }
+        &:before {
+          transform: scale(0);
+          @include transition;
+        }
+        &:after {
+          transform: scale(1);
+          @include transition(.6);
         }
       }
     }
@@ -754,13 +764,36 @@ header {
     }
   }
   .icon-container {
+    position: relative;
+    overflow: hidden;
     border-radius: $radius;
     min-width: 2.6rem;
     min-height: 2.6rem;
-
     @include flex(center, center);
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      transform: scale(0);
+      background-color: color(primary);
+      @include transition;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      z-index: -2;
+      width: 200%;
+      height: 200%;
+      border-radius: 50%;
+      background-color: color(grey, lighter);
+      @include transition(.6);
+    }
     i {
       font-size: 1.2rem;
+      @include transition;
     }
   }
 }
@@ -815,9 +848,9 @@ header {
     }
   }
   .icon-container {
-    background-color: color(primary);
+    // background-color: color(primary);
     i {
-      color: color(light);
+      color: color(primary);
     }
   }
 }
@@ -829,7 +862,7 @@ header {
     }
   }
   .icon-container {
-    background-color: color(grey, lighter);
+    // background-color: color(grey, lighter);
     i {
       color: color(primary);
     }
