@@ -388,6 +388,7 @@ nav {
   transform: translateX(100%);
   opacity: 0;
   @include desktop {
+    transition: none;
     height: auto;
     transform: translateX(0);
     opacity: 1;
@@ -416,9 +417,9 @@ nav {
       }
       li {
         color: color(grey);
-        padding: 1.2rem 0;
+        padding: 1.3rem 0 1.1rem 0;
         @include desktop {
-          font-size: .9rem;
+          font-size: .75rem;
         }
       }
       li.active {
@@ -455,12 +456,6 @@ section {
   height: 100vh;
   width: 100%;
   @include center;
-}
-
-.rule {
-  height: 0.1rem;
-  width: 100%;
-  background-color: color(grey, lighter);
 }
 
 header {
@@ -687,6 +682,41 @@ header {
   }
 }
 
+.icon-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: $radius;
+  min-width: 2.6rem;
+  min-height: 2.6rem;
+  @include flex(center, center);
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    transform: scale(0);
+    background-color: color(primary);
+    @include transition;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    background-color: color(grey, lighter);
+    @include transition(.6);
+  }
+  i {
+    font-size: 1.2rem;
+    color: color(primary);
+    @include transition;
+  }
+}
+
 /* SPLIT */
 .split {
   @include flex {
@@ -763,39 +793,6 @@ header {
       }
     }
   }
-  .icon-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: $radius;
-    min-width: 2.6rem;
-    min-height: 2.6rem;
-    @include flex(center, center);
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      width: 200%;
-      height: 200%;
-      border-radius: 50%;
-      transform: scale(0);
-      background-color: color(primary);
-      @include transition;
-    }
-    &:before {
-      content: '';
-      position: absolute;
-      z-index: -2;
-      width: 200%;
-      height: 200%;
-      border-radius: 50%;
-      background-color: color(grey, lighter);
-      @include transition(.6);
-    }
-    i {
-      font-size: 1.2rem;
-      @include transition;
-    }
-  }
 }
 
 .quotes {
@@ -818,7 +815,6 @@ header {
         top: 0;
         left: 0;
         z-index: -1;
-        color: color(light);
         content: "\f10d";
         font-family: "Font Awesome 5 Free";
       }
@@ -828,7 +824,6 @@ header {
         bottom: 0;
         right: 0;
         z-index: -1;
-        color: color(light);
         content: "\f10e";
         font-family: "Font Awesome 5 Free";
       }
@@ -847,24 +842,12 @@ header {
       flex-direction: column-reverse;
     }
   }
-  .icon-container {
-    // background-color: color(primary);
-    i {
-      color: color(primary);
-    }
-  }
 }
 
 .user-goals {
   .content {
     @include desktop {
       flex-basis: 70%;
-    }
-  }
-  .icon-container {
-    // background-color: color(grey, lighter);
-    i {
-      color: color(primary);
     }
   }
 }

@@ -2,25 +2,58 @@ $(function () {
   /**
    * FullpageJs
    */
-   $('#fullpage').fullpage({
-		//options here
+  $('#fullpage').fullpage({
+    //options here
     licenseKey: 'YOUR_KEY_HERE',
     navigation: true,
-		autoScrolling:true,
-		scrollHorizontally: true,
     // scrollBar: true,
-    // navigation: true,
     onLeave: (origin, destination, direction) => {
       $current = origin.item;
       $next = destination.item;
       $($current).css('opacity', '0');
       $($next).css('opacity', '1');
+
+      /**
+       * Toggle Quotes Effect
+       */
+      $dark = $($next).find('section, header').attr('dark-mode');
+
+      const original = getComputedStyle(document.querySelector("body"));
+      
+      let c = '';
+      let bg = '';
+      let y = '';
+      let d = '';
+
+      if ($dark == "true") {
+        c = "#fff";
+        bg = "#000";
+        y = '-100';
+        d = 0;
+      } else {
+        c = original.color;
+        bg = original.backgroundColor;
+        y = '0';
+        d = 1;
+      }
+
+      gsap.to("main", {
+        color: c,
+        backgroundColor: bg,
+        ease: "expo.inOut"
+      })
+      gsap.to("nav", {
+        yPercent: y,
+        ease: "expo.inOut"
+      })
+
+
       /**
        * Scroller Anim
        */
       $total = $('.section').length;
       $index = destination.index;
-      $scrollPercent = $index/ ($total - 1);
+      $scrollPercent = $index / ($total - 1);
       // $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
       if ($index == 0) {
         gsap.to(".scroll", {
@@ -36,15 +69,15 @@ $(function () {
         })
       };
     },
-	});
+  });
 
-  $('.mobile-nav').click(function() {
+  $('.mobile-nav').click(function () {
     $('nav').toggleClass('toggle');
     $('.mobile-nav').toggleClass('toggle');
   })
 
-	//methods
-	$.fn.fullpage.setAllowScrolling(true);
+  //methods
+  $.fn.fullpage.setAllowScrolling(true);
 
   // /**
   //  * OLD
@@ -88,7 +121,7 @@ $(function () {
 /**
  * Split li hovers
  */
-$('ul.content li').hover(function() {
+$('ul.content li').hover(function () {
   $('ul.content li').toggleClass('unhover');
   $(this).removeClass('unhover').toggleClass('hover');
 })
