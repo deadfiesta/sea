@@ -186,7 +186,7 @@ section {
 }
 
 .scroll {
-  @include transition;
+  // @include transition;
   position: fixed;
   z-index: 99;
   top: 0;
@@ -672,8 +672,10 @@ header {
   ul.content {
     @include transition;
     &:hover > li {
+      &:hover ~ li {
       @include transition;
       opacity: 0.35;
+      }
       &:hover {
         @include transition;
         opacity: 1;

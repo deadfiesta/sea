@@ -1,10 +1,10 @@
 $(function () {
-
   /**
    * FullpageJs
    */
    $('#fullpage').fullpage({
 		//options here
+    licenseKey: 'YOUR_KEY_HERE',
     navigation: true,
 		autoScrolling:true,
 		scrollHorizontally: true,
@@ -13,57 +13,74 @@ $(function () {
       $total = $('.section').length;
       $index = item.index;
       $scrollPercent = $index/ ($total - 1);
-      $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
+      // $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
+      gsap.to(".scroll", {
+        scaleX: $scrollPercent,
+        ease: "power4.out",
+        duration: .6,
+      })
+    },
+    afterLoad: (index, item) => {
+      if (item.index == 0) {
+        gsap.to(".scroll", {
+          scaleX: 1,
+          ease: "power4.out",
+          duration: 1,
+        })
+      } else return;
     }
 	});
 
 	//methods
 	$.fn.fullpage.setAllowScrolling(true);
 
-  /**Define nav variables */
-  $nav = $("nav");
-  $replace = $(".replace");
-  $height = $nav.height();
-  $sticky = $nav.offset().top + $height / 1.5;
 
-  /**Sticky nav scrolling */
-  $(window).on("scroll load", function () {
-    $window = $(window).scrollTop();
-    $menu = $(".menu").height();
-    $bg = $(".nav-bg");
-    $blur = $(".bgblur");
-    if ($window >= $sticky) {
-      $nav.addClass("pinned");
-      $bg.addClass("pinned");
-      $blur.css("height", $menu);
-      $replace.css("height", $height + 60);
-    } else {
-      $nav.removeClass();
-      $bg.removeClass("pinned");
-      $replace.css("height", 0);
-      $blur.css("height", 0);
-    }
-  });
+  // /**
+  //  * OLD
+  //  */
 
-  /**Horizontal scroll progress*/
-  $(window).scroll(function () {
-    $docHeight = $(document).height();
-    $winHeight = $(window).height();
-    $scroll = $(".scroll");
-    $scrollPercent = $(window).scrollTop() / ($docHeight - $winHeight);
-    $scroll.css("transform", "scaleX(" + $scrollPercent + ")");
-  });
+  // /**Define nav variables */
+  // $nav = $("nav");
+  // $replace = $(".replace");
+  // $height = $nav.height();
+  // $sticky = $nav.offset().top + $height / 1.5;
+
+  // /**Sticky nav scrolling */
+  // $(window).on("scroll load", function () {
+  //   $window = $(window).scrollTop();
+  //   $menu = $(".menu").height();
+  //   $bg = $(".nav-bg");
+  //   $blur = $(".bgblur");
+  //   if ($window >= $sticky) {
+  //     $nav.addClass("pinned");
+  //     $bg.addClass("pinned");
+  //     $blur.css("height", $menu);
+  //     $replace.css("height", $height + 60);
+  //   } else {
+  //     $nav.removeClass();
+  //     $bg.removeClass("pinned");
+  //     $replace.css("height", 0);
+  //     $blur.css("height", 0);
+  //   }
+  // });
+
+  // /**Horizontal scroll progress*/
+  // $(window).scroll(function () {
+  //   $docHeight = $(document).height();
+  //   $winHeight = $(window).height();
+  //   $scroll = $(".scroll");
+  //   $scrollPercent = $(window).scrollTop() / ($docHeight - $winHeight);
+  //   $scroll.css("transform", "scaleX(" + $scrollPercent + ")");
+  // });
 });
 
 /**Nav clicks */
-
 function togglenav(condition) {
   $icon = $('.menu-icon');
   $menu = $('.menu');
   $icon.toggleClass('open');
   $menu.toggleClass('open')
 }
-
 function navclick(what) {
   $what = $(what).attr('data-link');
   let view = document.querySelector($what);
@@ -71,8 +88,6 @@ function navclick(what) {
 }
 
 /**Open Links Litty */
-
-//Note to self
 
 /**Create unique case for external link
  * For images and videos id = filename
