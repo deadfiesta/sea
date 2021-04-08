@@ -188,7 +188,7 @@ section {
 .scroll {
   // @include transition;
   position: fixed;
-  z-index: 99;
+  z-index: 50;
   top: 0;
   height: 5px;
   width: 100%;
@@ -332,86 +332,121 @@ nav.pinned {
 }
 
 .mobile-nav {
+  @include desktop {
+    display: none;
+  }
   .container {
     display: flex;
     justify-content: flex-end;
   }
   .menu {
-    top: 1rem;
+    z-index: 20;
     position: fixed;
+    top: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: calc(#{$radius}/ 2);
+    background-color: color(grey, lighter);
     @include center;
-    width: 2rem;
-    height: 2rem;
-    background-color: color(primary);
+    i {
+      color: color(black, light);
+      position: absolute;
+    }
+    .fa-bars {
+      @include transition;
+    }
+    .fa-times {
+      @include transition;
+      opacity: 0;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.mobile-nav.toggle {
+  .fa-bars {
+    @include transition;
+    transform: scale(0);
+    opacity: 0;
+  }
+  .fa-times {
+    @include transition;
+    opacity: 1;
+    transform: rotate(0deg);
   }
 }
 
 nav {
   @include transition;
-  @include mobile {
-    position: fixed;
-    right: 0;
-    height: 100vh;
-    width: 100%;
-    backdrop-filter: blur(20px);
-    background-color: rgba(color(light, dark), 0.5);
-  }
-  ul.menu.open {
-    @include transition;
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  transform: translateX(100%);
+  opacity: 0;
+  @include desktop {
+    height: auto;
     transform: translateX(0);
+    opacity: 1;
+    backdrop-filter: blur(5px);
+    background-color: rgba(color(grey, lighter), .6);
   }
-  ul.menu {
-    margin: 1rem 0;
-    @include flex;
-    @include mobile {
-      @include col(flex-end);
-      transform: translateX(100%);
-      width: 100%;
-      @include transition;
-      li:first-child {
-        margin-top: 10vh;
+  .container {
+    height: 100%;
+    @include flex {
+      justify-content: flex-end;
+      align-items: center;
+      @include desktop {
+        align-items: flex-start;
       }
     }
-    @include desktop {
+    ul.menu {
+      width: 75%;
+      height: 40%;
+      @include col(flex-end, space-around);
+      @include desktop {
+        width: 100%;
+        height: default;
+        @include flex(flex-start) {
+          flex-direction: row;
+        };
+      }
+      li {
+        color: color(grey);
+        padding: 1.2rem 0;
+        @include desktop {
+          font-size: .9rem;
+        }
+      }
+      li.active {
+        color: color(black);
+      }
       li:nth-child(n + 2) {
-        margin-left: 1.5rem;
+        margin-left: 3rem;
       }
-    }
-    li {
-      @include mobile {
-        margin: 1rem 0;
-      }
-      color: color(grey);
-    }
-    li.active {
-      color: color(black);
-      @include desktop;
     }
   }
-
-  .nav-bg.pinned {
+  .nav-bg {
+    position: absolute;
     z-index: -1;
     top: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    @include flex;
-    ul {
-      margin: 0 !important;
-      li:nth-child(n + 2) {
-        padding: 0.25rem 0 !important;
-      }
-    }
-    .bgblur {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      margin: 0 auto;
-      backdrop-filter: blur(20px);
-      background-color: rgba(color(light, dark), 0.5);
+    right: 0;
+    width: 65%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    background-color: rgba(color(grey, lighter), 0.85);
+    @include desktop {
+      display: none;
     }
   }
 }
+
+nav.toggle {
+  @include transition;
+  transform: translateX(0);
+  opacity: 1;
+}
+
 header,
 section {
   height: 100vh;
@@ -673,8 +708,8 @@ header {
     @include transition;
     &:hover > li {
       &:hover ~ li {
-      @include transition;
-      opacity: 0.35;
+        @include transition;
+        opacity: 0.35;
       }
       &:hover {
         @include transition;

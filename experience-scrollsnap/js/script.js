@@ -8,28 +8,33 @@ $(function () {
     navigation: true,
 		autoScrolling:true,
 		scrollHorizontally: true,
+    // scrollBar: true,
     // navigation: true,
     onLeave: (index, item) => {
       $total = $('.section').length;
       $index = item.index;
       $scrollPercent = $index/ ($total - 1);
       // $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
-      gsap.to(".scroll", {
-        scaleX: $scrollPercent,
-        ease: "power4.out",
-        duration: .6,
-      })
-    },
-    afterLoad: (index, item) => {
-      if (item.index == 0) {
+      if ($index == 0) {
         gsap.to(".scroll", {
           scaleX: 1,
-          ease: "power4.out",
+          ease: "expo.out",
           duration: 1,
         })
-      } else return;
-    }
+      } else {
+        gsap.to(".scroll", {
+          scaleX: $scrollPercent,
+          ease: "power4.out",
+          duration: .6,
+        })
+      };
+    },
 	});
+
+  $('.mobile-nav').click(function() {
+    $('nav').toggleClass('toggle');
+    $('.mobile-nav').toggleClass('toggle');
+  })
 
 	//methods
 	$.fn.fullpage.setAllowScrolling(true);
