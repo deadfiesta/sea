@@ -795,6 +795,30 @@ header {
   }
 }
 
+.half {
+  width: 100%;
+  @include col(center);
+  gap: 2rem;
+  ul.content {
+    width: 100%;
+    @include desktop {
+      @include flex(flex-start, space-around);
+    }
+    li {
+      margin: 1rem 0;
+      @include desktop {
+        margin: 0 1rem;
+      }
+      @include col{
+        gap: .5rem;
+        @include desktop {
+          gap: 2rem;
+        }
+      }
+    }
+  }
+}
+
 .quotes {
   @include flex;
   ul {
@@ -848,6 +872,14 @@ header {
   .content {
     @include desktop {
       flex-basis: 70%;
+    }
+  }
+}
+
+.flow {
+  .half {
+    ul.content > li {
+      flex-basis: calc(100%/5);
     }
   }
 }
