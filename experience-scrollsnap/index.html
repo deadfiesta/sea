@@ -28,9 +28,11 @@
             <div class="container">
                 <ul class="menu">
                     <li onclick="navclick(this)" data-link="header" class="active">Introduction</li>
-                    <li onclick="navclick(this)" data-link=".good">What's Good</li>
-                    <li onclick="navclick(this)" data-link=".improve">Improvements</li>
-                    <li onclick="navclick(this)" data-link=".afterthoughts">Afterthoughts</li>
+                    <li onclick="navclick(this)" data-link=".good">Overview</li>
+                    <li onclick="navclick(this)" data-link=".improve">Getting Started</li>
+                    <li onclick="navclick(this)" data-link=".afterthoughts">Chat List</li>
+                    <li onclick="navclick(this)" data-link=".afterthoughts">Chatroom</li>
+                    <li onclick="navclick(this)" data-link=".afterthoughts">Proposed Features</li>
                 </ul>
             </div>
             <div class="nav-bg">
@@ -231,6 +233,54 @@
                 </section>
             </div>
             <div class="section">
+                <section class="flow container" dark-mode=false>
+                    <div class="half">
+                        <ul class="titles">
+                            <li>
+                                <h2>The Outline</h2>
+                            </li>
+                        </ul>
+                        <ul class="content">
+                            <li>
+                                <div class="icon-container">
+                                    <i class="fas fa-download"></i>
+                                </div>
+                                <h4>Getting Started</h4>
+                                <p>From installation to onboarding</p>
+                            </li>
+                            <li>
+                                <div class="icon-container">
+                                    <i class="fas fa-swatchbook"></i>
+                                </div>
+                                <h4>General Overview</h4>
+                                <p>Design styles and color palette</p>
+                            </li>
+                            <li>
+                                <div class="icon-container">
+                                    <i class="fas fa-th-list"></i>
+                                </div>
+                                <h4>Chat List</h4>
+                                <p>Existing and new features related within the chat list panel</p>
+                            </li>
+                            <li>
+                                <div class="icon-container">
+                                    <i class="fas fa-comment-dots"></i>
+                                </div>
+                                <h4>Chatroom</h4>
+                                <p>Existing and new features related within the chatroom window</p>
+                            </li>
+                            <li>
+                                <div class="icon-container">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Proposed features</h4>
+                                <p>Other features not mentioned in other categories that I think may be helpful and go a long way</p>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+            <div class="section">
                 <section class="quotes container" dark-mode="true">
                     <ul>
                         <li>
@@ -243,42 +293,112 @@
                 </section>
             </div>
             <div class="section">
-                <section class="flow container" dark-mode=false>
-                    <div class="half">
-                        <ul class="titles">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
                             <li>
-                                <h2>The Outline</h2>
+                                <h5>01</h5>
+                            </li>
+                            <span class="label">Current</span>
+                            <li>
+                                <h2 class="title">Staying organised with a clean and minimal interface</h2>
+                            </li>
+                            <li>
+                                <p>Clear and direct with the essentials upfront. Good contrast and accessibility while maintaining an organised interface. Adopting a similar cookie cutter layout that most users are already familiar with. Performing tasks around the interface are pretty straightforward and easy to work with.</p>
                             </li>
                         </ul>
-                        <ul class="content">
-                            <li>
-                                <div class="icon-container"></div>
-                                <h4>Getting<br>Started</h4>
-                                <p>From installation to onboarding</p>
-                            </li>
-                            <li>
-                                <div class="icon-container">
-                                </div>
-                                <h4>General<br>Overview</h4>
-                                <p>Design styles and color palette</p>
-                            </li>
-                            <li>
-                                <div class="icon-container"></div>
-                                <h4>Chat List</h4>
-                            </li>
-                            <li>
-                                <div class="icon-container"></div>
-                                <h4>Chatroom</h4>
-                            </li>
-                            <li>
-                                <div class="icon-container"></div>
-                                <h4>Proposed<br>features</h4>
-                            </li>
-                        </ul>
+                        <div class="media-container clickable" >
+                            <img src="./images/st-window-old.jpg" alt="">
+                        </div>
                     </div>
                 </section>
             </div>
-            <div class="section">Some section</div>
+            <div class="section">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>02</h5>
+                            </li>
+                            <span class="label proposed">Proposal</span>
+                            <li>
+                                <h2 class="title">Slight color palette and style rework
+                                </h2>
+                            </li>
+                            <li>
+                                <p>Observing the design trends, modern designs are adopting saturated colors and simpler flat geometric shapes for a modern, clean and colorful aesthetic.</p>
+                            </li>
+                            <li>
+                                <div class="article-links" onclick="openme(this)" data-link="ui-design-trend">
+                                    <span class="links">A guide of UI design trends for 2021</span>
+                                    <sub>uxdesign.cc</sub>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable" >
+                            <video src="./videos/morph.webm" id="morph" data-type="video/webm" onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>03</h5>
+                            </li>
+                            <li>
+                                <span class="label current">Current</span>
+                            </li>
+                            <li>
+                                <h2 class="title">Preloading animation</h2>
+                            </li>
+                            <li>
+                                <p>Loading animation is a wonderful way to convey a brand concept, distract attention when waiting. Why not entertain the user while they wait?</p>
+                            </li>
+                            <li>
+                                <div class="article-links" onclick="openme(this)" data-link="loading-animation">
+                                    <span class="links">Everything you need to know about loading animations</span>
+                                    <sub>medium.com</sub>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable" onclick="openme(this)" id="loading-sea" data-type="image/gif">
+                            <!-- <video src="./videos/searchflow.webm" id="searchflow" playsinline muted loop></video> -->
+                            <img src="./images/loading-sea.gif" alt="">
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>04</h5>
+                            </li>
+                            <span class="label proposed">Proposal</span>
+                            <li>
+                                <h2 class="title">A brief guided tour for onboarding
+                                </h2>
+                            </li>
+                            <li>
+                                <p>A simple optional guided tour on first launch can assist and orientate the user around the interface especially during the onboarding process. A simple guide to get the user started right away.</p>
+                            </li>
+                            <li>
+                                <div class="article-links" onclick="openme(this)" data-link="product-tour">
+                                    <span class="links">What is the best UX/UI pattern for your product tour?</span>
+                                    <sub>appecues.com</sub>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable" >
+                            <video src="./videos/tour.webm" id="tour" data-type="video/webm" onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <div class="section">Some section</div>
             <div class="section">Some section</div>
             <div class="section">Some section</div>

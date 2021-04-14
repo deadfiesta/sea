@@ -196,34 +196,11 @@ section {
   background-color: color(primary);
 }
 
-.noise {
-  z-index: -1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100vw;
-  filter: brightness(400%);
-  @include bgimg {
-    background-image: url("../images/tex.png");
-  }
-}
-.ball {
-  z-index: -2;
-  position: absolute;
-  background-color: color(primary);
-  height: 50vh;
-  width: 50vh;
-  border-radius: 25vh;
-  top: 50%;
-  left: 50%;
-  filter: blur(50px);
-}
-
 .clickable {
+  cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.025);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 }
@@ -238,8 +215,16 @@ i.launch {
   }
 }
 
+video.solo {
+  border-radius: calc(#{$radius}*1);
+  max-height: 100vh;
+  width: 100%;
+  object-fit: cover;
+}
+
 .lity-iframe .lity-container {
   min-width: 1400px;
+  overflow: hidden;
 }
 
 #fp-nav ul li a span {
@@ -274,7 +259,10 @@ h3 {
 h4 {
   color: color(black, light);
   font-weight: get-me($fontweights, semibold);
-  font-size: 1.5rem;
+  font-size: 1.15rem;
+  @include desktop {
+    font-size: 1.5rem;
+  }
 }
 
 h5 {
@@ -297,6 +285,19 @@ i {
   font-size: 0.8rem;
 }
 
+.label {
+  width: fit-content;
+  font-size: .8rem;
+  padding: .65rem .9rem;
+  border-radius: calc(#{$radius}/1.5);
+  color: color(light);
+  background-color: color(grey, light);
+}
+
+.label.proposed {
+  background-color: color(primary);
+}
+
 p {
   font-size: 0.8rem;
   font-weight: get-me($fontweights, light);
@@ -306,18 +307,6 @@ p {
   }
 }
 
-video {
-  min-height: 100%;
-  max-width: 100%;
-  object-fit: cover;
-  border-radius: $radius;
-}
-
-video.solo {
-  border-radius: calc(#{$radius}* 2);
-  height: 100vh;
-  width: 100%;
-}
 nav.pinned {
   z-index: 20;
   width: 100%;
@@ -393,7 +382,7 @@ nav {
     transform: translateX(0);
     opacity: 1;
     backdrop-filter: blur(5px);
-    background-color: rgba(color(grey, lighter), .6);
+    background-color: rgba(color(grey, lighter), 0.6);
   }
   .container {
     height: 100%;
@@ -413,13 +402,13 @@ nav {
         height: default;
         @include flex(flex-start) {
           flex-direction: row;
-        };
+        }
       }
       li {
         color: color(grey);
         padding: 1.3rem 0 1.1rem 0;
         @include desktop {
-          font-size: .75rem;
+          font-size: 0.75rem;
         }
       }
       li.active {
@@ -681,16 +670,32 @@ header {
     }
   }
 }
-
+.media-container {
+  height: 100%;
+  width: 100%;
+  max-height: 800px;
+  overflow: hidden;
+  border-radius: $radius;
+  @include flex(center);
+  video,
+  img {
+    min-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: $radius;
+  }
+}
 .icon-container {
   position: relative;
   overflow: hidden;
   border-radius: $radius;
   min-width: 2.6rem;
+  max-width: 2.6rem;
   min-height: 2.6rem;
+  max-height: 2.6rem;
   @include flex(center, center);
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -1;
     width: 200%;
@@ -701,19 +706,102 @@ header {
     @include transition;
   }
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     z-index: -2;
     width: 200%;
     height: 200%;
     border-radius: 50%;
-    background-color: color(grey, lighter);
-    @include transition(.6);
+    background-color: rgba(color(primary), 0.05);
+    @include transition(0.6);
   }
   i {
     font-size: 1.2rem;
     color: color(primary);
     @include transition;
+  }
+}
+
+.article-links {
+  width: fit-content;
+  position: relative;
+  cursor: pointer;
+  padding: 0.15rem 1rem;
+  font-size: 0.65rem;
+  @include col {
+    gap: 0.35rem;
+  }
+  @include transition;
+  span {
+    color: color(grey, dark);
+  }
+  sub {
+    color: color(grey, light);
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(#{$radius} / 2);
+    height: 100%;
+    background-color: color(grey, lighter);
+    @include transition;
+  }
+  &:hover {
+    color: color(primary);
+    @include transition;
+  }
+  &:hover:before {
+    background-color: color(primary);
+    @include transition(0.15);
+  }
+  &:hover span.links {
+    color: color(primary);
+  }
+  &:hover i {
+    color: color(primary);
+  }
+  &:hover span.links:after {
+    padding-left: 0.75rem;
+    @include transition(0.2);
+  }
+}
+
+/* Hover Mixin */
+@mixin hover($transform: "translateX(5%)") {
+  li {
+    cursor: default;
+  }
+  li.unhover {
+    opacity: 0.45;
+    filter: saturate(0);
+  }
+  li.hover {
+    transform: #{$transform};
+    @include transition(0.3, cubic-bezier(0.34, 1.56, 0.64, 1));
+    .icon-container {
+      i {
+        color: color(light);
+        @include transition;
+      }
+      &:before {
+        transform: scale(0);
+        @include transition;
+      }
+      &:after {
+        transform: scale(1);
+        @include transition(0.6);
+      }
+    }
+  }
+  @content;
+}
+
+/** H2 Font Size **/
+.split, .half, .grid {
+  h2.title {
+    font-size: 1.5rem;
   }
 }
 
@@ -745,7 +833,6 @@ header {
       }
     }
     li {
-      cursor: pointer;
       @include transition;
       @include flex {
         align-items: flex-start;
@@ -755,27 +842,7 @@ header {
         }
       }
     }
-    li.unhover {
-      opacity: .25;
-    }
-    li.hover {
-      transform: translateX(5%);
-      @include transition(.3, cubic-bezier(0.34, 1.56, 0.64, 1));
-      .icon-container {
-        i {
-          color: color(light);
-          @include transition;
-        }
-        &:before {
-          transform: scale(0);
-          @include transition;
-        }
-        &:after {
-          transform: scale(1);
-          @include transition(.6);
-        }
-      }
-    }
+    @include hover;
     li > * {
       @include col {
         gap: 0.5rem;
@@ -795,6 +862,7 @@ header {
   }
 }
 
+/* HALF */
 .half {
   width: 100%;
   @include col(center);
@@ -802,23 +870,76 @@ header {
   ul.content {
     width: 100%;
     @include desktop {
-      @include flex(flex-start, space-around);
+      @include flex(stretch, space-between);
     }
+    @include hover(translateY(5%));
     li {
+      @include transition;
       margin: 1rem 0;
       @include desktop {
         margin: 0 1rem;
       }
-      @include col{
-        gap: .5rem;
+      @include col {
+        gap: 0.5rem;
         @include desktop {
           gap: 2rem;
         }
       }
     }
+    li.unhover {
+      opacity: 0.25;
+    }
   }
 }
 
+/* GRID */
+.grid {
+  width: 100%;
+  @include flex {
+    gap: 2rem;
+    flex-wrap: wrap;
+    @include desktop {
+      flex-wrap: nowrap;
+    }
+  }
+  ul {
+    @include desktop {
+      flex-basis: 40%;
+    }
+    @include col {
+      gap: 1.5rem;
+    }
+  }
+  width: 100%;
+}
+
+.business-goals {
+  .split {
+    @media (max-width: get-me($breakpoints, m)) {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+.user-goals {
+  .content {
+    @include desktop {
+      flex-basis: 70%;
+    }
+  }
+}
+
+.flow {
+  .half {
+    ul.content > li {
+      padding: 1rem;
+      border: 1px solid color(light, dark);
+      flex-basis: calc(100% / 5);
+    }
+  }
+}
+
+/* Quotes */
 .quotes {
   @include flex;
   ul {
@@ -856,30 +977,6 @@ header {
       font-size: 1.5rem;
       align-self: flex-end;
       font-weight: get-me($fontweights, light);
-    }
-  }
-}
-
-.business-goals {
-  .split {
-    @media (max-width: get-me($breakpoints, m)) {
-      flex-direction: column-reverse;
-    }
-  }
-}
-
-.user-goals {
-  .content {
-    @include desktop {
-      flex-basis: 70%;
-    }
-  }
-}
-
-.flow {
-  .half {
-    ul.content > li {
-      flex-basis: calc(100%/5);
     }
   }
 }

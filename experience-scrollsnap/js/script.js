@@ -14,6 +14,13 @@ $(function () {
       $($next).css('opacity', '1');
 
       /**
+       * Play/Pause Video
+       */
+      $video = "#"+ $($next).find('video').attr('id');
+      $($video).trigger('play')
+      console.log($video)
+
+      /**
        * Toggle Quotes Effect
        */
       $dark = $($next).find('section, header').attr('dark-mode');
@@ -78,44 +85,6 @@ $(function () {
 
   //methods
   $.fn.fullpage.setAllowScrolling(true);
-
-  // /**
-  //  * OLD
-  //  */
-
-  // /**Define nav variables */
-  // $nav = $("nav");
-  // $replace = $(".replace");
-  // $height = $nav.height();
-  // $sticky = $nav.offset().top + $height / 1.5;
-
-  // /**Sticky nav scrolling */
-  // $(window).on("scroll load", function () {
-  //   $window = $(window).scrollTop();
-  //   $menu = $(".menu").height();
-  //   $bg = $(".nav-bg");
-  //   $blur = $(".bgblur");
-  //   if ($window >= $sticky) {
-  //     $nav.addClass("pinned");
-  //     $bg.addClass("pinned");
-  //     $blur.css("height", $menu);
-  //     $replace.css("height", $height + 60);
-  //   } else {
-  //     $nav.removeClass();
-  //     $bg.removeClass("pinned");
-  //     $replace.css("height", 0);
-  //     $blur.css("height", 0);
-  //   }
-  // });
-
-  // /**Horizontal scroll progress*/
-  // $(window).scroll(function () {
-  //   $docHeight = $(document).height();
-  //   $winHeight = $(window).height();
-  //   $scroll = $(".scroll");
-  //   $scrollPercent = $(window).scrollTop() / ($docHeight - $winHeight);
-  //   $scroll.css("transform", "scaleX(" + $scrollPercent + ")");
-  // });
 });
 
 /**
@@ -125,10 +94,6 @@ $('ul.content li').hover(function () {
   $('ul.content li').toggleClass('unhover');
   $(this).removeClass('unhover').toggleClass('hover');
 })
-
-
-
-
 
 /**Nav clicks */
 function togglenav(condition) {
