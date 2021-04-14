@@ -6,19 +6,20 @@ $(function () {
     //options here
     licenseKey: 'YOUR_KEY_HERE',
     navigation: true,
+    slidesNavigation: false,
     // scrollBar: true,
     onLeave: (origin, destination, direction) => {
       $current = origin.item;
       $next = destination.item;
       $($current).css('opacity', '0');
       $($next).css('opacity', '1');
+      console.log($next)
 
       /**
        * Play/Pause Video
        */
       $video = "#"+ $($next).find('video').attr('id');
       $($video).trigger('play')
-      console.log($video)
 
       /**
        * Toggle Quotes Effect

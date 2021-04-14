@@ -216,7 +216,7 @@ i.launch {
 }
 
 video.solo {
-  border-radius: calc(#{$radius}*1);
+  border-radius: calc(#{$radius}* 1);
   max-height: 100vh;
   width: 100%;
   object-fit: cover;
@@ -287,15 +287,35 @@ i {
 
 .label {
   width: fit-content;
-  font-size: .8rem;
-  padding: .65rem .9rem;
-  border-radius: calc(#{$radius}/1.5);
-  color: color(light);
-  background-color: color(grey, light);
+  font-size: 0.6rem;
+  font-weight: get-me($fontweights, semibold);
+  padding: 0.65rem 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border-radius: calc(#{$radius}/ 1.5);
+  color: rgba(color(light), .9);
+  background-color: rgba(color(seatalk, dark), 1);
+  &:before {
+    content: "\f1d8";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: .6rem;
+    padding-right: .4rem;
+  }
+  &:after {
+    content: "current";
+  }
 }
 
 .label.proposed {
   background-color: color(primary);
+  &:before {
+    content: "\f3a5" !important;
+    font-weight: 400 !important;
+  }
+  &:after {
+    content: "proposal" !important;
+  }
 }
 
 p {
@@ -799,9 +819,16 @@ header {
 }
 
 /** H2 Font Size **/
-.split, .half, .grid {
-  h2.title {
-    font-size: 1.5rem;
+.split,
+.half,
+.grid {
+  @include desktop {
+    h2.title {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: .8rem;
+    }
   }
 }
 
@@ -1363,7 +1390,8 @@ section.improve {
         top: 0;
         left: 0;
         @include bgimg;
-        transition: opacity 0.6s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        transition: opacity 0.6s ease,
+          transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         a {
           display: block;
           width: 100%;
