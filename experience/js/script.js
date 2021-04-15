@@ -1,50 +1,173 @@
 $(function () {
+  var tooltips = [];
+  $('.section').each(function () {
+    tooltips.push($(this).attr('title'));
+  })
+  /**
+   * FullpageJs
+   */
+  $('#fullpage').fullpage({
+    //options here
+    licenseKey: 'YOUR_KEY_HERE',
+    navigation: true,
+    navigationTooltips: tooltips,
+    // showActiveTooltip: true,
+    // scrollBar: true,
+    afterRender: () => {
+      gsap.to('nav', {
+        yPercent: -100,
+      })
+    },
+    onLeave: (origin, destination, direction) => {
+      $current = origin.item;
+      $next = destination.item;
+      $destination = destination.index;
+      $imgurl = '';
+      $cat = $(destination.item).attr('cat');
+      $end = $(destination.item).attr('title');
 
-  /**Define nav variables */
-  $nav = $("nav");
-  $replace = $(".replace");
-  $height = $nav.height();
-  $sticky = $nav.offset().top + $height / 1.5;
+      $($current).css('opacity', '0');
+      $($next).css('opacity', '1');
 
-  /**Sticky nav scrolling */
-  $(window).on("scroll load", function () {
-    $window = $(window).scrollTop();
-    $menu = $(".menu").height();
-    $bg = $(".nav-bg");
-    $blur = $(".bgblur");
-    if ($window >= $sticky) {
-      $nav.addClass("pinned");
-      $bg.addClass("pinned");
-      $blur.css("height", $menu);
-      $replace.css("height", $height + 60);
-    } else {
-      $nav.removeClass();
-      $bg.removeClass("pinned");
-      $replace.css("height", 0);
-      $blur.css("height", 0);
-    }
+      /**
+      * Coverpage background toggle
+      */
+      switch ($end) {
+        case "introduction":
+        case "started":
+        case "chatlist":
+        case "chatroom":
+        case "features":
+          $('footer').css('background-image', 'url(../images/' + $end + '.jpg)');
+          $('footer').fadeIn(300);
+          break;
+        case "end":
+          // animItem.goToAndPlay(0, true);
+          break;
+        default:
+          $('footer').fadeOut();
+      }
+
+      /**
+       * Nav toggle
+       */
+      switch ($cat) {
+        case "1":
+        case "2":
+        case "3":
+        case "4":
+        case "5":
+          $('nav .menu li').removeClass('active');
+          $('nav .menu li:nth-child(' + $cat + ')').toggleClass('active');
+          break;
+        default:
+          $('nav .menu li').removeClass('active');
+      }
+
+      /**
+       * Play/Pause Video
+       */
+      $video = "#" + $($next).find('video').attr('id');
+      $($video).trigger('play');
+
+      /**
+       * End lottie start
+       */
+      // ($end == "end" ? animItem.goToAndPlay(0, true) : animItem.goToAndStop(0))
+
+      /**
+       * Toggle Quotes Effect
+       */
+      $dark = $($next).find('section, header').attr('dark-mode');
+
+      const original = getComputedStyle(document.querySelector("body"));
+
+      let c = '';
+      let bg = '';
+      let y = '';
+      let d = '';
+
+      if ($dark == "true") {
+        c = "#fff";
+        bg = "#000";
+        y = '-100';
+        d = 0;
+      } else {
+        c = original.color;
+        bg = original.backgroundColor;
+        y = '0';
+        d = 1;
+      }
+
+      gsap.to("main", {
+        color: c,
+        backgroundColor: bg,
+        ease: "expo.inOut",
+      })
+
+      if ($destination > 0) {
+        gsap.to('nav', {
+          yPercent: y,
+          ease: "expo.inOut"
+        })
+      } else {
+        gsap.to('nav', {
+          yPercent: -100,
+          ease: "expo.inOut"
+        })
+      }
+
+      /**
+       * Scroller Anim
+       */
+      $total = $('.section').length;
+      $index = destination.index;
+      $scrollPercent = $index / ($total - 1);
+      // $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
+      if ($index == 0) {
+        gsap.to(".scroll", {
+          scaleX: 1,
+          ease: "expo.inOut",
+          duration: 1,
+        })
+      } else {
+        gsap.to(".scroll", {
+          scaleX: $scrollPercent,
+          ease: "power4.out",
+          duration: .6,
+        })
+      };
+    },
   });
 
-  /**Horizontal scroll progress*/
-  $(window).scroll(function () {
-    $docHeight = $(document).height();
-    $winHeight = $(window).height();
-    $scroll = $(".scroll");
-    $scrollPercent = $(window).scrollTop() / ($docHeight - $winHeight);
-    $scroll.css("transform", "scaleX(" + $scrollPercent + ")");
-  });
+  $('.mobile-nav').click(function () {
+    $('nav').toggleClass('toggle');
+    $('.mobile-nav').toggleClass('toggle');
+  })
+
+  //methods
+  $.fn.fullpage.setAllowScrolling(true);
 });
 
-/**Nav clicks */
+/**
+ * li hovers & unhovers
+ */
+$('ul.content li').hover(function () {
+  $('ul.content li').toggleClass('unhover');
+  $(this).removeClass('unhover').toggleClass('hover');
+})
+
+/**
+ * 
+ * Navclick swap
+ */
+
 function navclick(what) {
-  $what = $(what).attr('data-link');
-  let view = document.querySelector($what);
-  view.scrollIntoView(true);
+  $where = $(what).attr('data-link');
+  fullpage_api.moveTo($where);
 }
 
 /**Open Links Litty */
-
-//Note to self
 
 /**Create unique case for external link
  * For images and videos id = filename
@@ -113,82 +236,20 @@ function openme(data) {
       }
       break;
   }
-
   var lightbox = lity($url);
 }
 
-/**Mouseover events */
-$(".examples").mouseover(function (e) {
-  $button = $(this);
-  $url = "https://dribbble.com/shots/";
-  $example = $(".example-toggle");
-  $app = "";
-  $html = "";
-  $new = $(this).attr("data-example");
-
-  $(".examples").removeClass("decorated");
-  $button.addClass("decorated");
-
-  switch ($new) {
-    case "keyvue":
-      $html = `<video class="clickable" onclick="openme(this)" id="keychat" data-type="video/webm" id="${$new}" src="videos/keychat.webm" playsinline muted autoplay loop></video>\
-      <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>KeyVue Chat</h6></span></a>`;
-      append();
-      return;
-    case "eg-corporate-messenger":
-      $app = "Corporate Messenger";
-      $url += "10724462-Corporate-messenger";
-      break;
-    case "eg-startmatcher":
-      $app = "Startmatcher Communication App";
-      $url += "7086922-Startmatcher-Communication-App";
-      break;
-    case "eg-stocklabs":
-      $app = "Stocklabs Collaboration";
-      $url += "12575677-Introducing-Stocklabs-Collaboration";
-  }
-  $html = `<img class="clickable" id="${$new}" onclick="openme(this)" data-type="image/png" src="images/${$new}.png" alt="">\
-  <a href="${$url}" target="_blank" class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i class="fas fa-basketball-ball brand dribbble"></i><h6>${$app}</h6></span></a>`;
-
-  append();
-
-  function append() {
-    if (!$button.hasClass("selected")) {
-      $example.fadeOut("fast", function () {
-        $example.html($html);
-        $example.fadeIn("fast", function () {
-          $(".examples").removeClass("selected");
-          $button.addClass("selected");
-        });
-      });
-    }
-  }
-});
-
-/**Examples change */
-function swap(what) {
-  //Note to self
-
-  /** id of media = data-example of hovering element
-   *  .button-toggle container data-section="<groupname>"
-   *  .contain-media container id = "<groupname>"
-   */
-
-  //Get parent
-  $papa = $(what).parent().attr("data-section");
-
-  //Only remove deorated class within parent and add to hovered item
-  $("[data-section=" + $papa + "]" + " button").removeClass("decorated");
-  $(what).addClass("decorated");
-  $what = $(what).attr("data-example");
-
-  //Show and hide media
-  $("#" + $papa + ".contain-media .preview")
-    .css("opacity", 0)
-    .css("pointer-events", "none");
-  $("#" + $what)
-    .css("opacity", 1)
-    .css("pointer-events", "all");
-}
-
-
+/**
+ * Lottie
+ */
+const svgContainer = document.getElementById('confetti');
+const animItem = bodymovin.loadAnimation({
+  wrapper: svgContainer,
+  animType: 'svg',
+  loop: false,
+  autoplay: false,
+  path: 'https://assets9.lottiefiles.com/packages/lf20_REOnx3.json'
+})
+animItem.addEventListener('complete', () => {
+  animItem.goToAndStop(0);
+})

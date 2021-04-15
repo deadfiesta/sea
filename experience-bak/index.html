@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience Report</title>
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/lity.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="scroll"></div>
+    <nav>
+        <div class="container">
+            <ul class="menu">
+                <li><img src="./images/seatalk-ios.png" alt="">
+                    <h4>SeaTalk</h4><span></span>
+                    <h6>Experience</h6>
+                </li>
+                <li onclick="navclick(this)" data-link="header" class="active">Introduction</li>
+                <li onclick="navclick(this)" data-link=".good">What's Good</li>
+                <li onclick="navclick(this)" data-link=".improve">Improvements</li>
+                <li onclick="navclick(this)" data-link=".afterthoughts">Afterthoughts</li>
+                <!-- <li>Takeaways</li> -->
+            </ul>
+        </div>
+        <div class="nav-bg">
+            <div class="bgblur"></div>
+        </div>
+    </nav>
+    <div class="replace"></div>
+    <header>
+        <div class="container">
+            <ul>
+                <li id="header-left">
+                    <h3>UI/UX Case Study</h3>
+                    <h1>Product analysis and re-imagining the future for SeaTalk</h1>
+                    <p>Analysing the user experience of SeaTalk (desktop) to weigh them against its business goals to
+                        improve
+                        overall business operations and reducing traditionally hand-handled administrative processes.
+                    </p>
+                    <hr>
+                    <div class="by">
+                        <div class="profile">
+                            <div class="me"></div>
+                        </div>
+                        <div class="title">
+                            <span>Neo Wen Kiong</span>
+                            <span>19 March, 2021</span>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="chatroom">
+                        <ul class="title">
+                            <li></li>
+                            <li class="titlebar">The High Council <span>Dept.</span></li>
+                            <li><img src="./images/ic-more.png" alt=""></li>
+                        </ul>
+                        <ul class="chat">
+                            <li id="time">Today: 9:41 AM</li>
+                            <li class="dialogue" id="dia01">
+                                <div class="avatar" id="id01"></div>
+                                <div class="bubble" id="bubble01">
+                                    <div class="message-left" id="msg01">
+                                        Hey guys, how's the concept art coming along? <span class="mention">@here</span>
+                                    </div>
+                                    <div class="status" id="stat01">
+                                        <span class="name">Elaine Lawrence</span>
+                                        <span class="time">9:41 AM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dialogue" id="dia02">
+                                <div class="avatar" id="id02"></div>
+                                <div class="bubble" id="bubble02">
+                                    <div class="message-left">
+                                        <div class="attachment">
+                                            <div class="file-container">
+                                                <div class="file">
+                                                    <img src="./images/file-type-ai.png" alt="">
+                                                </div>
+                                                <span class="filename">JLR-logo-v2.ai</span>
+                                            </div>
+                                            <div class="fileinfo">
+                                                <span class="filesize">250KB</span>
+                                                <span class="filetype">AI</span>
+                                            </div>
+                                        </div>
+                                        The draft is still in development.
+                                    </div>
+                                    <div class="status" id="stat02">
+                                        <span class="name">Joel Park Jin-Sang</span>
+                                        <span class="time">9:42 AM</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="dialogue" id="dia03">
+                                <div class="bubble" id="bubble03">
+                                    <div class="message-right">
+                                        Looking good! Looking forward to the end product. &#9996;
+                                    </div>
+                                    <div class="status">
+                                        <img src="./images/ic-checkmark.png" alt="">
+                                        <span class="time">9:54 AM</span>
+                                    </div>
+                                </div>
+                                <div class="avatar" id="id03"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section class="keywords">
+        <div class="container">
+            <ul class="top">
+                <li>
+                    <h3 id="h301">Introducing the 3 'S'es</h3>
+                </li>
+                <li>
+                    <h2>Understanding SeaTalk business goals for their consumers</h2>
+                </li>
+                <li>
+                    <p>Simplifying into 3 keywords by deconstructing SeaTalk’s slogan</p><span>"One-stop for
+                        work"</span>
+                </li>
+            </ul>
+            <hr>
+            <ul class="bottom">
+                <li>
+                    <div class="icon-container">
+                        <object data="./images/ico-simplicity.svg" type="image/svg+xml">
+                            <img src="./images/ico-simplicity.png" alt="">
+                        </object>
+                    </div>
+                    <h4>Simplicity</h4>
+                    <p>Approachable user design with easy-to-use functionalities.</p>
+                </li>
+                <li>
+                    <div class="icon-container">
+                        <object data="./images/ico-seamless.svg" type="image/svg+xml">
+                            <img src="./images/ico-seamless.png" alt="">
+                        </object>
+                    </div>
+                    <h4>Seamless</h4>
+                    <p>Internal integrations within the app and some degree of external integration with
+                        third-party platforms.</p>
+                </li>
+                <li>
+                    <div class="icon-container">
+                        <object data="./images/ico-sustainable.svg" type="image/svg+xml">
+                            <img src="./images/ico-sustainable.png" alt="">
+                        </object>
+                    </div>
+                    <h4>Sustainable</h4>
+                    <p>Save time and money so businesses can focus theirs resources to iron out
+                        business operations for stability and permanence.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="review">
+        <div class="container">
+            <ul>
+                <li class="left">
+                    <ul>
+                        <li class="lefty-in" id="effortlessness">
+                            <div class="icon-container">
+                                <object data="./images/ico-effortlessness.svg" type="image/svg+xml">
+                                    <img src="./images/ico-effortlessness.png" alt="">
+                                </object>
+                            </div>
+                            <h4>Effortlessness</h4>
+                            <h3>How easy was it to use?</h3>
+                            <p>
+                                The need for SeaTalk to be as intuitive as possible is essential as our target audience
+                                are
+                                average tech consumers who may not be “app-savvy”. The last thing we want is to
+                                intimidate our
+                                users and drop our app at first sight.
+                                <span></span>
+                                Effortlessness should have the highest weight. We want to welcome and motivate our users
+                                to dive
+                                right in with a design that they’re familiar with. A friendly interface that requires
+                                very
+                                little guidance or learning curve.
+                            </p>
+                        </li>
+                        <li class="lefty-in" id="effectiveness">
+                            <div class="icon-container">
+                                <object data="./images/ico-effectiveness.svg" type="image/svg+xml">
+                                    <img src="./images/ico-effectiveness.png" alt="">
+                                </object>
+                            </div>
+                            <h4>Effectiveness</h4>
+                            <h3>How well of a job did it do?</h3>
+                            <p>
+                                Features in SeaTalk should add value whenever possible. This means giving the users an
+                                end
+                                result better than their desired expectation of the action performed.
+                            </p>
+                        </li>
+                        <li class="lefty-in" id="effiency">
+                            <div class="icon-container">
+                                <object data="./images/ico-effiency.svg" type="image/svg+xml">
+                                    <img src="./images/ico-effiency.png" alt="">
+                                </object>
+                            </div>
+                            <h4>Efficiency</h4>
+                            <h3>How fast to get the job done?</h3>
+                            <p>
+                                The nature of any productivity app like SeaTalk should assist users to accomplish more
+                                but with
+                                less work in less time. Every action should be seamless; simplified and autonomous,
+                                cutting down
+                                as many steps as possible.
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li class="right">
+                    <div id="reviewing-header">
+                        <h3>Understanding the 3 'E's</h3>
+                        <h2>Reviewing the experience as a productivity and collaborative platform</h2>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <hr style="height: 50px;">
+    <section class="regular overview ">
+        <div class="container">
+            <ul class="top">
+                <li>
+                    <h2>Overview</h2>
+                </li>
+                <li>
+                    <h3>First-hand experience and observations</h3>
+                </li>
+            </ul>
+            <hr>
+            <ul id="overview-list" class="bottom">
+                <li>
+                    <div class="media">
+                        <object data="./images/simple-st.svg" type="image/svg+xml">
+                            <img src="./images/simple-st.png" alt="">
+                        </object>
+                    </div>
+                    <div class="text">
+                        <h2>Staying organised with a clean and minimal interface</h2>
+                        <p>Clear and direct with the essentials upfront. Good contrast and accessibility while
+                            maintaining an organised interface.</p>
+                        <p>Adopting a similar cookie cutter layout that most users are already familiar with. Performing
+                            tasks around the interface are pretty straightforward and easy to work with.</p>
+                        <div onclick="openme(this)" data-link="ui-design-trend" class="article-links">
+                            <span class="links">10 Newest and promising UI design trends</span>
+                            <sub>uxdesign.cc</sub>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="example-toggle">
+                            <video class="clickable" onclick="openme(this)" id="keychat" data-type="video/webm"
+                                src="./videos/keychat.webm" playsinline muted autoplay loop></video>
+                            <a href="https://dribbble.com/shots/14953087-KeyVue-chat" target="_blank"
+                                class="credits dribbble"><i class="abs arrow-right fas fa-chevron-right"></i><i
+                                    class="fas fa-basketball-ball brand dribbble"></i>
+                                <h6>KeyVue Chat</h6></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <h2>Standing out from the crowd and creating an impression</h2>
+                        <!-- <p>Are we similar? &#129300;</p> -->
+                        <p>Some features may be too similar of a resemblance with competitors. We all know the saying
+                            "Don't fix what's not broken" and trying something new carries risk.</p>
+                        <p>I believe we can innovate the current working formula to distinguish ourselves among the
+                            herd. Afterall, high risk (yield) high reward. Some examples of indifferent UI concepts:</p>
+                        <div class="button-toggle">
+                            <button class="examples selected decorated" data-example="keyvue">EX 1</button>
+                            <button class="examples" data-example="eg-corporate-messenger">EX 2</button>
+                            <button class="examples" data-example="eg-startmatcher">EX 3</button>
+                            <button class="examples" data-example="eg-stocklabs">EX 4</button>
+                        </div>
+                        <div onclick="openme(this)" data-link="discord-growth-story" class="article-links">
+                            <span class="links">Discord Growth Story</span>
+                            <sub>clickup.com</sub>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="leblanc" class="quote">
+        <div class="container">
+            <ul class="quote02">
+                <li>A user interface is a like a joke. If you have to explain it, it's not that good.</li>
+                <li>Martin Leblanc</li>
+            </ul>
+        </div>
+    </section>
+    <section class="regular good">
+        <div class="container">
+            <ul class="top">
+                <li>
+                    <h2>The Good Stuff</h2>
+                </li>
+                <li>
+                    <h3>Let's keep it that way</h3>
+                </li>
+            </ul>
+            <hr>
+            <ul id="good-list" class="bottom">
+                <li>
+                    <div class="media">
+                        <img class="clickable" onclick="openme(this)" id="loading-sea" data-type="image/gif"
+                            src="./images/loading-sea.gif" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>01</h5>
+                            <h2>Preloading animation</h2>
+                        </div>
+                        <p>Loading animation is a wonderful way to convey a brand concept, distract attention when
+                            waiting. Why not entertain the user while they wait?</p>
+                        <div onclick="openme(this)" data-link="loading-animation" class="article-links">
+                            <span class="links">Everything you need to know about loading animations</span>
+                            <sub>medium.com</sub>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="searchflow" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/searchflow.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>02</h5>
+                            <h2>The flow from searching messages to the chat</h2>
+                        </div>
+                        <p>The auto focus and the little wiggle at the end is subtle but very helpful to bring attention
+                            to the specific chat bubble where the result was found.</p>
+                        <div onclick="openme(this)" data-link="search-interface" class="article-links">
+                            <span class="links">Search interface: 20 things to consider</span>
+                            <sub>uxplanet.org</sub>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <video class="clickable" onclick="openme(this)" id="replyhover" data-type="video/webm"
+                            src="./videos/replyhover.webm" playsinline muted autoplay loop></video>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>03</h5>
+                            <h2>Quick reply menu on hover</h2>
+                        </div>
+                        <p>Quickly reply to a specific text (especially helpful in group chats). No fuss no muss.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <video class="clickable" onclick="openme(this)" id="modal" data-type="video/webm"
+                            src="./videos/modal.webm" playsinline muted autoplay loop></video>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>04</h5>
+                            <h2>Modal windows for search result and adding new contacts/chat</h2>
+                        </div>
+                        <p>Modals are a great way to avoid interrupting the user's workflow from the main window while
+                            drawing attention to the new information on screen. Users can multitask and easily return to
+                            their original task at hand.</p>
+                    </div>
+                </li>
+                <!-- <li>
+                    <div class="media">
+                        <img src="./images/placeholder.png" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>05</h5>
+                            <h2>Screenshot region auto snapping</h2>
+                        </div>
+                        <p>Modals are a great way to avoid interrupting the user's workflow from the main window while
+                            drawing attention to the new information on screen. Users can multitask and easily return to
+                            their original task at hand.</p>
+                    </div>
+                </li> -->
+                <!-- <li>
+                    <div class="media">
+                        <img src="./images/placeholder.png" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>06</h5>
+                            <h2>Line break tip</h2>
+                        </div>
+                        <p>Informing users that they can draft and format their messages instead of sending multiple
+                            messages to start on a new line. While this may sound trivial but this tip gives the user
+                            the assurance that line breaking is possible in the text field. </p>
+                    </div>
+                </li> -->
+                <li>
+                    <div class="media">
+                        <img src="./images/placeholder.png" alt="">
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>05</h5>
+                            <h2>Combined forward text sent as chat history object</h2>
+                        </div>
+                        <p>Full details are embedded along with the messages. They’re easy to refer to and they don’t
+                            flood the chat room unnecessarily.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="rams" class="quote">
+        <div class="container">
+            <ul class="quote01">
+                <li>Good design is as little design as possible.</li>
+                <li>Dieter Rams</li>
+            </ul>
+        </div>
+    </section>
+    <section class="regular improve">
+        <div class="container">
+            <ul id="improving" class="top">
+                <li>
+                    <h2>What can be improved</h2>
+                </li>
+                <li>
+                    <h3>Let's make it better</h3>
+                </li>
+            </ul>
+            <ul id="morph-intro" class="top">
+                <li id="morph-li">
+                    <canvas id="hero-lightpass"></canvas>
+                </li>
+            </ul>
+            <hr>
+            <ul id="improve-list" class="bottom">
+                <li>
+                    <div class="media">
+                        <div id="rework" class="contain-media">
+                            <div onclick="openme(this)" id="morph" data-type="video/webm" class="preview clickable">
+                                <video id="morph" src="./videos/morph.webm" playsinline muted autoplay loop></video>
+                            </div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-old" style="opacity: 0; pointer-events: none;"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-diff" style="opacity: 0; pointer-events: none"></div>
+                            <div onclick="openme(this)" data-type="image/jpg" class="preview clickable"
+                                id="st-window-diff-labels" style="opacity: 0; pointer-events: none"></div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>01</h5>
+                            <h2>Slight color palette and style rework</h2>
+                        </div>
+                        <p>Observing the design trends, modern designs are adopting saturated colors and simpler flat
+                            geometric shapes for a modern, clean and colorful aesthetic.</p>
+                        <div data-link="rework" onclick="openme(this)" class="figma">
+                            <div class="figma-icon"></div>
+                            <p>View on Figma</p><span class="material-icons">
+                                arrow_right
+                            </span>
+                        </div>
+                        <div data-section="rework" class="button-toggle">
+                            <button class="decorated" data-example="morph" onmouseover="swap(this)">After</button>
+                            <button data-example="st-window-old" onmouseover="swap(this)">Before</button>
+                            <button data-example="st-window-diff" onmouseover="swap(this)">Difference</button>
+                            <button data-example="st-window-diff-labels" onmouseover="swap(this)">Labels</button>
+                        </div>
+                        <div onclick="openme(this)" data-link="guide-ui-design-trend" class="article-links">
+                            <span class="links">A guide of UI design trends for 2021</span>
+                            <sub>uxdesign.cc</sub>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="tour" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/tour.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>02</h5>
+                            <h2>A brief guided tour for onboarding</h2>
+                        </div>
+                        <p>A simple optional guided tour on first launch can assist and orientate the user around the
+                            interface especially during the onboarding process. A simple guide to get the user started
+                            right away.</p>
+                        <div onclick="openme(this)" data-link="product-tour" class="article-links">
+                            <span class="links">What is the best UX/UI pattern for your product tour?</span>
+                            <sub>appecues.com</sub>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="collapse" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/collapse.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>03</h5>
+                            <h2>Collapsible Chat List</h2>
+                        </div>
+                        <p>The option to collapse the chat list to free up screen real estate for more important
+                            windows. Responsive resizing should close the chat list past a break point.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="availability" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/availability.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>04</h5>
+                            <h2>Visual indicator for status availability</h2>
+                        </div>
+                        <p>When you send a message, it’s very useful to know whether or not it will be read right away. Presence status in chat gives you this capability. Managing user's expectations of
+                            responsiveness. </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="hover" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/hover.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>05</h5>
+                            <h2>Hover state triggers a "more-option" menu</h2>
+                        </div>
+                        <p>Ease of access for option menu than having to do an extra right click. Raise awareness to
+                            users that more options are available at the same time.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="maxwidth" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/maxwidth.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>06</h5>
+                            <h2>Reducing chat bubble max width</h2>
+                        </div>
+                        <p>Reducing the horizontal travelling distance of the eyes when reading long messages when the
+                            app is expanded or in full view.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="muting" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/muting.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>07</h5>
+                            <h2>Conditional muting options</h2>
+                        </div>
+                        <p>Giving users the options to be notified on different scenarios and conditions. i.e. push
+                            notifications on tagged only etc.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="bookmark" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/bookmark.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>08</h5>
+                            <h2>Bookmarking messages</h2>
+                        </div>
+                        <p>Let the user bookmark a message for reference in the future. Unlike “later” feature, it’s a
+                            saved message instead of a reminder for following up.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="forward" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/forward.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>09</h5>
+                            <h2>Source of origin for single forwarded text</h2>
+                        </div>
+                        <p>Providing context of the chat for the recipient. Sending forwarded text in the same fashion
+                            as any ordinary text can be confusing to the recipient.
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="typing" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/typing.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>10</h5>
+                            <h2>Typing awareness indicator</h2>
+                        </div>
+                        <p>Humanising communication and facilitating the linguistics of conversational turn-taking
+                            without impinging on each other. TDLR: Prevent interruption.
+                        </p>
+                        <div onclick="openme(this)" data-link="typing-awareness" class="article-links">
+                            <span class="links">Why the typing awareness indicator is the worst</span>
+                            <sub>bustle.com</sub>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="afterthoughts regular">
+        <div class="container">
+            <ul class="top">
+                <li>
+                    <h2>Afterthoughts</h2>
+                </li>
+                <li>
+                    <h3>Small things that go a long way</h3>
+                </li>
+            </ul>
+            <hr>
+            <ul id="afterthoughts-list" class="bottom">
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="inbox" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/inbox.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>01</h5>
+                            <h2>Notification Inbox</h2>
+                        </div>
+                        <p>Consolidated notifications regarding any attention required for the user specifically whenever the user was mentioned. This allows user to have an overview at a glance quickly.</p>
+                        <!-- <div onclick="openme(this)" data-link="product-tour" class="article-links">
+                            <span class="links">What is the best UX/UI pattern for your product tour?</span>
+                            <sub>appecues.com</sub>
+                        </div> -->
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="image" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/image.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>02</h5>
+                            <h2>Send images as original file</h2>
+                        </div>
+                        <p>Giving the user the option to send an image file in original file to retain quality as lossy compression can result in color degradation. This potentially can cause an issue for sharing color sensitive work.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="here" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/here.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>03</h5>
+                            <h2>An @here mention for group chat</h2>
+                        </div>
+                        <p>A type of mention that only notifies everyone except those who are offline and do not suppress an @here mention from a group chat.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="media">
+                        <div class="contain-media">
+                            <div onclick="openme(this)" id="edit" data-type="video/webm" class="preview clickable">
+                                <video src="./videos/edit.webm" playsinline muted autoplay loop></video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text">
+                        <div class="header">
+                            <h5>04</h5>
+                            <h2>Edit chat and showing revision</h2>
+                        </div>
+                        <p>Correct typos and revise text to look better especially when that message is pinned.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="end" class="quote">
+        <div class="svg hide" id="svg"></div>
+        <div class="container">
+            
+            <ul class="quote03">
+                <li style="align-self: center;">Thank you for your attention.</li>
+                <li style="align-self: center;">The End</li>
+            </ul>
+        </div>
+    </section>
+    <div class="js" style="display: none;">
+        <script src="./js/jquery-3.6.0.min.js"></script>
+        <script src="./js/lity.min.js"></script>
+        <script src="./js/gsap.min.js"></script>
+        <script src="./js/ScrollTrigger.min.js"></script>
+        <script src="./js/TextPlugin.min.js"></script>
+        <script src="https://kit.fontawesome.com/b6a315a43e.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+        <script src="./js/script.js"></script>
+        <script src="./js/anim.js"></script>
+    </div>
+</body>
+
+</html>
