@@ -38,7 +38,7 @@ $(function () {
         case "chatlist":
         case "chatroom":
         case "features":
-          $('footer').css('background-image', 'url(../images/' + $end + '.jpg)');
+          $('footer').css('background-image', 'url(./images/' + $end + '.jpg)');
           $('footer').fadeIn(300);
           break;
         case "end":
