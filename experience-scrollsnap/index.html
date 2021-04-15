@@ -27,12 +27,11 @@
         <nav>
             <div class="container">
                 <ul class="menu">
-                    <li onclick="navclick(this)" data-link="header" class="active">Introduction</li>
-                    <li onclick="navclick(this)" data-link=".good">Overview</li>
-                    <li onclick="navclick(this)" data-link=".improve">Getting Started</li>
-                    <li onclick="navclick(this)" data-link=".afterthoughts">Chat List</li>
-                    <li onclick="navclick(this)" data-link=".afterthoughts">Chatroom</li>
-                    <li onclick="navclick(this)" data-link=".afterthoughts">Proposed Features</li>
+                    <li onclick="navclick(this)" data-link="1">Introduction</li>
+                    <li onclick="navclick(this)" data-link="6">Getting Started</li>
+                    <li onclick="navclick(this)" data-link="12">Chat List</li>
+                    <li onclick="navclick(this)" data-link="19">Chatroom</li>
+                    <li onclick="navclick(this)" data-link="26">Proposed Features</li>
                 </ul>
             </div>
             <div class="nav-bg">
@@ -41,7 +40,7 @@
         </nav>
         <div class="replace"></div>
         <div id="fullpage">
-            <div class="section">
+            <div class="section" cat="0" title="cover">
                 <header class="container" dark-mode="false">
                     <ul class="cover">
                         <li class="titles">
@@ -126,8 +125,24 @@
                     </ul>
                 </header>
             </div>
-            <div class="section">
-                <section class="business-goals container" dark-mode="false">
+            <div class="section" cat="1" title="introduction">
+                <section class="container" dark-mode="false">
+                    <ul class="coverpage">
+                        <li>
+                            <h2>Introduction</h2>
+                        </li>
+                        <li class="subtopics">
+                            <h3>Business Goals</h3>
+                            <span></span>
+                            <h3>User Goals</h3>
+                            <span></span>
+                            <h3>Presentation Outline</h3>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="section" cat="1" title="business goals">
+                <section class="container" dark-mode="false">
                     <div class="split">
                         <ul class="content">
                             <li>
@@ -176,7 +191,7 @@
                     </div>
                 </section>
             </div>
-            <div class="section">
+            <div class="section" cat="1" title="user goals">
                 <section class="user-goals container" dark-mode="false">
                     <div class="split">
                         <ul class="titles">
@@ -232,7 +247,7 @@
                     </div>
                 </section>
             </div>
-            <div class="section">
+            <div class="section" cat="1" title="outline">
                 <section class="flow container" dark-mode=false>
                     <div class="half">
                         <ul class="titles">
@@ -274,13 +289,30 @@
                                     <i class="fas fa-rocket"></i>
                                 </div>
                                 <h4>Proposed features</h4>
-                                <p>Other features not mentioned in other categories that I think may be helpful and go a long way</p>
+                                <p>Other features not mentioned in other categories that I think may be helpful and go a
+                                    long way</p>
                             </li>
                         </ul>
                     </div>
                 </section>
             </div>
-            <div class="section">
+            <div class="section" cat="2" title="started">
+                <section class="container" dark-mode="false">
+                    <ul class="coverpage">
+                        <li>
+                            <h2>Getting Started</h2>
+                        </li>
+                        <li class="subtopics">
+                            <h3>Installation</h3>
+                            <span></span>
+                            <h3>General Design Style</h3>
+                            <span></span>
+                            <h3>Onboarding</h3>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="section" cat="2" title="quote">
                 <section class="quotes container" dark-mode="true">
                     <ul>
                         <li>
@@ -292,59 +324,33 @@
                     </ul>
                 </section>
             </div>
-            <div class="section">
-                <div class="slide">
-                    <section class="container" dark-mode="false">
-                        <div class="grid">
-                            <ul>
-                                <li>
-                                    <h5>01</h5>
-                                </li>
-                                <span class="label"></span>
-                                <li>
-                                    <h2 class="title">Staying organised with a clean and minimal interface</h2>
-                                </li>
-                                <li>
-                                    <p>Clear and direct with the essentials upfront. Good contrast and accessibility while maintaining an organised interface. Adopting a similar cookie cutter layout that most users are already familiar with. Performing tasks around the interface are pretty straightforward and easy to work with.</p>
-                                </li>
-                            </ul>
-                            <div class="media-container clickable" >
-                                <img src="./images/st-window-old.jpg" alt="">
-                            </div>
+            <div class="section" cat="2" title="overview">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>01</h5>
+                            </li>
+                            <span class="label"></span>
+                            <li>
+                                <h2 class="title">Staying organised with a clean and minimal interface</h2>
+                            </li>
+                            <li>
+                                <p>Clear and direct with the essentials upfront. Good contrast and accessibility while
+                                    maintaining an organised interface.</p>
+                            </li>
+                            <li>
+                                <p>Too many different shades of grey.</p>
+                                <p>Organic speech bubble tail</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <img src="./images/st-window-old.jpg" alt="">
                         </div>
-                    </section>
-                </div>
-                <div class="slide">
-                    <section class="container" dark-mode="false">
-                        <div class="grid">
-                            <ul>
-                                <li>
-                                    <h5>02</h5>
-                                </li>
-                                <span class="label proposed"></span>
-                                <li>
-                                    <h2 class="title">Slight color palette and style rework
-                                    </h2>
-                                </li>
-                                <li>
-                                    <p>Observing the design trends, modern designs are adopting saturated colors and simpler flat geometric shapes for a modern, clean and colorful aesthetic.</p>
-                                </li>
-                                <li>
-                                    <div class="article-links" onclick="openme(this)" data-link="ui-design-trend">
-                                        <span class="links">A guide of UI design trends for 2021</span>
-                                        <sub>uxdesign.cc</sub>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="media-container clickable" >
-                                <video src="./videos/morph.webm" id="morph" data-type="video/webm" onclick="openme(this)" playsinline muted loop></video>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                
+                    </div>
+                </section>
             </div>
-            <div class="section">
+            <div class="section" cat="2" title="style rework">
                 <section class="container" dark-mode="false">
                     <div class="grid">
                         <ul>
@@ -357,7 +363,8 @@
                                 </h2>
                             </li>
                             <li>
-                                <p>Observing the design trends, modern designs are adopting saturated colors and simpler flat geometric shapes for a modern, clean and colorful aesthetic.</p>
+                                <p>Observing the design trends, modern designs are adopting saturated colors and simpler
+                                    flat geometric shapes for a modern, clean and colorful aesthetic.</p>
                             </li>
                             <li>
                                 <div class="article-links" onclick="openme(this)" data-link="ui-design-trend">
@@ -366,13 +373,14 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="media-container clickable" >
-                            <video src="./videos/morph.webm" id="morph" data-type="video/webm" onclick="openme(this)" playsinline muted loop></video>
+                        <div class="media-container clickable">
+                            <video src="./videos/morph.webm" id="morph" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
                         </div>
                     </div>
                 </section>
             </div>
-            <div class="section">
+            <div class="section" cat="2" title="animation">
                 <section class="container" dark-mode="false">
                     <div class="grid">
                         <ul>
@@ -386,7 +394,8 @@
                                 <h2 class="title">Preloading animation</h2>
                             </li>
                             <li>
-                                <p>Loading animation is a wonderful way to convey a brand concept, distract attention when waiting. Why not entertain the user while they wait?</p>
+                                <p>Loading animation is a wonderful way to convey a brand concept, distract attention
+                                    when waiting. Why not entertain the user while they wait?</p>
                             </li>
                             <li>
                                 <div class="article-links" onclick="openme(this)" data-link="loading-animation">
@@ -395,14 +404,15 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="media-container clickable" onclick="openme(this)" id="loading-sea" data-type="image/gif">
+                        <div class="media-container clickable" onclick="openme(this)" id="loading-sea"
+                            data-type="image/gif">
                             <!-- <video src="./videos/searchflow.webm" id="searchflow" playsinline muted loop></video> -->
                             <img src="./images/loading-sea.gif" alt="">
                         </div>
                     </div>
                 </section>
             </div>
-            <div class="section">
+            <div class="section" cat="2" title="guided tour">
                 <section class="container" dark-mode="false">
                     <div class="grid">
                         <ul>
@@ -415,7 +425,9 @@
                                 </h2>
                             </li>
                             <li>
-                                <p>A simple optional guided tour on first launch can assist and orientate the user around the interface especially during the onboarding process. A simple guide to get the user started right away.</p>
+                                <p>A simple optional guided tour on first launch can assist and orientate the user
+                                    around the interface especially during the onboarding process. A simple guide to get
+                                    the user started right away.</p>
                             </li>
                             <li>
                                 <div class="article-links" onclick="openme(this)" data-link="product-tour">
@@ -424,17 +436,459 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="media-container clickable" >
-                            <video src="./videos/tour.webm" id="tour" data-type="video/webm" onclick="openme(this)" playsinline muted loop></video>
+                        <div class="media-container clickable">
+                            <video src="./videos/tour.webm" id="tour" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
                         </div>
                     </div>
                 </section>
             </div>
-            <div class="section">Some section</div>
-            <div class="section">Some section</div>
-            <div class="section">Some section</div>
-            <div class="section">Some section</div>
-            <div class="section">Some section</div>
+            <div class="section" cat="3" title="chatlist">
+                <section class="container" dark-mode="false">
+                    <ul class="coverpage">
+                        <li>
+                            <h2>Chat List</h2>
+                        </li>
+                        <li class="subtopics">
+                            <h3>Features that are located in the chat list panel</h3>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="section" cat="3" title="flow">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>05</h5>
+                            </li>
+                            <span class="label"></span>
+                            <li>
+                                <h2 class="title">The flow from searching messages to the chat</h2>
+                            </li>
+                            <li>
+                                <p>The auto focus and the little wiggle at the end is subtle but very helpful to bring
+                                    attention to the specific chat bubble where the result was found.</p>
+                            </li>
+                            <li>
+                                <div class="article-links" onclick="openme(this)" data-link="search-interface">
+                                    <span class="links">Search interface: 20 things to consider</span>
+                                    <sub>uxplanet.org</sub>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/searchflow.webm" id="searchflow" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="3" title="modal search">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>06</h5>
+                            </li>
+                            <span class="label"></span>
+                            <li>
+                                <h2 class="title">Modal windows for search result and adding new contacts/chat</h2>
+                            </li>
+                            <li>
+                                <p>Modals are a great way to avoid interrupting the user's workflow from the main window
+                                    while drawing attention to the new information on screen. Users can multitask and
+                                    easily return to their original task at hand.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/modal.webm" id="modal" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="3" title="collapse chatlist">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>07</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Collapsible Chat List</h2>
+                            </li>
+                            <li>
+                                <p>The option to collapse the chat list to free up screen real estate for more important
+                                    windows. Responsive resizing should close the chat list past a break point.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/collapse.webm" id="collapse" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="3" title="status availability">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>08</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Visual indicator for status availability</h2>
+                            </li>
+                            <li>
+                                <p>When you send a message, it’s very useful to know whether or not it will be read
+                                    right away. Presence status in chat gives you this capability. Managing user's
+                                    expectations of responsiveness.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/availability.webm" id="availability" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="3" title="more options">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>09</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Hover state triggers a "more-option" menu</h2>
+                            </li>
+                            <li>
+                                <p>Ease of access for option menu than having to do an extra right click. Raise
+                                    awareness to users that more options are available at the same time.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/hover.webm" id="hover" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="3" title="conditional muting">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>10</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Conditional muting options</h2>
+                            </li>
+                            <li>
+                                <p>Giving users the options to be notified on different scenarios and conditions. i.e.
+                                    push notifications on tagged only etc.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/muting.webm" id="muting" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="4" title="chatroom">
+                <section class="container" dark-mode="false">
+                    <ul class="coverpage">
+                        <li>
+                            <h2>Chatroom</h2>
+                        </li>
+                        <li class="subtopics">
+                            <h3>Features that are related or located in the chatroom window</h3>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="section" cat="4" title="quick reply">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>11</h5>
+                            </li>
+                            <span class="label"></span>
+                            <li>
+                                <h2 class="title">Quick reply menu on hover</h2>
+                            </li>
+                            <li>
+                                <p>Quickly reply to a specific text (especially helpful in group chats). No fuss no
+                                    muss.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/replyhover.webm" id="replyhover" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="4" title="bookmark">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>06</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Bookmarking messages</h2>
+                            </li>
+                            <li>
+                                <p>Let the user bookmark a message for reference in the future. Unlike “later” feature,
+                                    it’s a saved message instead of a reminder for following up.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/bookmark.webm" id="bookmark" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="4" title="combined forward">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>12</h5>
+                            </li>
+                            <span class="label"></span>
+                            <li>
+                                <h2 class="title">Combined forward text sent as chat history object</h2>
+                            </li>
+                            <li>
+                                <p>Full details are embedded along with the messages. They’re easy to refer to and they
+                                    don’t flood the chat room unnecessarily.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <img src="./images/combinedforward.png" alt="">
+                            <!-- <video src="./videos/replyhover.webm" id="replyhover" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video> -->
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="4" title="single forward">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>13</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Source of origin for single forwarded text</h2>
+                            </li>
+                            <li>
+                                <p>Providing context of the chat for the recipient. Sending forwarded text in the same
+                                    fashion as any ordinary text can be confusing to the recipient.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/forward.webm" id="forward" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="4" title="max width">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>14</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Reducing chat bubble max width</h2>
+                            </li>
+                            <li>
+                                <p>Reducing the horizontal travelling distance of the eyes when reading long messages
+                                    when the app is expanded or in full view.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/maxwidth.webm" id="maxwidth" data-type="video/webm"
+                                onclick="openme(this)" playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="4" title="type aware">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>15</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Typing awareness indicator</h2>
+                            </li>
+                            <li>
+                                <p>Humanising communication and facilitating the linguistics of conversational
+                                    turn-taking without impinging on each other. TDLR: Prevent interruption.</p>
+                            </li>
+                            <li>
+                                <div class="article-links" onclick="openme(this)" data-link="typing-awareness">
+                                    <span class="links">Why the typing awareness indicator is the worst</span>
+                                    <sub>bustle.com</sub>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/typing.webm" id="typing" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="5" title="features">
+                <section class="container" dark-mode="false">
+                    <ul class="coverpage">
+                        <li>
+                            <h2>Afterthought Features</h2>
+                        </li>
+                        <li class="subtopics">
+                            <h3>Secondary features that may be helpful and go a long way</h3>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="section" cat="5" title="inbox">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>16</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Notification Inbox</h2>
+                            </li>
+                            <li>
+                                <p>Consolidated notifications regarding any attention required for the user specifically
+                                    whenever the user was mentioned. This allows user to have an overview at a glance
+                                    quickly.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/inbox.webm" id="inbox" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="5" title="image">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>17</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Send images as original file or compressed</h2>
+                            </li>
+                            <li>
+                                <p>Giving the user the option to send an image file in original file to retain quality
+                                    as lossy compression can result in color degradation. This potentially can cause an
+                                    issue for sharing color sensitive work.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/image.webm" id="image" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="5" title="@here">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>18</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">An @here mention for group chat</h2>
+                            </li>
+                            <li>
+                                <p>A type of mention that only notifies everyone except those who are offline and do not
+                                    suppress an @here mention from a group chat.</p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/here.webm" id="here" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="5" title="edit message">
+                <section class="container" dark-mode="false">
+                    <div class="grid">
+                        <ul>
+                            <li>
+                                <h5>19</h5>
+                            </li>
+                            <span class="label proposed"></span>
+                            <li>
+                                <h2 class="title">Edit chat and showing revision</h2>
+                            </li>
+                            <li>
+                                <p>Correct typos and revise text to look better especially when that message is pinned.
+                                </p>
+                            </li>
+                        </ul>
+                        <div class="media-container clickable">
+                            <video src="./videos/edit.webm" id="edit" data-type="video/webm" onclick="openme(this)"
+                                playsinline muted loop></video>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="section" cat="5" title="quote">
+                <section class="quotes container" dark-mode="true">
+                    <ul>
+                        <li>
+                            Good design is as little design as possible.
+                        </li>
+                        <li>
+                            Dieter Rams
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="section" cat="5" title="end">
+                <section class="quotes container" dark-mode="true">
+                    <div class="svg" id="confetti"></div>
+                    <ul>
+                        <li class="center">
+                            Thank you for your attention!
+                        </li>
+                        <li class="center">
+                            The End
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </div>
         <!-- <div class="noise"></div>
     <div class="ball"></div> -->
@@ -451,6 +905,7 @@
             <script src="./js/script.js"></script>
             <!-- <script src="./js/anim.js"></script> -->
         </div>
+        <footer></footer>
     </main>
 </body>
 
