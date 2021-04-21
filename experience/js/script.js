@@ -1,52 +1,61 @@
 $(function () {
   var tooltips = [];
-  $('.section').each(function () {
-    tooltips.push($(this).attr('title'));
-  })
+  $(".section").each(function () {
+    tooltips.push($(this).attr("title"));
+  });
   /**
    * FullpageJs
    */
-  $('#fullpage').fullpage({
+  $("#fullpage").fullpage({
     //options here
-    licenseKey: 'YOUR_KEY_HERE',
+    licenseKey: "YOUR_KEY_HERE",
     navigation: true,
     navigationTooltips: tooltips,
     // showActiveTooltip: true,
     // scrollBar: true,
     afterRender: () => {
-      gsap.to('nav', {
+      gsap.to("nav", {
         yPercent: -100,
-      })
+      });
     },
     onLeave: (origin, destination, direction) => {
       $current = origin.item;
       $next = destination.item;
       $destination = destination.index;
-      $imgurl = '';
-      $cat = $(destination.item).attr('cat');
-      $end = $(destination.item).attr('title');
-      $layout = $($($next).find('[data-type="layout"')).attr('class');
+      $imgurl = "";
+      $cat = $(destination.item).attr("cat");
+      $end = $(destination.item).attr("title");
+      $layout = $($($next).find('[data-type="layout"')).attr("class");
 
       // $($current).css('opacity', '0');
       // $($next).css('opacity', '1');
 
+      gsap.to($current, {
+        opacity: 0,
+        duration: 0.3,
+      });
+      gsap.to($next, {
+        opacity: 1,
+        duration: 0.3,
+      });
+
       /**
-      * Coverpage background toggle
-      */
+       * Coverpage background toggle
+       */
       switch ($end) {
         case "introduction":
         case "started":
         case "chatlist":
         case "chatroom":
         case "features":
-          $('footer').css('background-image', 'url(./images/' + $end + '.jpg)');
-          $('footer').fadeIn(300);
+          $("footer").css("background-image", "url(./images/" + $end + ".jpg)");
+          $("footer").fadeIn(300);
           break;
         case "end":
           animItem.goToAndPlay(0, true);
           break;
         default:
-          $('footer').fadeOut();
+          $("footer").fadeOut();
       }
 
       /**
@@ -58,46 +67,57 @@ $(function () {
         case "3":
         case "4":
         case "5":
-          $('nav .menu li').removeClass('active');
-          $('nav .menu li:nth-child(' + $cat + ')').toggleClass('active');
+          $("nav .menu li").removeClass("active");
+          $("nav .menu li:nth-child(" + $cat + ")").toggleClass("active");
           break;
         default:
-          $('nav .menu li').removeClass('active');
+          $("nav .menu li").removeClass("active");
       }
 
       /**
        * Layout animation
        */
-       let f = $next.querySelector(".split ul:first-child");
-       let s = $next.querySelector(".split ul:nth-child(2)");
-       let x1= 100;
+       let x1 = 50;
        let x2 = x1 * -1;
-       let duration = .6;
-       let easing = "power3.inOut";
-      switch ($layout) {
-        case "split":
-          gsap.from(f, {
-            opacity: 0,
-            xPercent: x2,
-            ease: easing,
-            duration: duration,
-          })
-          gsap.from(s, {
-            opacity: 0,
-            xPercent: x1,
-            ease: easing,
-            duration: duration,
-          })
-          break;
-          default:
-            console.log("nuttin")
+       let duration = 0.5;
+       let easing = "power2.inOut";
+
+      let transitIn = $next.querySelector("[data-type=layout");
+
+      if (transitIn == null) {
+        gsap.to($next, {
+          opacity: 1,
+          duration: .3,
+        });
+        gsap.to($current, {
+          opacity: 0,
+          duration: .3,
+        })
+      } else {
+        let nf = $($next).find("[data-type=layout").children().first();
+        let ns = $($next).find("[data-type=layout").children().eq(1);
+  
+        gsap.from(nf, {
+          opacity: 0,
+          yPercent: x2,
+          ease: easing,
+          duration: duration,
+        });
+        gsap.from(ns, {
+          opacity: 0,
+          yPercent: x1,
+          ease: easing,
+          duration: duration,
+        });
+
       }
+     
 
       /**
        * Play/Pause Video
        */
-      $video = "#" + $($next).find('video').attr('id');
-      $($video).trigger('play');
+      $video = "#" + $($next).find("video").attr("id");
+      $($video).trigger("play");
 
       /**
        * End lottie start
@@ -107,24 +127,24 @@ $(function () {
       /**
        * Toggle Quotes Effect
        */
-      $dark = $($next).find('section, header').attr('dark-mode');
+      $dark = $($next).find("section, header").attr("dark-mode");
 
       const original = getComputedStyle(document.querySelector("body"));
 
-      let c = '';
-      let bg = '';
-      let y = '';
-      let d = '';
+      let c = "";
+      let bg = "";
+      let y = "";
+      let d = "";
 
       if ($dark == "true") {
         c = "#fff";
         bg = "#000";
-        y = '-100';
+        y = "-100";
         d = 0;
       } else {
         c = original.color;
         bg = original.backgroundColor;
-        y = '0';
+        y = "0";
         d = 1;
       }
 
@@ -132,24 +152,24 @@ $(function () {
         color: c,
         backgroundColor: bg,
         ease: "expo.inOut",
-      })
+      });
 
       if ($destination > 0) {
-        gsap.to('nav', {
+        gsap.to("nav", {
           yPercent: y,
-          ease: "expo.inOut"
-        })
+          ease: "expo.inOut",
+        });
       } else {
-        gsap.to('nav', {
+        gsap.to("nav", {
           yPercent: -100,
-          ease: "expo.inOut"
-        })
+          ease: "expo.inOut",
+        });
       }
 
       /**
        * Scroller Anim
        */
-      $total = $('.section').length;
+      $total = $(".section").length;
       $index = destination.index;
       $scrollPercent = $index / ($total - 1);
       // $(".scroll").css("transform", "scaleX(" + $scrollPercent + ")");
@@ -158,21 +178,21 @@ $(function () {
           scaleX: 1,
           ease: "expo.inOut",
           duration: 1,
-        })
+        });
       } else {
         gsap.to(".scroll", {
           scaleX: $scrollPercent,
           ease: "power4.out",
-          duration: .6,
-        })
-      };
+          duration: 0.6,
+        });
+      }
     },
   });
 
-  $('.mobile-nav').click(function () {
-    $('nav').toggleClass('toggle');
-    $('.mobile-nav').toggleClass('toggle');
-  })
+  $(".mobile-nav").click(function () {
+    $("nav").toggleClass("toggle");
+    $(".mobile-nav").toggleClass("toggle");
+  });
 
   //methods
   $.fn.fullpage.setAllowScrolling(true);
@@ -181,18 +201,18 @@ $(function () {
 /**
  * li hovers & unhovers
  */
-$('ul.content li').hover(function () {
-  $('ul.content li').toggleClass('unhover');
-  $(this).removeClass('unhover').toggleClass('hover');
-})
+$("ul.content li").hover(function () {
+  $("ul.content li").toggleClass("unhover");
+  $(this).removeClass("unhover").toggleClass("hover");
+});
 
 /**
- * 
+ *
  * Navclick swap
  */
 
 function navclick(what) {
-  $where = $(what).attr('data-link');
+  $where = $(what).attr("data-link");
   fullpage_api.moveTo($where);
 }
 
@@ -211,37 +231,42 @@ function openme(data) {
   $obj = $(data).attr("data-link");
   switch ($obj) {
     case "loading-animation":
-      $url = "https://medium.com/flawless-app-stories/everything-you-need-to-know-about-loading-animations-10db7f9b61e";
-      window.open($url)
+      $url =
+        "https://medium.com/flawless-app-stories/everything-you-need-to-know-about-loading-animations-10db7f9b61e";
+      window.open($url);
       return;
     case "ui-design-trend":
-      $url = "https://uxdesign.cc/10-newest-and-promising-ui-design-trends-929562b25ad6";
-      window.open($url)
+      $url =
+        "https://uxdesign.cc/10-newest-and-promising-ui-design-trends-929562b25ad6";
+      window.open($url);
       return;
     case "discord-growth-story":
       $url = "https://clickup.com/blog/discord-growth-story/";
-      window.open($url)
+      window.open($url);
       return;
     case "guide-ui-design-trend":
-      $url = "https://uxdesign.cc/a-guide-of-ui-design-trends-for-2021-637ac038cb99";
-      window.open($url)
+      $url =
+        "https://uxdesign.cc/a-guide-of-ui-design-trends-for-2021-637ac038cb99";
+      window.open($url);
       return;
     case "search-interface":
-      $url = "https://uxplanet.org/search-interface-20-things-to-consider-4b1466e98881";
-      window.open($url)
+      $url =
+        "https://uxplanet.org/search-interface-20-things-to-consider-4b1466e98881";
+      window.open($url);
       return;
     case "product-tour":
       $url = "https://www.appcues.com/blog/product-tours-ui-patterns";
-      window.open($url)
+      window.open($url);
       return;
     case "typing-awareness":
-      $url = "https://www.bustle.com/articles/39042-8-times-the-typing-awareness-indicator-is-the-worst";
-      window.open($url)
+      $url =
+        "https://www.bustle.com/articles/39042-8-times-the-typing-awareness-indicator-is-the-worst";
+      window.open($url);
       return;
     case "rework":
       $url =
         "https://www.figma.com/file/jv3r2zX2Mk4JsHOz34mdYU/SeaTalk-Experience?node-id=0%3A1";
-      window.open($url)
+      window.open($url);
       return;
     default:
       $type = $($this).attr("data-type");
@@ -271,14 +296,14 @@ function openme(data) {
 /**
  * Lottie
  */
-const svgContainer = document.getElementById('confetti');
+const svgContainer = document.getElementById("confetti");
 const animItem = bodymovin.loadAnimation({
   wrapper: svgContainer,
-  animType: 'svg',
+  animType: "svg",
   loop: false,
   autoplay: false,
-  path: 'https://assets9.lottiefiles.com/packages/lf20_REOnx3.json'
-})
-animItem.addEventListener('complete', () => {
+  path: "https://assets9.lottiefiles.com/packages/lf20_REOnx3.json",
+});
+animItem.addEventListener("complete", () => {
   animItem.goToAndStop(0);
-})
+});
