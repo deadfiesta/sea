@@ -301,7 +301,43 @@ h6,
 i {
   font-size: 0.8rem;
 }
-
+.emoji {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: .4rem .7rem;
+  @include desktop {
+    padding: .65rem .75rem;
+  }
+  border-radius: calc(#{$radius}/2);
+  box-shadow: 0 .35rem 1rem rgba(color(grey), .35);
+}
+.emoji.cool {
+  &:before {
+    content: "\1F60E";
+  }
+}
+.emoji.hmm {
+  &:before {
+    content: "\1F9D0";
+  }
+}
+.emoji.stressed {
+  &:before {
+    content: "\1F630";
+  }
+}
+.emoji.nerd {
+  &:before {
+    content: "\1F913";
+  }
+}
+.emoji.gem {
+  &:before {
+    content: "\1F48E";
+  }
+}
 .label {
   width: fit-content;
   font-size: 0.6rem;
@@ -310,10 +346,11 @@ i {
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   border-radius: calc(#{$radius}/ 2);
-  color: rgba(color(light), 0.9);
-  background-color: rgba(color(seatalk, dark), 1);
+  color: rgba(color(green), 1);
+  background-color: rgba(color(green), .075);
+  // background-color: rgba(color(seatalk, dark), 1);
   &:before {
-    content: "\f1d8";
+    content: "\f00c";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 0.6rem;
@@ -323,12 +360,24 @@ i {
     content: "current";
   }
 }
+.label.error {
+  color: color(red);
+  background-color: rgba(color(red), .1);
+  &:before {
+    content: "\f071";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 0.6rem;
+    padding-right: 0.4rem;
+  }
+}
 
 .label.proposed {
-  background-color: color(primary);
+  color: color(primary);
+  background-color: rgba(color(primary), .075);
   &:before {
-    content: "\f3a5" !important;
-    font-weight: 400 !important;
+    content: "" !important;
+    font-weight: 900 !important;
   }
   &:after {
     content: "proposal" !important;
@@ -420,7 +469,7 @@ nav {
     height: auto;
     opacity: 1;
     backdrop-filter: blur(5px);
-    background-color: rgba(color(grey, lighter), 0.6);
+    background-color: rgba(color(grey, lighter), 0.25);
   }
   .container {
     height: 100%;
@@ -866,6 +915,11 @@ header {
 .split,
 .half,
 .grid {
+  li.flex {
+    @include flex {
+      gap: 1rem;
+    };
+  }
   @include desktop {
     h2.title {
       font-size: 1.5rem;

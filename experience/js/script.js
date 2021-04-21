@@ -25,9 +25,10 @@ $(function () {
       $imgurl = '';
       $cat = $(destination.item).attr('cat');
       $end = $(destination.item).attr('title');
+      $layout = $($($next).find('[data-type="layout"')).attr('class');
 
-      $($current).css('opacity', '0');
-      $($next).css('opacity', '1');
+      // $($current).css('opacity', '0');
+      // $($next).css('opacity', '1');
 
       /**
       * Coverpage background toggle
@@ -42,7 +43,7 @@ $(function () {
           $('footer').fadeIn(300);
           break;
         case "end":
-          // animItem.goToAndPlay(0, true);
+          animItem.goToAndPlay(0, true);
           break;
         default:
           $('footer').fadeOut();
@@ -62,6 +63,34 @@ $(function () {
           break;
         default:
           $('nav .menu li').removeClass('active');
+      }
+
+      /**
+       * Layout animation
+       */
+       let f = $next.querySelector(".split ul:first-child");
+       let s = $next.querySelector(".split ul:nth-child(2)");
+       let x1= 100;
+       let x2 = x1 * -1;
+       let duration = .6;
+       let easing = "power3.inOut";
+      switch ($layout) {
+        case "split":
+          gsap.from(f, {
+            opacity: 0,
+            xPercent: x2,
+            ease: easing,
+            duration: duration,
+          })
+          gsap.from(s, {
+            opacity: 0,
+            xPercent: x1,
+            ease: easing,
+            duration: duration,
+          })
+          break;
+          default:
+            console.log("nuttin")
       }
 
       /**
