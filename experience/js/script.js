@@ -11,8 +11,6 @@ $(function () {
     licenseKey: "YOUR_KEY_HERE",
     navigation: true,
     navigationTooltips: tooltips,
-    // showActiveTooltip: true,
-    // scrollBar: true,
     afterRender: () => {
       gsap.to("nav", {
         yPercent: -100,
@@ -26,9 +24,6 @@ $(function () {
       $cat = $(destination.item).attr("cat");
       $end = $(destination.item).attr("title");
       $layout = $($($next).find('[data-type="layout"')).attr("class");
-
-      // $($current).css('opacity', '0');
-      // $($next).css('opacity', '1');
 
       gsap.to($current, {
         opacity: 0,
