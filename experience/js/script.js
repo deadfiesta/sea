@@ -77,41 +77,56 @@ $(function () {
       /**
        * Layout animation
        */
-       let x1 = 50;
-       let x2 = x1 * -1;
-       let duration = 0.5;
-       let easing = "power2.inOut";
+      let $direct = '';
+      (direction == "down" ? $direct = 1 : $direct = -1);
 
-      let transitIn = $next.querySelector("[data-type=layout");
+      let x1 = 50 * $direct;
+      let x2 = x1 * -1 * $direct;
+      let duration = 0.5;
+      let easing = "power2.inOut";
 
-      if (transitIn == null) {
-        gsap.to($next, {
-          opacity: 1,
-          duration: .3,
-        });
-        gsap.to($current, {
-          opacity: 0,
-          duration: .3,
-        })
-      } else {
-        let nf = $($next).find("[data-type=layout").children().first();
-        let ns = $($next).find("[data-type=layout").children().eq(1);
-  
-        gsap.from(nf, {
-          opacity: 0,
-          yPercent: x2,
-          ease: easing,
-          duration: duration,
-        });
-        gsap.from(ns, {
-          opacity: 0,
-          yPercent: x1,
-          ease: easing,
-          duration: duration,
-        });
+      $layout = $($next).find("[data-type=layout").attr("class");
 
+      switch ($layout) {
+        case "split":
+        case "grid":
+          let nf = $($next).find("[data-type=layout").children().first();
+          let ns = $($next).find("[data-type=layout").children().eq(1);
+          gsap.from(nf, {
+            opacity: 0,
+            yPercent: x2,
+            ease: easing,
+            duration: duration,
+          });
+          gsap.from(ns, {
+            opacity: 0,
+            yPercent: x1,
+            ease: easing,
+            duration: duration,
+          });
+          break;
+        case "half":
+          let ul = $($next).find("[data-type=layout").children().eq(1);
+          let li = $(ul[0].children)
+          gsap.from(ul, {
+            opacity: 0,
+            yPercent: 100 * $direct,
+            duration: duration,
+            easing: easing,
+          })
+          break;
+        default:
+          gsap.to($next, {
+            opacity: 1,
+            duration: .3,
+            ease: easing,
+          });
+          gsap.to($current, {
+            opacity: 0,
+            duration: .3,
+          })
+          break;
       }
-     
 
       /**
        * Play/Pause Video
