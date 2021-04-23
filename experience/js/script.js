@@ -15,6 +15,7 @@ $(function () {
       gsap.to("nav", {
         yPercent: -100,
       });
+      $("figure").fadeIn("slow");
     },
     onLeave: (origin, destination, direction) => {
       $current = origin.item;
@@ -24,7 +25,7 @@ $(function () {
       $cat = $(destination.item).attr("cat");
       $end = $(destination.item).attr("title");
       $layout = $($($next).find('[data-type="layout"')).attr("class");
-
+      ($destination === 0 ? $("figure").fadeIn() : $("figure").fadeOut() )
       gsap.to($current, {
         opacity: 0,
         duration: 0.3,

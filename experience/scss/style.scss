@@ -169,9 +169,26 @@ html {
 html {
   scroll-behavior: smooth;
 }
+figure {
+  top: 0;
+  right: 10%;
+  display: none;
+  z-index: -1;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  @include bgimg {
+    background-size: contain !important;
+    @include desktop {
+      background-image: url("../images/home.jpg");
+      background-position: center right;
+    }
+    
+  }
+}
 footer {
   top: 2.5%;
-  z-index: -1;
+  z-index: -2;
   display: none;
   position: fixed;
   height: 100vh;
