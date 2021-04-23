@@ -21,6 +21,7 @@ $(function () {
       $current = origin.item;
       $next = destination.item;
       $destination = destination.index;
+      $last = destination.isLast;
       $imgurl = "";
       $cat = $(destination.item).attr("cat");
       $end = $(destination.item).attr("title");
