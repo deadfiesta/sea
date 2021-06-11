@@ -183,7 +183,6 @@ figure {
       background-image: url("../images/home.jpg");
       background-position: center right;
     }
-    
   }
 }
 footer {
@@ -323,12 +322,12 @@ i {
   width: 2.5rem;
   height: 2.5rem;
   font-size: 1rem;
-  padding: .4rem .7rem;
+  padding: 0.4rem 0.7rem;
   @include desktop {
-    padding: .65rem .75rem;
+    padding: 0.65rem 0.75rem;
   }
-  border-radius: calc(#{$radius}/2);
-  box-shadow: 0 .35rem 1rem rgba(color(grey), .35);
+  border-radius: calc(#{$radius}/ 2);
+  box-shadow: 0 0.35rem 1rem rgba(color(grey), 0.35);
 }
 .emoji.cool {
   &:before {
@@ -364,7 +363,7 @@ i {
   letter-spacing: 0.15rem;
   border-radius: calc(#{$radius}/ 2);
   color: rgba(color(green), 1);
-  background-color: rgba(color(green), .075);
+  background-color: rgba(color(green), 0.075);
   // background-color: rgba(color(seatalk, dark), 1);
   &:before {
     content: "\f00c";
@@ -379,7 +378,7 @@ i {
 }
 .label.error {
   color: color(red);
-  background-color: rgba(color(red), .1);
+  background-color: rgba(color(red), 0.1);
   &:before {
     content: "\f071";
     font-family: "Font Awesome 5 Free";
@@ -391,7 +390,7 @@ i {
 
 .label.proposed {
   color: color(primary);
-  background-color: rgba(color(primary), .075);
+  background-color: rgba(color(primary), 0.075);
   &:before {
     content: "" !important;
     font-weight: 900 !important;
@@ -935,7 +934,7 @@ header {
   li.flex {
     @include flex {
       gap: 1rem;
-    };
+    }
   }
   @include desktop {
     h2.title {
@@ -1043,16 +1042,17 @@ header {
   ul.content {
     width: 100%;
     @include desktop {
-      @include flex(stretch, space-between);
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 1rem;
     }
     @include hover(translateY(5%));
     li {
       @include transition;
-      margin: 1rem 0;
       @include mobile {
         @include flex {
           justify-content: space-around;
-        };
+        }
         p {
           width: 40%;
         }
@@ -1094,7 +1094,6 @@ header {
 .business-goals {
   .split {
     @media (max-width: get-me($breakpoints, m)) {
-      
     }
   }
 }
@@ -1169,4 +1168,3 @@ header {
     }
   }
 }
-

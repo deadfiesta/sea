@@ -10,7 +10,7 @@ $(function () {
     //options here
     licenseKey: "YOUR_KEY_HERE",
     navigation: true,
-    navigationTooltips: tooltips,
+    // navigationTooltips: tooltips,
     afterRender: () => {
       gsap.to("nav", {
         yPercent: -100,
