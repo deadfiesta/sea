@@ -1,27 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style-type: none;
-}
-
-body {
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    line-height: 24px;
-    color: color(grey);
-    @include desktop {
-        line-height: 28px;
-    }
-}
-
 $colors: (
     accent: (
         main: #017de9,
-    )
-    grey:
+    ),
+    gray:
     (
         main: #202325,
         secondary: #797b7c,
@@ -41,6 +24,7 @@ $colors: (
         main: #000084,
     ),
 );
+
 @function color($color, $type: "main") {
     @return map-get(map-get($colors, $color), $type);
 }
@@ -48,6 +32,22 @@ $colors: (
 @mixin desktop($size: "1024px") {
     @media (min-width: $size) {
         @content;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: color(grey);
+    @include desktop {
+        line-height: 28px;
     }
 }
 
