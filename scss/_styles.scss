@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
-//vars
+
+
 $colors: (
     accent: (
         main: #017de9,
@@ -34,6 +35,7 @@ $colors: (
         @content;
     }
 }
+
 * {
     margin: 0;
     padding: 0;
